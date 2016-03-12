@@ -1,0 +1,8 @@
+1	Eddard Stark	NULL	NULL	Stark	263	299
+2	Catelyn Tully	NULL	NULL	Stark	263	299
+3	Robb Stark	1	2	Stark	283	299
+4	Jon Snow	1	NULL	NULL	283	NULL
+5	Sansa Stark	1	2	Stark	286	NULL
+6	Arya Stark	1	2	Stark	289	NULL			
+7	Brandon Stark	1	2	Stark	290	NULL			
+8	Rickon Stark	1	2	Stark	295	NULL
