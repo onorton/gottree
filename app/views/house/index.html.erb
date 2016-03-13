@@ -1,5 +1,7 @@
 <h1><%= @house %></h1>
 
+<%= image_tag("houses/" + @house + "_arms.png", class: "house_arms") %>
+
 <% @people.each do |person| %>
   <p><%= person.name %></p>
 
