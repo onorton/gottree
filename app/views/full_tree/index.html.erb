@@ -3,5 +3,9 @@
 <p>On this page, which will also be the home page, the entire family tree is displayed.</p>
 
 <% @people.each do |person| %>
-  <p><%= person.name %></p>
+  <p><%= person.name %>
+     <%= if @people.find_by(id: person.father) != nil
+           @people.find_by(id: person.father).name
+         end 
+      %></p>
 <% end %>
