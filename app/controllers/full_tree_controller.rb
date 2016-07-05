@@ -1,5 +1,6 @@
+
 class FullTreeController < ApplicationController
   def index
-    @people = Person.all
+    @tree_html = "<div class=\"tree\">Hello</div>"
   end
 end
