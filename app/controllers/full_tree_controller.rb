@@ -3,53 +3,6 @@ class FullTreeController < ApplicationController
   def index
     @people = Person.all
     @tree_html = generateHTML(@people)
-=begin 
-    @tree_html = "<div class=\"tree\">
-		<ul>
-			<li>
-				<a href=\"#\">
-          <p>Eddard Stark</p>
-          <p>263-299</p>
-        </a><a href=\"#\">
-          <p>Catelyn Stark</p>
-          <p>263-299</p>
-        </a>
-				<ul>
-					<li>
-            <a href=\"#\">
-              <p>Robb Stark</p>
-              <p>263-299</p>
-            </a>
-					</li>
-          <li>
-            <a href=\"#\">
-              <p>Sansa Stark</p>
-              <p>263-299</p>
-            </a>
-					</li>
-          <li>
-            <a href=\"#\">
-              <p>Arya Stark</p>
-              <p>263-299</p>
-            </a>
-					</li>
-          <li>
-            <a href=\"#\">
-              <p>Bran Stark</p>
-              <p>263-299</p>
-            </a>
-					</li>
-          <li>
-            <a href=\"#\">
-              <p>Rickon Stark</p>
-              <p>263-299</p>
-            </a>
-					</li>
-				</ul>
-			</li>
-		</ul>
-	</div>"
-=end
   end
 
   def generateHTML(people)
@@ -57,13 +10,28 @@ class FullTreeController < ApplicationController
   end
 
   def generateHTMLPerson(person, people)
-     result = "<li><a href=\"#\"><p>" + person.name.to_s + "</p><p>" + person.year_of_birth.to_s + "-" + person.year_of_death.to_s + "</p></a>"
+     result = "<li><a href=\"#\"><p>" + person.name.to_s + "</p><p>" + checkYear(person.year_of_birth) + "-" + checkYear(person.year_of_death) + "</p></a>"
      spouse = findSpouse(person, people)
      if spouse != nil
-     	result = result + "<a href=\"#\"><p>" + spouse.name.to_s + "</p><p>" + spouse.year_of_birth.to_s + "-" + spouse.year_of_death.to_s + "</p></a>"
+     	result = result + "<a href=\"#\"><p>" + spouse.name.to_s + "</p><p>" + checkYear(spouse.year_of_birth) + "-" + checkYear(spouse.year_of_death) + "</p></a>"
      end
+     children = findChildren(person, people)
+     if children.count != 0
+        result = result + "<ul>"
+        children.each do |c|
+          result = result + generateHTMLPerson(c, people)
+        end
+        result = result + "</ul>"
+     end 
      result = result + "</li>"
      return result 
+  end
+
+  def checkYear(year)
+     unless year == 0
+        return year.to_s
+     end
+     return ""
   end
 
   def findSpouse(person, people)
@@ -74,6 +42,17 @@ class FullTreeController < ApplicationController
     end
     return nil
   end
+
+  def findChildren(person, people)
+    children = Array.new
+    people.each do |c|
+       if person.id == c.father or person.id == c.mother
+          children.insert(0, c)
+       end
+    end
+    return children.reverse
+  end
+
 
  
 
