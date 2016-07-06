@@ -57,8 +57,24 @@ class FullTreeController < ApplicationController
   end
 
   def generateHTMLPerson(person, people)
-     result = "<li><a href=\"#\"><p>" + person.name.to_s + "</p><p>" + person.year_of_birth.to_s + "-" + person.year_of_death.to_s + "</p></a></li>"
-     return result
+     result = "<li><a href=\"#\"><p>" + person.name.to_s + "</p><p>" + person.year_of_birth.to_s + "-" + person.year_of_death.to_s + "</p></a>"
+     spouse = findSpouse(person, people)
+     if spouse != nil
+     	result = result + "<a href=\"#\"><p>" + spouse.name.to_s + "</p><p>" + spouse.year_of_birth.to_s + "-" + spouse.year_of_death.to_s + "</p></a>"
+     end
+     result = result + "</li>"
+     return result 
   end
+
+  def findSpouse(person, people)
+    people.each do |p|
+       if person.spouse == p.id
+          return p
+       end
+    end
+    return nil
+  end
+
+ 
 
 end
