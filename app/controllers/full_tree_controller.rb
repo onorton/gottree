@@ -1,8 +1,10 @@
+require 'graphviz'
 
 class FullTreeController < ApplicationController
   def index
     @people = Person.all
-    @tree_html = generateHTML(@people)
+  
+    GraphViz.parse( "family_tree.dot") {|g|}.output(:svg => "app/assets/images/family_tree.svg") 
   end
 
   def generateHTML(people)

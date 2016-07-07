@@ -1,0 +1,38 @@
+digraph family {
+splines="ortho"
+
+# draw some nodes
+
+"hoster"[shape=box, regular=1, color="black" label="Hoster Tully"] ;
+"minisa"[shape=box, regular=1, color="black" label="Minisa Whent"]
+"1"   [shape=box, regular=1, color="black" label="Eddard Stark\n 263-299"] ;
+"2"   [shape=box, regular=1, color="black" label="Catelyn Tully\n 263-299"] ;
+"3"   [shape=box, regular=1, color="black" label="Robb Stark"] ;
+"4"   [shape=box, regular=1, color="black" label="Sansa Stark"] ;
+"5"   [shape=box, regular=1, color="black" label="Arya Stark"] ;
+"6"   [shape=box, regular=1, color="black" label="Bran Stark"] ;
+"7"   [shape=box, regular=1, color="black" label="Rickon Stark"];
+
+# creating tiny nodes w/ no label, no color
+"1+2" [shape=diamond,style=filled,label="",height=.01,width=.01] ;
+"hosterandwife" [shape=diamond,style=filled,label="",height=.01,width=.01] ;
+"hosterchildren" [shape=diamond,style=filled,label="",height=.01,width=.01] ;
+
+
+"children1+2" [shape=diamond,style=filled,label="",height=.01,width=.01] ;
+# draw the edges
+"hoster"->"hosterandwife" [dir=none]
+"minisa"->"hosterandwife" [dir=none]
+"hosterandwife"->"hosterchildren" [dir=none]
+"hosterchildren"->"2" [dir=none]
+
+"1" -> "1+2" [dir=none] ;
+"2" -> "1+2" [dir=none] ;
+"1+2" -> "children1+2" [dir=none];
+
+"children1+2" -> "3" [dir=none] ;
+"children1+2" -> "4" [dir=none] ;
+"children1+2" -> "5" [dir=none] ;
+"children1+2" -> "6" [dir=none] ;
+"children1+2" -> "7" [dir=none] ;
+}
