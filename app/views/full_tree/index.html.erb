@@ -1,6 +1,4 @@
 <h1>ASOIAF Family Tree</h1>
 <p>On this page, which will also be the home page, the entire family tree is displayed.</p>
 
-<%= raw(@tree_html) %>
-<%= image_tag("family_tree.svg") %>
-
+<%= tag(:object, data: image_path("family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
