@@ -7,7 +7,7 @@ class FullTreeController < ApplicationController
     family_tree = GraphViz.digraph( "family" ) { |family_tree| 
       family_tree[:ratio] = 'auto'
       @people.each do |p|
-        family_tree.add_nodes( p.id.to_s, :href => 'http://www.google.com', :color => 'black', :label => p.name, :regular => '1', :shape => 'box' )
+        family_tree.add_nodes( p.id.to_s, :href => 'http://www.google.com', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
       end
 
       @people.each do |p|
@@ -32,5 +32,18 @@ class FullTreeController < ApplicationController
     }
   
     family_tree.output(:svg => "app/assets/images/family_tree.svg") 
+  end
+
+  def formatYears(person)
+    result = "\n"
+    unless person.year_of_birth == 0
+      result += person.year_of_birth.to_s
+    end
+    result += "-"
+    unless person.year_of_death == 0
+      result += person.year_of_death.to_s
+    end
+    return result
+ 
   end
 end
