@@ -11,7 +11,7 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-316 600,-316 600,4 -4,4"/>
 <!-- 1 -->
 <g id="node1" class="node"><title>1</title>
-<g id="a_node1"><a xlink:href="http://www.google.com" xlink:title="Eddard Stark\n263&#45;299">
+<g id="a_node1"><a xlink:href="http://awoiaf.westeros.org/index.php/Eddard_Stark" xlink:title="Eddard Stark\n263&#45;299" target="_blank">
 <polygon fill="none" stroke="black" points="272.25,-311.5 159.75,-311.5 159.75,-198.5 272.25,-198.5 272.25,-311.5"/>
 <text text-anchor="middle" x="216" y="-258.8" font-family="Times,serif" font-size="14.00">Eddard Stark</text>
 <text text-anchor="middle" x="216" y="-243.8" font-family="Times,serif" font-size="14.00">263&#45;299</text>
@@ -28,7 +28,7 @@
 </g>
 <!-- 2 -->
 <g id="node2" class="node"><title>2</title>
-<g id="a_node2"><a xlink:href="http://www.google.com" xlink:title="Catelyn Tully\n263&#45;299">
+<g id="a_node2"><a xlink:href="http://awoiaf.westeros.org/index.php/Catelyn_Stark" xlink:title="Catelyn Tully\n263&#45;299" target="_blank">
 <polygon fill="none" stroke="black" points="402.5,-311 291.5,-311 291.5,-199 402.5,-199 402.5,-311"/>
 <text text-anchor="middle" x="347" y="-258.8" font-family="Times,serif" font-size="14.00">Catelyn Tully</text>
 <text text-anchor="middle" x="347" y="-243.8" font-family="Times,serif" font-size="14.00">263&#45;299</text>
@@ -41,7 +41,7 @@
 </g>
 <!-- 3 -->
 <g id="node3" class="node"><title>3</title>
-<g id="a_node3"><a xlink:href="http://www.google.com" xlink:title="Robb Stark\n283&#45;299">
+<g id="a_node3"><a xlink:href="http://awoiaf.westeros.org/index.php/Robb_Stark" xlink:title="Robb Stark\n283&#45;299" target="_blank">
 <polygon fill="none" stroke="black" points="96.25,-109.5 -0.25,-109.5 -0.25,-12.5 96.25,-12.5 96.25,-109.5"/>
 <text text-anchor="middle" x="48" y="-64.8" font-family="Times,serif" font-size="14.00">Robb Stark</text>
 <text text-anchor="middle" x="48" y="-49.8" font-family="Times,serif" font-size="14.00">283&#45;299</text>
@@ -50,7 +50,7 @@
 </g>
 <!-- 4 -->
 <g id="node4" class="node"><title>4</title>
-<g id="a_node4"><a xlink:href="http://www.google.com" xlink:title="Sansa Stark\n286&#45;">
+<g id="a_node4"><a xlink:href="http://awoiaf.westeros.org/index.php/Sansa_Stark" xlink:title="Sansa Stark\n286&#45;" target="_blank">
 <polygon fill="none" stroke="black" points="215.5,-112 114.5,-112 114.5,-10 215.5,-10 215.5,-112"/>
 <text text-anchor="middle" x="165" y="-64.8" font-family="Times,serif" font-size="14.00">Sansa Stark</text>
 <text text-anchor="middle" x="165" y="-49.8" font-family="Times,serif" font-size="14.00">286&#45;</text>
@@ -59,7 +59,7 @@
 </g>
 <!-- 5 -->
 <g id="node5" class="node"><title>5</title>
-<g id="a_node5"><a xlink:href="http://www.google.com" xlink:title="Arya Stark\n289&#45;">
+<g id="a_node5"><a xlink:href="http://awoiaf.westeros.org/index.php/Arya_Stark" xlink:title="Arya Stark\n289&#45;" target="_blank">
 <polygon fill="none" stroke="black" points="328,-108 234,-108 234,-14 328,-14 328,-108"/>
 <text text-anchor="middle" x="281" y="-64.8" font-family="Times,serif" font-size="14.00">Arya Stark</text>
 <text text-anchor="middle" x="281" y="-49.8" font-family="Times,serif" font-size="14.00">289&#45;</text>
@@ -68,7 +68,7 @@
 </g>
 <!-- 6 -->
 <g id="node6" class="node"><title>6</title>
-<g id="a_node6"><a xlink:href="http://www.google.com" xlink:title="Brandon Stark\n290&#45;">
+<g id="a_node6"><a xlink:href="http://awoiaf.westeros.org/index.php/Bran_Stark" xlink:title="Brandon Stark\n290&#45;" target="_blank">
 <polygon fill="none" stroke="black" points="467.25,-121.5 346.75,-121.5 346.75,-0.5 467.25,-0.5 467.25,-121.5"/>
 <text text-anchor="middle" x="407" y="-64.8" font-family="Times,serif" font-size="14.00">Brandon Stark</text>
 <text text-anchor="middle" x="407" y="-49.8" font-family="Times,serif" font-size="14.00">290&#45;</text>
@@ -77,7 +77,7 @@
 </g>
 <!-- 7 -->
 <g id="node7" class="node"><title>7</title>
-<g id="a_node7"><a xlink:href="http://www.google.com" xlink:title="Rickon Stark\n295&#45;">
+<g id="a_node7"><a xlink:href="http://awoiaf.westeros.org/index.php/Rickon_Stark" xlink:title="Rickon Stark\n295&#45;" target="_blank">
 <polygon fill="none" stroke="black" points="596,-116 486,-116 486,-6 596,-6 596,-116"/>
 <text text-anchor="middle" x="541" y="-64.8" font-family="Times,serif" font-size="14.00">Rickon Stark</text>
 <text text-anchor="middle" x="541" y="-49.8" font-family="Times,serif" font-size="14.00">295&#45;</text>

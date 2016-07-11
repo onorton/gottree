@@ -9,6 +9,7 @@ class CreatePeople < ActiveRecord::Migration
         t.column :mother, :integer
         t.column :year_of_birth, :integer
         t.column :year_of_death, :integer
+        t.column :wiki_link, :string, :limit => 64
     end
   end
 

@@ -7,7 +7,7 @@ class FullTreeController < ApplicationController
     family_tree = GraphViz.digraph( "family" ) { |family_tree| 
       family_tree[:ratio] = 'auto'
       @people.each do |p|
-        family_tree.add_nodes( p.id.to_s, :href => 'http://www.google.com', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
+        family_tree.add_nodes( p.id.to_s, :href => 'http://awoiaf.westeros.org/index.php/' + p.wiki_link, :target => '_blank', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
       end
 
       @people.each do |p|
