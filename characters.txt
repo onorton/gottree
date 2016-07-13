@@ -5,3 +5,5 @@
 5	Arya Stark	F	Stark	NULL	1	2	289	NULL	Arya_Stark
 6	Brandon Stark	M	Stark	NULL	1	2	290	NULL	Bran_Stark
 7	Rickon Stark	M	Stark	NULL	1	2	295	NULL	Rickon_Stark
+8	Jon Snow	M	NULL	NULL	1	9	283	NULL	Jon_Snow
+9	Unknown Woman	F	NULL	NULL	NULL	NULL	-1	-1	NULL

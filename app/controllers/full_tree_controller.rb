@@ -8,17 +8,16 @@ class FullTreeController < ApplicationController
       family_tree[:ratio] = 'auto'
       @people.each do |p|
         family_tree.add_nodes( p.id.to_s, :href => 'http://awoiaf.westeros.org/index.php/' + p.wiki_link, :target => '_blank', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
-      end
+        end 
 
       @people.each do |p|
-         if p.spouse != 0 && family_tree.get_node(p.spouse.to_s + "+" + p.id.to_s).nil? 
-           family_tree.add_nodes( p.id.to_s + "+" + p.spouse.to_s, :color => '', :label => '', :regular => '', :shape => 'point' ) 
-           family_tree.add_edges(p.id.to_s, p.id.to_s + "+" + p.spouse.to_s, :dir=>'none')
-           family_tree.add_edges(p.spouse.to_s, p.id.to_s + "+" + p.spouse.to_s , :dir=>'none')
-         end
-      end
-
-      @people.each do |p|
+        relationships = Relationship.where('person_1 = ?', p.id)
+        relationships.each do |r|
+           family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point' ) 
+           family_tree.add_edges(p.id.to_s, p.id.to_s + "+" + r.person_2.to_s, :dir=>'none')
+           family_tree.add_edges(r.person_2.to_s, p.id.to_s + "+" + r.person_2.to_s , :dir=>'none')
+        end 
+  
          if p.father != 0 && p.mother != 0
             if !family_tree.get_node(p.father.to_s + "+" + p.mother.to_s).nil?
               family_tree.add_edges(p.father.to_s + "+" + p.mother.to_s, p.id.to_s, :dir=>'none')
@@ -36,14 +35,17 @@ class FullTreeController < ApplicationController
 
   def formatYears(person)
     result = "\n"
-    unless person.year_of_birth == 0
+    if person.year_of_birth > 0
       result += person.year_of_birth.to_s
+    elsif person.year_of_birth == -1
+      result += "???"
     end
     result += "-"
-    unless person.year_of_death == 0
+    if person.year_of_death > 0
       result += person.year_of_death.to_s
+    elsif person.year_of_death == -1
+      result += "???"
     end
     return result
- 
   end
 end
