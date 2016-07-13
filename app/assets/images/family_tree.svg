@@ -103,12 +103,9 @@
 </g>
 <!-- 9 -->
 <g id="node9" class="node"><title>9</title>
-<g id="a_node9"><a xlink:href="http://awoiaf.westeros.org/index.php/NULL" xlink:title="Unknown Woman\n???&#45;???" target="_blank">
 <polygon fill="none" stroke="black" points="714,-340 572,-340 572,-198 714,-198 714,-340"/>
 <text text-anchor="middle" x="643" y="-272.8" font-family="Times,serif" font-size="14.00">Unknown Woman</text>
 <text text-anchor="middle" x="643" y="-257.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
-</a>
-</g>
 </g>
 <!-- 9&#45;&gt;1+9 -->
 <g id="edge4" class="edge"><title>9&#45;&gt;1+9</title>
