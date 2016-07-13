@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  person_1: 
+  person_2: 
+  legitimate: 
+
+two:
+  person_1: 
+  person_2: 
+  legitimate: 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312225311) do
+ActiveRecord::Schema.define(version: 20160713173747) do
 
   create_table "people", force: :cascade do |t|
     t.string  "name",          limit: 32, null: false
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20160312225311) do
     t.integer "mother",        limit: 4
     t.integer "year_of_birth", limit: 4
     t.integer "year_of_death", limit: 4
+    t.string  "wiki_link",     limit: 64
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "person_1",   limit: 4
+    t.integer "person_2",   limit: 4
+    t.boolean "legitimate"
   end
 
 end
