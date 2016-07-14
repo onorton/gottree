@@ -1,9 +1,24 @@
-1	Eddard Stark	M	Stark	2	NULL	NULL	263	299	Eddard_Stark	
-2	Catelyn Tully	F	Tully	1	NULL	NULL	263	299	Catelyn_Stark
-3	Robb Stark	M	Stark	NULL	1	2	283	299	Robb_Stark
-4	Sansa Stark	F	Stark	NULL	1	2	286	NULL	Sansa_Stark
-5	Arya Stark	F	Stark	NULL	1	2	289	NULL	Arya_Stark
-6	Brandon Stark	M	Stark	NULL	1	2	290	NULL	Bran_Stark
-7	Rickon Stark	M	Stark	NULL	1	2	295	NULL	Rickon_Stark
-8	Jon Snow	M	NULL	NULL	1	9	283	NULL	Jon_Snow
-9	Unknown Woman	F	NULL	NULL	NULL	NULL	-1	-1	NULL
+1	Eddard Stark	M	Stark	10	11	263	299	Eddard_Stark	
+2	Catelyn Tully	F	Tully	12	13	264	299	Catelyn_Stark
+3	Robb Stark	M	Stark	1	2	283	299	Robb_Stark
+4	Sansa Stark	F	Stark	1	2	286	NULL	Sansa_Stark
+5	Arya Stark	F	Stark	1	2	289	NULL	Arya_Stark
+6	Brandon Stark	M	Stark	1	2	290	NULL	Bran_Stark
+7	Rickon Stark	M	Stark	1	2	295	NULL	Rickon_Stark
+8	Jon Snow	M	NULL	1	9	283	NULL	Jon_Snow
+9	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+10	Rickard Stark	M	Stark	NULL	NULL	230	282	Rickard_Stark
+11	Lyarra Stark	F	Stark	NULL	NULL	-1	-1	Lyarra_Stark
+12	Hoster Tully	M	Tully	NULL	NULL	237	299	Hoster_Tully
+13	Minisa Whent	F	Whent	NULL	NULL	250	268	Minisa_Whent
+14	Lyanna Stark	F	Stark	10	11	266	283	Lyanna_Stark
+15	Benjen Stark	M	Stark	10	11	267	NULL	Benjen_Stark
+16	Brandon Stark	M	Stark	10	11	262	282	Brandon_Stark
+17	Tyrion Lannister	M	Lannister	NULL	NULL	273	NULL	Tyrion_Lannister
+18	Jeyne Westerling	F	Westerling	NULL	NULL	283	NULL	Jeyne_Westerling
+19	Edmure Tully	M	Tully	12	13	267	NULL	Edmure_Tully
+20	Lysa Tully	F	Tully	12	13	266	300	Lysa_Arryn
+21	Roslin Frey	F	Frey	NULL	NULL	282	NULL	Roslin_Frey
+22	Jon Arryn	M	Arryn	NULL	NULL	217	298	Jon_Arryn
+23	Robert Arryn	M	Arryn	22	20	292	NULL	Robert_Arryn
+24	Petyr Baelish	M	Baelish	NULL	NULL	268	NULL	Petyr_Baelish

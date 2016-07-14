@@ -16,7 +16,10 @@ class FullTreeController < ApplicationController
            family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point' ) 
            family_tree.add_edges(p.id.to_s, p.id.to_s + "+" + r.person_2.to_s, :dir=>'none')
            family_tree.add_edges(r.person_2.to_s, p.id.to_s + "+" + r.person_2.to_s , :dir=>'none')
-        end 
+        end
+      end
+
+      @people.each do |p| 
   
          if p.father != 0 && p.mother != 0
             if !family_tree.get_node(p.father.to_s + "+" + p.mother.to_s).nil?
