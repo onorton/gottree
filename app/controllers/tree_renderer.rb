@@ -1,13 +1,14 @@
-def renderTree (name, people, relationships)
+
+def renderTree(name, people, relationships)
   family_tree = GraphViz.digraph( "family" ) { |family_tree| 
       family_tree[:ratio] = 'auto'
-      @people.each do |p|
+      people.each do |p|
         family_tree.add_nodes( p.id.to_s, :href => formatLink(p), :target => '_blank', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
         end 
 
-      @people.each do |p|
-        relationships = Relationship.where('person_1 = ?', p.id)
-        relationships.each do |r|
+      people.each do |p|
+        rs = relationships.where('person_1 = ?', p)
+        rs.each do |r|
            family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point' )
            style = 'solid'
            if !r.legitimate
@@ -18,7 +19,7 @@ def renderTree (name, people, relationships)
         end
       end
 
-      @people.each do |p| 
+      people.each do |p| 
   
          if p.father != 0 && p.mother != 0
             style = 'solid'
@@ -66,6 +67,7 @@ def renderTree (name, people, relationships)
    unless person.wiki_link == "NULL"
      return 'http://awoiaf.westeros.org/index.php/' + person.wiki_link
    end
-   return ''
-  
+   return ''  
  end
+
+

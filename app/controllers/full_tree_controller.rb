@@ -1,50 +1,11 @@
 require 'graphviz'
+require 'tree_renderer'
 
 class FullTreeController < ApplicationController
   def index
-    @people = Person.all
-
-    family_tree = GraphViz.digraph( "family" ) { |family_tree| 
-      family_tree[:ratio] = 'auto'
-      @people.each do |p|
-        family_tree.add_nodes( p.id.to_s, :href => formatLink(p), :target => '_blank', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
-        end 
-
-      @people.each do |p|
-        relationships = Relationship.where('person_1 = ?', p.id)
-        relationships.each do |r|
-           family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point' )
-           style = 'solid'
-           if !r.legitimate
-             style = 'dashed' 
-           end 
-           family_tree.add_edges(p.id.to_s, p.id.to_s + "+" + r.person_2.to_s, :dir=>'none', :style => style)
-           family_tree.add_edges(r.person_2.to_s, p.id.to_s + "+" + r.person_2.to_s , :dir=>'none', :style => style)
-        end
-      end
-
-      @people.each do |p| 
-  
-         if p.father != 0 && p.mother != 0
-            style = 'solid'
-            if !family_tree.get_node(p.father.to_s + "+" + p.mother.to_s).nil?
-              if !Relationship.where('person_1  = ? and person_2 = ?', p.father.to_s, p.mother.to_s).take.legitimate
-                style = 'dashed'
-              end
-              family_tree.add_edges(p.father.to_s + "+" + p.mother.to_s, p.id.to_s, :dir=>'none', :style => style)
-            end
-        
-            if !family_tree.get_node(p.mother.to_s + "+" + p.father.to_s).nil?
-              if !Relationship.where('person_1  = ? and person_2 = ?', p.mother.to_s, p.father.to_s).take.legitimate
-                style = 'dashed'
-              end
-              family_tree.add_edges(p.mother.to_s + "+" + p.father.to_s, p.id.to_s, :dir=>'none', :style => style)
-            end
-         end 
-      end    
-    }
-  
-    family_tree.output(:svg => "app/assets/images/family_tree.svg") 
+    people = Person.all
+    relationships = Relationship.all
+    renderTree(nil, people, relationships)
   end
 
   def formatYears(person)
