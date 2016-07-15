@@ -1,17 +1,12 @@
-
-
-class HouseController < ApplicationController
-  def display
-    @house = params[:name]
-    @people = Person.where("house = ? OR gender = 'F' AND  id IN (SELECT person_2 FROM people join relationships ON people.id = relationships.person_1 WHERE house = ? AND legitimate=1)", @house, @house)
-     family_tree = GraphViz.digraph( "family" ) { |family_tree| 
+def renderTree (name, people, relationships)
+  family_tree = GraphViz.digraph( "family" ) { |family_tree| 
       family_tree[:ratio] = 'auto'
       @people.each do |p|
         family_tree.add_nodes( p.id.to_s, :href => formatLink(p), :target => '_blank', :color => 'black', :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
         end 
 
       @people.each do |p|
-        relationships = Relationship.where('person_1 = ? AND legitimate = 1', p)
+        relationships = Relationship.where('person_1 = ?', p.id)
         relationships.each do |r|
            family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point' )
            style = 'solid'
@@ -44,7 +39,11 @@ class HouseController < ApplicationController
       end    
     }
   
-    family_tree.output(:svg => "app/assets/images/" + @house + "_family_tree.svg") 
+    if name.nil?
+      family_tree.output(:svg => "app/assets/images/family_tree.svg")
+    else
+      family_tree.output(:svg => "app/assets/images/" + name + "_family_tree.svg") 
+    end
   end
 
   def formatYears(person)
@@ -70,5 +69,3 @@ class HouseController < ApplicationController
    return ''
   
  end
-
-end
