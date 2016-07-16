@@ -22,3 +22,21 @@
 22	Jon Arryn	M	Arryn	NULL	NULL	217	298	Jon_Arryn
 23	Robert Arryn	M	Arryn	22	20	292	NULL	Robert_Arryn
 24	Petyr Baelish	M	Baelish	NULL	NULL	268	NULL	Petyr_Baelish
+25	Balon Greyjoy	M	Greyjoy	31	37	256	299	Balon_Greyjoy
+26	Alannys Harlaw	F	Harlaw	NULL	NULL	-1	NULL	Alannys_Harlaw
+27	Rodrik Greyjoy	M	Greyjoy	25	26	268	289	Rodrik_Greyjoy
+28	Maron Greyjoy	M	Greyjoy	25	26	269	289	Maron_Greyjoy
+29	Asha Greyjoy	F	Greyjoy	25	26	275	NULL	Asha_Greyjoy
+30	Theon Greyjoy	M	Greyjoy	25	26	278	NULL	Theon_Greyjoy
+31	Quellon Greyjoy	M	Greyjoy	NULL	NULL	-1	283	Quellon_Grejoy	
+32	Lady of House Stonetree	F	Stonetree	NULL	NULL	-1	-1	NULL
+34	Harlon Greyjoy	M	Greyjoy	31	32	253	-1	Harlon_Greyjoy
+35	Quenton Greyjoy	M	Greyjoy	31	32	254	-1	Quenton_Greyjoy
+36	Donel Greyjoy	M	Greyjoy	31	32	255	-1	Donel_Greyjoy
+37	Lady of House Sunderly	F	Sunderly	NULL	NULL	-1	-1	NULL
+38	Euron Greyjoy	M	Greyjoy	31	37	256	NULL	Euron_Greyjoy
+39	Victarion Greyjoy	M	Greyjoy	31	37	257	NULL	Victarion_Greyjoy
+40	Urrigon Greyjoy	M	Greyjoy	31	37	268	283	Urrigon_Greyjoy
+41	Aeron Greyjoy	M	Greyjoy	31	37	269	NULL	Aeron_Greyjoy
+42	Lady of House Piper	F	Piper	NULL	NULL	-1	-1	NULL
+43	Robin Greyjoy	M	Greyjoy	31	42	269	NULL	Robin_Greyjoy
