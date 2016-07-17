@@ -14,7 +14,7 @@
 14	Lyanna Stark	F	Stark	10	11	266	283	Lyanna_Stark
 15	Benjen Stark	M	Stark	10	11	267	NULL	Benjen_Stark
 16	Brandon Stark	M	Stark	10	11	262	282	Brandon_Stark
-17	Tyrion Lannister	M	Lannister	NULL	NULL	273	NULL	Tyrion_Lannister
+17	Tyrion Lannister	M	Lannister	46	47	273	NULL	Tyrion_Lannister
 18	Jeyne Westerling	F	Westerling	NULL	NULL	283	NULL	Jeyne_Westerling
 19	Edmure Tully	M	Tully	12	13	267	NULL	Edmure_Tully
 20	Lysa Tully	F	Tully	12	13	266	300	Lysa_Arryn
@@ -40,3 +40,27 @@
 41	Aeron Greyjoy	M	Greyjoy	31	37	269	NULL	Aeron_Greyjoy
 42	Lady of House Piper	F	Piper	NULL	NULL	-1	-1	NULL
 43	Robin Greyjoy	M	Greyjoy	31	42	269	NULL	Robin_Greyjoy
+44	Tytos Lannister	M	Lannister	NULL	NULL	220	267	Tytos_Lannister
+45	Jeyne Marbrand	F	Marbrand	NULL	NULL	-1	255	Jeyne_Marbrand
+46	Tywin Lannister	M	Lannister	44	45	242	300	Tywin_Lannister
+47	Joanna Lannister	M	Lannister	NULL	NULL	245	273	Joanna_Lannister
+48	Jaime Lannister	M	Lannister	46	47	266	NULL	Jaime_Lannister
+49	Cersei Lannister	F	Lannister	46	47	266	NULL	Cersei_Lannister
+50	Joffrey Baratheon	M	Baratheon	48	49	286	300	Joffrey_Baratheon
+51	Myrcella Baratheon	F	Baratheon	48	49	290	NULL	Myrcella_Baratheon
+52	Tommen Baratheon	M	Baratheon	48	49	291	NULL	Tommen_Baratheon
+53	Kevan Lannister	M	Lannister	44	45	244	300	Kevan_Lannister
+54	Dorna Swyft	F	Swyft	NULL	NULL	-1	NULL	Dorna_Swyft
+55	Lancel Lannister	M	Lannister	53	54	282	NULL	Lancel_Lannister
+56	Martyn Lannister	M	Lannister	53	54	285	NULL	Martyn_Lannister
+57	Willem Lannister	M	Lannister	53	54	285	NULL	Willem_Lannister
+58	Janei Lannister	F	Lannister	53	54	296	NULL	Janei_Lannister
+59	Genna Lannister	F	Lannister	44	45	245	NULL	Genna_Lannister
+60	Emmon Frey	M	Frey	NULL	NULL	237	NULL	Emmon_Frey
+61	Tygget Lannister	M	Lannister	44	45	250	285	Tygget_Lannister
+62	Darlessa Marbrand	F	Marbrand	NULL	NULL	-1	NULL	Darless Marbrand
+63	Tyrek Lannister	M	Lannister	61	62	286	299	Tyrek_Lannister
+64	Ermesande Hayford	F	Hayford	NULL	NULL	298	NULL	Ermesande_Hayford
+65	Gerion Lannister	M	Lannister	44	45	255	291	Gerion_Lannister
+66	Briony	F	NULL	NULL	NULL	-1	-1	Briony
+67	Joy Hill	F	NULL	65	66	288	NULL	Joy_Hill
