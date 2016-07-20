@@ -19,7 +19,7 @@
 19	Edmure Tully	M	Tully	12	13	267	NULL	Edmure_Tully
 20	Lysa Tully	F	Tully	12	13	266	300	Lysa_Arryn
 21	Roslin Frey	F	Frey	NULL	NULL	282	NULL	Roslin_Frey
-22	Jon Arryn	M	Arryn	NULL	NULL	217	298	Jon_Arryn
+22	Jon Arryn	M	Arryn	68	69	217	298	Jon_Arryn
 23	Robert Arryn	M	Arryn	22	20	292	NULL	Robert_Arryn
 24	Petyr Baelish	M	Baelish	NULL	NULL	268	NULL	Petyr_Baelish
 25	Balon Greyjoy	M	Greyjoy	31	37	256	299	Balon_Greyjoy
@@ -64,4 +64,24 @@
 65	Gerion Lannister	M	Lannister	44	45	255	291	Gerion_Lannister
 66	Briony	F	NULL	NULL	NULL	-1	-1	Briony
 67	Joy Hill	F	NULL	65	66	288	NULL	Joy_Hill
-
+68	Jasper Arryn	M	Arryn	NULL	NULL	-1	-1	Jasper_Arryn
+69	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+70	Jeyne Royce	F	Royce	NULL	NULL	-1	-1	Jeyne_Royce
+71	Rowena Arryn	F	Arryn	NULL	NULL	-1	-1	Rowena_Arryn
+72	Alys Arryn	F	Arryn	68	69	218	-1	Alys_Arryn	
+73	Elys Waynwood	M	Waynwood	NULL	NULL	-1	-1	Elys_Waynwood
+74	Daughter	F	Waynwood	73	72	-1	-1	NULL
+75	Denys Arryn	M	Arryn	NULL	NULL	-1	283	Denys_Arryn
+76	Son	M	Arryn	75	74	-1	NULL	NULL
+77	Daughter	F	Waynwood	73	72	-1	-1	NULL
+78	Ser Hardyng	M	Hardyng	NULL	NULL	-1	-1	NULL
+79	Harrold Hardyng	M	Hardyng	78	77	281	NULL	Harrold_Hardyng
+80	Cissy	F	NULL	NULL	NULL	-1	NULL	Cissy
+81	Alys Stone	F	NULL	79	80	298	NULL	Alys_Stone
+82	Saffron	F	NULL	NULL	NULL	-1	NULL	Saffron
+83	Bastard	NULL	NULL	79	82	-1	-1	NULL
+84	Six Daughters	F	Waynwood	73	72	-1	-1	NULL
+85	Jasper Waynwood	M	Waynwood	73	72	-1	-1	Jasper_Waynwood
+86	Ronnel Arryn	M	Arryn	68	69	219	-1	-1	Ronnel_Arryn
+87	Lady of House Belmore	F	Belmore	NULL	NULL	-1	-1	NULL
+88	Elbert Arryn	M	Arryn	86	87	-1	282	Elbert_Arryn			
