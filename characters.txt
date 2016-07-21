@@ -9,7 +9,7 @@
 9	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
 10	Rickard Stark	M	Stark	NULL	NULL	230	282	Rickard_Stark
 11	Lyarra Stark	F	Stark	NULL	NULL	-1	-1	Lyarra_Stark
-12	Hoster Tully	M	Tully	NULL	NULL	237	299	Hoster_Tully
+12	Hoster Tully	M	Tully	105	106	237	299	Hoster_Tully
 13	Minisa Whent	F	Whent	NULL	NULL	250	268	Minisa_Whent
 14	Lyanna Stark	F	Stark	10	11	266	283	Lyanna_Stark
 15	Benjen Stark	M	Stark	10	11	267	NULL	Benjen_Stark
@@ -101,3 +101,7 @@
 102	Horas Redwyne	M	Redwyne	101	100	-1	NULL	Horas_Redwyne
 103	Hobber Redwyne	M	Redwyne	101	100	-1	NULL	Hobber_Redwyne
 104	Desmera Redwyne	F	Redwyne	101	100	283	NULL	Desmera_Redwyne
+105	Unknown Tully	M	Tully	NULL	NULL	-1	-1	NULL
+106	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+107	Brynden Tully	M	Tully	105	106	242	NULL	Brynden_Tully
+
