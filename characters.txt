@@ -84,4 +84,20 @@
 85	Jasper Waynwood	M	Waynwood	73	72	-1	-1	Jasper_Waynwood
 86	Ronnel Arryn	M	Arryn	68	69	219	-1	-1	Ronnel_Arryn
 87	Lady of House Belmore	F	Belmore	NULL	NULL	-1	-1	NULL
-88	Elbert Arryn	M	Arryn	86	87	-1	282	Elbert_Arryn			
+88	Elbert Arryn	M	Arryn	86	87	-1	282	Elbert_Arryn
+89	Luthor Tyrell	M	Tyrell	NULL	NULL	-1	-1	Luthor_Tyrell
+90	Olenna Redwyne	F	Redwyne	NULL	NULL	228	NULL	Olenna_Redwyne
+91	Mace Tyrell	M	Tyrell	89	90	256	NULL	Mace_Tyrell
+92	Alerie Hightower	F	Hightower	NULL	NULL	257	NULL	Alerie_Hightower
+93	Willas Tyrell	M	Tyrell	91	92	270	NULL	Willas_Tyrell
+94	Garlan Tyrell	M	Tyrell	91	92	277	NULL	Garlan_Tyrell
+95	Leonette Fossoway	F	Fossoway	NULL	NULL	-1	NULL	Leonette Fossoway
+96	Margaery Tyrell	F	Tyrell	91	92	283	NULL	Margaery_Tyrell
+97	Loras Tyrell	M	Tyrell	91	92	282	NULL	Loras_Tyrell
+98	Janna Tyrell	F	Tyrell	89	90	-1	NULL	Janna_Tyrell
+99	Jon Fossoway	M	Fossoway	NULL	NULL	-1	NULL	Jon Fossoway
+100	Mina Tyrell	F	Tyrell	89	90	-1	NULL	Mina_Tyrell
+101	Paxter Redwyne	M	Redwyne	NULL	NULL	-1	NULL	Paxter_Redwyne			
+102	Horas Redwyne	M	Redwyne	101	100	-1	NULL	Horas_Redwyne
+103	Hobber Redwyne	M	Redwyne	101	100	-1	NULL	Hobber_Redwyne
+104	Desmera Redwyne	F	Redwyne	101	100	283	NULL	Desmera_Redwyne
