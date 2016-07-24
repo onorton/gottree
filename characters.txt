@@ -105,3 +105,30 @@
 106	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
 107	Brynden Tully	M	Tully	105	106	242	NULL	Brynden_Tully
 108	Three Sons	M	Tully	12	13	-1	-1	NULL
+109	Unknown Martell	M	Martell	NULL	NULL	-1	-1	NULL
+110	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+111	Princess of Dorne	F	Martell	109	110	-1	-1	NULL
+112	Lewyn Martell	M	Martell	109	110	-1	283	Lewyn_Matell
+113	Unknown Man	M	Martell	NULL	NULL	-1	-1	NULL
+114	Doran Martell	M	Martell	113	111	247	NULL	Doran_Martell
+115	Mellario	F	NULL	NULL	NULL	248	NULL	Mellario
+116	Arianne Martell	F	Martell	114	115	276	NULL	Arianne_Martell
+117	Quentyn Martell	M	Martell	114	115	281	300	Quentyn_Martell
+118	Trystane Martell	M	Martell	114	115	287	NULL	Trystane_Martell
+119	Mors Martell	M	Martell	113	111	248	248	Mors_Martell_(brother_of_Doran)	
+120	Olyvar Martell	M	Martell	113	111	248	248	Olyvar_Martell
+121	Elia Martell	F	Martell	113	111	256	283	Elia_Martell
+122	Oberyn Martell	M	Martell	113	111	257	300	Oberyn_Martell
+123	Unknown	Woman	F	NULL	NULL	NULL	-1	-1	NULL
+124	Volentene Nobelwoman	F	NULL	NULL	NULL	-1	-1	NULL
+125	Unknown Septa	F	NULL	NULL	NULL	-1	-1	NULL
+126	Unkown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+127	Obara Sand	F	NULL	122	123	271	NULL	Obara_Sand
+128	Nymeria Sand	F	NULL	122	124	274	NULL	Nymeria_Sand
+129	Tyene Sand	F	NULL	122	125	276	NULL	Tyene_Sand	
+130	Sarella Sand	F	NULL	122	126	280	NULL	Sarella_Sand
+131	Ellaria Sand	F	NULL	NULL	NULL	-1	NULL	Ellaria_Sand
+132	Elia Sand	F	NULL	122	131	285	NULL	Elia_Sand
+133	Obella Sand	F	NULL	122	131	287	NULL	Obella_Sand
+134	Dorea Sand	F	NULL	122	131	291	NULL	Dorea_Sand
+135	Loreza Sand	F	NULl	122	131	293	NULL	Loreza_Sand
