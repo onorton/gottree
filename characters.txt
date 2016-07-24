@@ -82,7 +82,7 @@
 83	Bastard	NULL	NULL	79	82	-1	-1	NULL
 84	Six Daughters	F	Waynwood	73	72	-1	-1	NULL
 85	Jasper Waynwood	M	Waynwood	73	72	-1	-1	Jasper_Waynwood
-86	Ronnel Arryn	M	Arryn	68	69	219	-1	-1	Ronnel_Arryn
+86	Ronnel Arryn	M	Arryn	68	69	219	-1	Ronnel_Arryn
 87	Lady of House Belmore	F	Belmore	NULL	NULL	-1	-1	NULL
 88	Elbert Arryn	M	Arryn	86	87	-1	282	Elbert_Arryn
 89	Luthor Tyrell	M	Tyrell	NULL	NULL	-1	-1	Luthor_Tyrell
@@ -119,7 +119,7 @@
 120	Olyvar Martell	M	Martell	113	111	248	248	Olyvar_Martell
 121	Elia Martell	F	Martell	113	111	256	283	Elia_Martell
 122	Oberyn Martell	M	Martell	113	111	257	300	Oberyn_Martell
-123	Unknown	Woman	F	NULL	NULL	NULL	-1	-1	NULL
+123	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
 124	Volentene Nobelwoman	F	NULL	NULL	NULL	-1	-1	NULL
 125	Unknown Septa	F	NULL	NULL	NULL	-1	-1	NULL
 126	Unkown Woman	F	NULL	NULL	NULL	-1	-1	NULL
@@ -131,4 +131,25 @@
 132	Elia Sand	F	NULL	122	131	285	NULL	Elia_Sand
 133	Obella Sand	F	NULL	122	131	287	NULL	Obella_Sand
 134	Dorea Sand	F	NULL	122	131	291	NULL	Dorea_Sand
-135	Loreza Sand	F	NULl	122	131	293	NULL	Loreza_Sand
+135	Loreza Sand	F	NULL	122	131	293	NULL	Loreza_Sand
+136	Steffon Baratheon	M	Baratheon	NULL	NULL	246	278	Steffon_Baratheon
+137	Cassana Estermont	F	Estermont	NULL	NULL	-1	278	Cassana_Estermont
+138	Robert Baratheon	M	Baratheon	136	137	262	298	Robert_Baratheon
+139	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+140	Mya Stone	F	NULL	138	139	279	NULL	Mya_Stone
+141	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+142	Bella	F	NULL	138	141	283	NULL	Bella
+143	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+144	Gendry	M	NULL	138	143	283	NULL	Gendry
+145	Delena Florent	F	Florent	NULL	NULL	-1	NULL	Delena_Florent
+146	Edric Storm	M	NULL	138	145	287	NULL	Edric_Storm
+147	Unknown Woman	F	NULL	NULL	NULL	-1	299	NULL
+148	Barra	F	NULL	138	147	298	299	Barra
+149	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+150	Unknown Twins	0	NULL	138	149	-1	-1	NULL
+151	Various Women	F	NULL	NULL	NULL	-1	-1	NULL
+152	Nine Bastards	0	NULL	138	151	-1	-1	NULL
+153	Stannis Baratheon	M	Baratheon	136	137	264	NULL	Stannis_Baratheon
+154	Selyse Florent	F	Florent	NULL	NULL	-1	NULL	Selyse_Florent
+155	Shireen Baratheon	F	Baratheon	153	154	289	NULL	Shireen_Baratheon
+156	Renly Baratheon	M	Baratheon	136	137	277	299	Renly_Baratheon
