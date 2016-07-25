@@ -46,9 +46,9 @@
 47	Joanna Lannister	M	Lannister	NULL	NULL	245	273	Joanna_Lannister
 48	Jaime Lannister	M	Lannister	46	47	266	NULL	Jaime_Lannister
 49	Cersei Lannister	F	Lannister	46	47	266	NULL	Cersei_Lannister
-50	Joffrey Baratheon	M	Baratheon	48	49	286	300	Joffrey_Baratheon
+50	Joffrey I Baratheon	M	Baratheon	48	49	286	300	Joffrey_Baratheon
 51	Myrcella Baratheon	F	Baratheon	48	49	290	NULL	Myrcella_Baratheon
-52	Tommen Baratheon	M	Baratheon	48	49	291	NULL	Tommen_Baratheon
+52	Tommen I Baratheon	M	Baratheon	48	49	291	NULL	Tommen_Baratheon
 53	Kevan Lannister	M	Lannister	44	45	244	300	Kevan_Lannister
 54	Dorna Swyft	F	Swyft	NULL	NULL	-1	NULL	Dorna_Swyft
 55	Lancel Lannister	M	Lannister	53	54	282	NULL	Lancel_Lannister
@@ -132,9 +132,9 @@
 133	Obella Sand	F	NULL	122	131	287	NULL	Obella_Sand
 134	Dorea Sand	F	NULL	122	131	291	NULL	Dorea_Sand
 135	Loreza Sand	F	NULL	122	131	293	NULL	Loreza_Sand
-136	Steffon Baratheon	M	Baratheon	NULL	NULL	246	278	Steffon_Baratheon
+136	Steffon Baratheon	M	Baratheon	179	178	246	278	Steffon_Baratheon
 137	Cassana Estermont	F	Estermont	NULL	NULL	-1	278	Cassana_Estermont
-138	Robert Baratheon	M	Baratheon	136	137	262	298	Robert_Baratheon
+138	Robert I Baratheon	M	Baratheon	136	137	262	298	Robert_Baratheon
 139	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
 140	Mya Stone	F	NULL	138	139	279	NULL	Mya_Stone
 141	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
@@ -153,3 +153,26 @@
 154	Selyse Florent	F	Florent	NULL	NULL	-1	NULL	Selyse_Florent
 155	Shireen Baratheon	F	Baratheon	153	154	289	NULL	Shireen_Baratheon
 156	Renly Baratheon	M	Baratheon	136	137	277	299	Renly_Baratheon
+157	Aegon V Targaryen	M	Targaryen	NULL	NULL	200	259	Aegon_V_Targaryen
+158	Betha Blackwood	F	Blackwood	NULL	NULL	-1	-1	Betha_Blackwood
+159	Duncan Targaryen	M	Targaryen	157	158	220	259	Duncan_Targaryen
+160	Jenny of Oldstones	F	NULL	NULL	NULL	-1	-1	Jenny_of_Oldstones
+161	Jaehaerys II Targaryen	M	Targaryen	157	158	225	262	Jaehaerys_II_Targaryen
+162	Shaera Targaryen	F	Targaryen	157	158	226	259	Shaera_Targaryen
+163	Aerys II Targaryen	M	Targaryen	161	162	244	283	Aerys_II_Targaryen
+164	Rhaella Targaryen	F	Targaryen	161	162	245	284	Rhaella_Targaryen
+165	Rhaegar Targaryen	M	Targaryen	163	164	259	283	Rhaegar_Targaryen
+166	Rhaenys Targaryen	F	Targaryen	165	121	280	283	Rhaenys_Targaryen
+167	Aegon Targaryen	M	Targaryen	165	121	281	283	Aegon_Targaryen_(son_of_Rhaegar)
+168	Shaena Targaryen	F	Targaryen	163	164	267	267	Shaena_Targaryen
+169	Daeron Targaryen	M	Targaryen	163	164	269	269	Daeron_Targaryen_(son_of_Aerys_II)
+170	Stillborn Child	NULL	Targaryen	163	164	-1	-1	NULL
+171	Aegon Targaryen	M	Targaryen	163	164	272	273	Aegon_Targaryen_(son_of_Aerys_II)
+172	Jaehaerys Targaryen	M	Targaryen	163	164	274	274	Jaehaerys_Targaryen_(son_of_Aerys_II)
+173	Viserys Targaryen	M	Targaryen	163	164	276	298	Viserys_Targaryen
+174	Daenerys Targaryen	F	Targaryen	163	164	284	NULL	Daenerys_Targaryen
+175	Drogo	M	NULL	NULL	NULL	267	298	Drogo
+176	Rhaego	M	Targaryen	175	174	298	298	Rhaego
+177	Daeron Targaryen	M	Targaryen	157	158	228	251	Daeron_Targaryen_(son_of_Aegon_V)
+178	Rhaelle Targaryen	F	Targaryen	157	158	229	-1	Rhaelle_Targaryen
+179	Ormund Baratheon	M	Baratheon	NULL	NULL	-1	260	Ormund_Baratheon
