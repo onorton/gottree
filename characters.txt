@@ -204,4 +204,4 @@
 205	Rodrik Stark	M	Stark	180	181	-1	-1	Rodrik Stark_(son_of_Beron)
 206	Arya Flint	F	Flint of the Mountains	NULL	NULL	-1	-1	Arya_Flint
 207	Branda Stark	F	Stark	205	206	-1	-1	Branda_Stark
-208	Harrold Rogers	M	Rogers	NULL	NULL	-1	-1	Harrold_Rogers
+208	Harrold Rogers	M	Rogers	NULL	NULL	-1	-1	Harrold_Rogers	
