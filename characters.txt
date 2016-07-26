@@ -7,8 +7,8 @@
 7	Rickon Stark	M	Stark	1	2	295	NULL	Rickon_Stark
 8	Jon Snow	M	NULL	1	9	283	NULL	Jon_Snow
 9	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
-10	Rickard Stark	M	Stark	NULL	NULL	230	282	Rickard_Stark
-11	Lyarra Stark	F	Stark	NULL	NULL	-1	-1	Lyarra_Stark
+10	Rickard Stark	M	Stark	188	189	230	282	Rickard_Stark
+11	Lyarra Stark	F	Stark	205	206	-1	-1	Lyarra_Stark
 12	Hoster Tully	M	Tully	105	106	237	299	Hoster_Tully
 13	Minisa Whent	F	Whent	NULL	NULL	250	268	Minisa_Whent
 14	Lyanna Stark	F	Stark	10	11	266	283	Lyanna_Stark
@@ -176,3 +176,32 @@
 177	Daeron Targaryen	M	Targaryen	157	158	228	251	Daeron_Targaryen_(son_of_Aegon_V)
 178	Rhaelle Targaryen	F	Targaryen	157	158	229	-1	Rhaelle_Targaryen
 179	Ormund Baratheon	M	Baratheon	NULL	NULL	-1	260	Ormund_Baratheon
+180	Beron Stark	M	Stark	NULL	NULL	-1	-1	Beron_Stark
+181	Lorra Royce	F	Royce	NULL	NULL	-1	-1	Lorra_Royce
+182	Hizdahr zo Loraq	M	NULL	NULL	NULL	-1	NULL	Hizdahr_zo_Loraq
+183	Donner Stark	M	Stark	180	181	-1	-1	Donner_Stark
+184	Willam Stark	M	Stark	180	181	-1	226	Willam_Stark
+185	Lyanne Glover	F	Glover	NULL	NULL	-1	-1	Lyanne_Glover
+186	Brandon Stark	M	Stark	184	185	-1	-1	Brandon_Stark_(son_of_Willam)
+187	Melantha Blackwood	F	Blackwood	NULL	NULL	-1	-1	Melantha_Blackwood
+188	Edwyle Stark	M	Stark	184	187	-1	-1	Edwyle_Stark
+189	Marna Locke	F	Locke	NULL	NULL	-1	-1	Marna_Locke
+190	Jocelyn Stark	F	Stark	184	187	-1	-1	Jocelyn_Stark
+191	Benedict Royce	M	Royce of the Gates of the Moon	NULL	NULL	-1	-1	Benedict_Royce
+192	Daughter	F	Royce of the Gates of the Moon	191	190	-1	-1	NULL
+193	Unknown Waynwood	M	Waynwood	NULL	NULL	-1	-1	NULL
+194	Daughter	F	Royce of the Gates of the Moon	191	190	-1	-1	NULL
+195	Unknown Corbay	M	Corbay	NULL	NULL	-1	-1	NULL
+196	Daughter	F	Royce of the Gates of the Moon	191	190	-1	-1	NULL
+197	Unknown Templeton	M	Templeton	NULL	NULL	-1	-1	NULL	
+198	Artos Stark	M	Stark	180	181	-1	-1	Artos_Stark
+199	Lysara Karstark	F	Karstark	NULL	NULL	-1	-1	Lysara_Karstark
+200	Brandon Stark	M	Stark	198	199	-1	-1	Brandon_Stark_(son_of_Artos)
+201	Benjen Stark	M	Stark	198	199	-1	-1	Benjen_Stark_(son_of_Artos)
+202	Berena Stark	F	Stark	180	181	-1	-1	Berena_Stark
+203	Alysanne Stark	F	Stark	180	181	-1	-1	Alysanne_Stark
+204	Errold Stark	M	Stark	180	181	-1	-1	Errold_Stark
+205	Rodrik Stark	M	Stark	180	181	-1	-1	Rodrik Stark_(son_of_Beron)
+206	Arya Flint	F	Flint of the Mountains	NULL	NULL	-1	-1	Arya_Flint
+207	Branda Stark	F	Stark	205	206	-1	-1	Branda_Stark
+208	Harrold Rogers	M	Rogers	NULL	NULL	-1	-1	Harrold_Rogers
