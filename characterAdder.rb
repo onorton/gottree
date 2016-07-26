@@ -78,6 +78,40 @@ end
 
 def addRelationship
         puts "Adding relationship\n"
+        total_string = ""
+        total_string +=  (IO.readlines('relationships.txt').last.split(" ")[0].to_i+1).to_s + "\t"
+       
+	puts "Please enter the primary person:\n"
+        primary = gets.chomp
+        if primary.empty?
+        	total_string += "NULL"   
+        else
+        	total_string += primary
+        end
+        total_string += "\t"
+        
+	puts "Please enter the secondary person:\n"
+        secondary = gets.chomp
+        if secondary.empty?
+        	total_string += "NULL"   
+        else
+        	total_string += secondary
+        end
+        total_string += "\t"
+
+	puts "Is the relationship legitimate?:\n"
+        legitimate = gets.chomp
+        if legitimate.empty?
+        	total_string += "0"   
+        else
+        	total_string += legitimate
+        end 
+
+	open('relationships.txt', 'a') { |f|
+                 f.puts total_string
+        }
+
+       puts "Relationship added to relationships.txt\n"
 end
 
 puts "Welcome to character adder.\n"
