@@ -205,3 +205,11 @@
 206	Arya Flint	F	Flint of the Mountains	NULL	NULL	-1	-1	Arya_Flint
 207	Branda Stark	F	Stark	205	206	-1	-1	Branda_Stark
 208	Harrold Rogers	M	Rogers	NULL	NULL	-1	-1	Harrold_Rogers	
+209	Unknown Frey	M	Frey	NULL	NULL	-1	-1	NULL
+210	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+211	Unknown Frey	M	Frey	209	210	-1	-1	NULL
+212	Franklyn Frey	M	Frey	209	210	-1	-1	Franklyn_Frey
+213	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+214	Walder Frey	M	Frey	211	213	208	NULL	Walder_Frey
+215	Daughter	F	Frey	211	213	195	-1	Ambrose_Butterwell's_second_wife
+216	Two Daughters	F	Frey	211	213	-1	-1	NULL
