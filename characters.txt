@@ -240,7 +240,7 @@
 241	Walda Frey	F	Frey	238	239	280	NULL	Walda_Frey_(daughter_of_Walton)
 242	Bryan Frey	M	Frey	238	239	281	NULL	Bryan_Frey
 243	Cleos Frey	M	Frey	60	59	258	299	Cleos_Frey
-244	Jeyne Darry	F	Darry	NULL	NULL	-1	NULL	Jeyne_Darry
+244	Jeyne Darry	F	Darry	302	303	-1	NULL	Jeyne_Darry
 245	Tywin Frey	M	Frey	243	244	287	NULL	Tywin_Frey
 246	Willem Frey	M	Frey	243	244	289	NULL	Willem_Frey
 247	Lyonel Frey	M	Frey	60	59	259	NULL	Lyonel_Frey
@@ -274,3 +274,55 @@
 275	Walder Goodbrook	M	Goodbrook	274	273	290	NULL	Walder_Goodbrook
 276	Jeyne Goodbrook	F	Goodbrook	274	273	293	NULL	Jeyne_Goodbrook
 277	Luceon Frey	M	Frey	214	266	249	NULL	Luceon_Frey
+278	Amarei Crakehall	F	Crakehall	NULL	NULL	245	264	Amarei_Crakehall
+279	Hosteen Frey	M	Frey	214	278	249	NULL	Hosteen_Frey
+280	Bellena Hawick	F	Hawick	NULL	NULL	-1	NULL	Bellena Hawick
+281	Arwood Frey	M	Frey	279	280	263	NULL	Arwood_Frey
+282	Ryella Royce	F	Royce	NULL	NULL	-1	NULL	Ryella_Royce
+283	Ryella Frey	F	Frey	281	282	294	NULL	Ryella_Frey
+284	Androw Frey	M	Frey	281	282	295	NULL	Androw_Frey
+285	Alyn Frey	M	Frey	281	282	295	NULL	Alyn_Frey
+286	Hostella Frey	F	Frey	281	282	299	NULL	Hostella_Frey
+287	Lythene Frey	F	Frey	214	278	251	NULL	Lyhthene_Frey
+288	Lucias Vypren	M	Vypren	NULL	NULL	-1	NULL	Lucias Vypren
+289	Damon Vypren	M	Vypren	288	287	265	NULL	Damon_Vypren
+290	Elyana Vypren	F	Vypren	288	287	264	NULL	Elyana_Vypren
+291	Jon Wylde	M	Wylde	NULL	NULL	-1	NULL	Jon_Wylde
+292	Rickard Wylde	M	Wylde	291	290	295	NULL	Rickard_Wylde
+293	Symond Frey	M	Frey	214	278	252	300	Symond_Frey
+294	Betharios	F	NULL	NULL	NULL	-1	NULL	Betharios_of_Braavos
+295	Alesander Frey	M	Frey	293	294	265	NULL	Alesander_Frey
+296	Alyx Frey	F	Frey	293	294	282	NULL	Alyx_Frey
+297	Bradamar Frey	M	Frey	293	294	289	NULL	Bradamar_Frey
+298	Danwell Frey	M	Frey	214	278	252	NULL	Danwell_Frey
+299	Wyanfrei Whent	F	Whent	NULL	NULL	-1	NULL	Wyanfrei_Whent
+300	Merrett Frey	M	Frey	214	278	262	300	Merrett_Frey
+301	Mariya Darry	F	Darry	302	303	-1	NULL	Mariya_Darry
+302	Unknown Darry	M	Darry	NULL	NULL	-1	-1	NULL
+303	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+304	Amerei Frey	F	Frey	300	301	282	NULL	Amerei_Frey
+305	Pate of the Blue Fork	M	NULL	NULL	NULL	-1	299	Pate_of_the_Blue_Fork
+306	Walda Frey	F	Frey	300	301	283	NULL	Walda_Frey_(daughter_of_Merrett)
+307	Roose Bolton	M	Bolton	NULL	NULL	260	NULL	Roose_Bolton
+308	Bethany Ryswell	F	Ryswell	NULL	NULL	-1	297	Bethany_Bolton
+309	Domeric Bolton	M	Bolton	307	308	279	297	Domeric_Bolton
+310	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+311	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+312	Ramsay Snow	M	NULL	307	311	282	NULL	Ramsay_Snow
+313	Donella Manderly	F	Manderly	NULL	NULL	249	299	Donella_Hornwood
+314	Jeyne Poole	F	Poole	NULL	NULL	-1	NULL	Jeyne_Poole
+315	Marissa Frey	F	Frey	300	301	286	NULL	Marissa_Frey
+316	Walder Frey	M	Frey	300	301	291	300	Walder_Frey_(son_of_Merrett)
+317	Geremy Frey	M	Frey	214	278	263	289	Geremy_Frey
+318	Carolei Waynwood	F	Waynwood	NULL	NULL	-1	NULL	Carolei_Waynwood
+319	Sandor Frey	M	Frey	317	318	287	NULL	Sandor_Frey
+320	Cynthea Frey	F	Frey	317	318	290	NULL	Cynthea_Frey
+321	Raymund Frey	M	Frey	214	278	264	NULL	Raymund_Frey
+322	Beony Beesbury	F	Beesbury	NULL	NULL	-1	NULL	Benoy_Beesbury
+323	Robert Frey	M	Frey	321	322	283	NULL	Robert_Frey_(son_of_Raymund)
+324	Malwyn Frey	M	Frey	321	322	284	NULL	Malwyn_Frey
+325	Sarra Frey	F	Frey	321	322	285	NULL	Sarra_Frey
+326	Serra Frey	F	Frey	321	322	285	NULL	Serra_Frey
+327	Cersei Frey	F	Frey	321	322	292	NULL	Cersei_Frey
+328	Tywin Frey	M	Frey	321	322	299	NULL	Tywin_Frey_(son_of_Raymund)
+329	Jaime Frey	M	Frey	321	322	299	NULL	Jaime_Frey
