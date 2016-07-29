@@ -365,3 +365,10 @@
 366	Shirei Frey	F	Frey	214	360	292	NULL	Shirei_Frey
 367	Sarya Whent	F	Whent	NULL	NULL	-1	-1	Sarya_Whent
 368	Joyeuse Erenford	F	Erenford	NULL	NULL	282	NULL	Joyeuse_Erenford
+369	Unknown Woman	F	NULL	NULL	NULL	-1	-1	NULL
+370	Walder Rivers	M	NULL	214	369	-1	NULL	Walder_Rivers
+371	Unknown Charlton	F	Charlton	NULL	NULL	-1	NULL	NULL
+372	Walda Rivers	F	NULL	370	371	294	NULL	Walda_Rivers
+373	Aemon Rivers	M	NULL	370	371	-1	NULL	Aemon_Rivers
+374	Unknown Woman	F	NULL	NULL	NULL	-1	NULL	NULL
+375	Walda Rivers	F	NULL	373	374	295	NULL	Walda_Rivers_(daughter_of_Aemon)
