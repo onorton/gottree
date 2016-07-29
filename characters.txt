@@ -18,7 +18,7 @@
 18	Jeyne Westerling	F	Westerling	NULL	NULL	283	NULL	Jeyne_Westerling
 19	Edmure Tully	M	Tully	12	13	267	NULL	Edmure_Tully
 20	Lysa Tully	F	Tully	12	13	266	300	Lysa_Arryn
-21	Roslin Frey	F	Frey	NULL	NULL	282	NULL	Roslin_Frey
+21	Roslin Frey	F	Frey	214	352	282	NULL	Roslin_Frey
 22	Jon Arryn	M	Arryn	68	69	217	298	Jon_Arryn
 23	Robert Arryn	M	Arryn	22	20	292	NULL	Robert_Arryn
 24	Petyr Baelish	M	Baelish	NULL	NULL	268	NULL	Petyr_Baelish
@@ -348,3 +348,20 @@
 349	Walder Brax	M	Brax	347	346	293	NULL	Walder_Brax
 350	Jon Brax	M	Brax	347	346	296	NULL	Jon_Brax
 351	Tyta Frey	F	Frey	214	330	269	NULL	Tyta_Frey
+352	Bethany Rosby	F	Rosby	NULL	NULL	265	282	Bethany_Rosby
+353	Perwyn Frey	M	Frey	214	352	269	NULL	Perwyn Frey
+354	Benfrey Frey	M	Frey	214	352	271	299	Benfrey_Frey
+355	Jyanna Frey	F	Frey	NULL	NULL	-1	NULL	Jyanna_Frey
+356	Della Frey	F	Frey	354	355	296	NULL	Della_Frey
+357	Osmund Frey	M	Frey	354	355	297	NULL	Osmund_Frey
+358	Willamen Frey	M	Frey	214	352	272	NULL	Willamen_Frey
+359	Olyvar Frey	M	Frey	214	352	281	NULL	Olyvar_Frey
+360	Annara Farring	F	Farring	NULL	NULL	-1	-1	Annara_Farring
+361	Arwyn Frey	F	Frey	214	360	285	NULL	Arwyn_Frey
+362	Wendel Frey	M	Frey	214	360	286	NULL	Wendel_Frey
+363	Colmar Frey	M	Frey	214	360	288	NULL	Colmar_Frey
+364	Waltyr Frey	M	Frey	214	360	289	NULL	Waltyr_Frey
+365	Elmar Frey	M	Frey	214	360	290	NULL	Elmar_Frey
+366	Shirei Frey	F	Frey	214	360	292	NULL	Shirei_Frey
+367	Sarya Whent	F	Whent	NULL	NULL	-1	-1	Sarya_Whent
+368	Joyeuse Erenford	F	Erenford	NULL	NULL	282	NULL	Joyeuse_Erenford
