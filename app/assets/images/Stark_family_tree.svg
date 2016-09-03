@@ -12,7 +12,7 @@
 <!-- 1 -->
 <g id="node1" class="node"><title>1</title>
 <g id="a_node1"><a xlink:href="http://awoiaf.westeros.org/index.php/Eddard_Stark" xlink:title="Eddard Stark\n263&#45;299" target="_blank">
-<polygon fill="none" stroke="black" points="535.25,-371.5 422.75,-371.5 422.75,-258.5 535.25,-258.5 535.25,-371.5"/>
+<polygon fill="white" stroke="black" points="535.25,-371.5 422.75,-371.5 422.75,-258.5 535.25,-258.5 535.25,-371.5"/>
 <text text-anchor="middle" x="479" y="-318.8" font-family="Times,serif" font-size="14.00">Eddard Stark</text>
 <text text-anchor="middle" x="479" y="-303.8" font-family="Times,serif" font-size="14.00">263&#45;299</text>
 </a>
@@ -29,7 +29,7 @@
 <!-- 2 -->
 <g id="node2" class="node"><title>2</title>
 <g id="a_node2"><a xlink:href="http://awoiaf.westeros.org/index.php/Catelyn_Stark" xlink:title="Catelyn Tully\n264&#45;299" target="_blank">
-<polygon fill="none" stroke="black" points="933.5,-371 822.5,-371 822.5,-259 933.5,-259 933.5,-371"/>
+<polygon fill="white" stroke="black" points="933.5,-371 822.5,-371 822.5,-259 933.5,-259 933.5,-371"/>
 <text text-anchor="middle" x="878" y="-318.8" font-family="Times,serif" font-size="14.00">Catelyn Tully</text>
 <text text-anchor="middle" x="878" y="-303.8" font-family="Times,serif" font-size="14.00">264&#45;299</text>
 </a>
@@ -42,7 +42,7 @@
 <!-- 3 -->
 <g id="node3" class="node"><title>3</title>
 <g id="a_node3"><a xlink:href="http://awoiaf.westeros.org/index.php/Robb_Stark" xlink:title="Robb Stark\n283&#45;299" target="_blank">
-<polygon fill="none" stroke="black" points="982.25,-157.5 885.75,-157.5 885.75,-60.5 982.25,-60.5 982.25,-157.5"/>
+<polygon fill="white" stroke="black" points="982.25,-157.5 885.75,-157.5 885.75,-60.5 982.25,-60.5 982.25,-157.5"/>
 <text text-anchor="middle" x="934" y="-112.8" font-family="Times,serif" font-size="14.00">Robb Stark</text>
 <text text-anchor="middle" x="934" y="-97.8" font-family="Times,serif" font-size="14.00">283&#45;299</text>
 </a>
@@ -59,7 +59,7 @@
 <!-- 4 -->
 <g id="node4" class="node"><title>4</title>
 <g id="a_node4"><a xlink:href="http://awoiaf.westeros.org/index.php/Sansa_Stark" xlink:title="Sansa Stark\n286&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="330.5,-160 229.5,-160 229.5,-58 330.5,-58 330.5,-160"/>
+<polygon fill="white" stroke="black" points="330.5,-160 229.5,-160 229.5,-58 330.5,-58 330.5,-160"/>
 <text text-anchor="middle" x="280" y="-112.8" font-family="Times,serif" font-size="14.00">Sansa Stark</text>
 <text text-anchor="middle" x="280" y="-97.8" font-family="Times,serif" font-size="14.00">286&#45;</text>
 </a>
@@ -68,7 +68,7 @@
 <!-- 5 -->
 <g id="node5" class="node"><title>5</title>
 <g id="a_node5"><a xlink:href="http://awoiaf.westeros.org/index.php/Arya_Stark" xlink:title="Arya Stark\n289&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="599,-156 505,-156 505,-62 599,-62 599,-156"/>
+<polygon fill="white" stroke="black" points="599,-156 505,-156 505,-62 599,-62 599,-156"/>
 <text text-anchor="middle" x="552" y="-112.8" font-family="Times,serif" font-size="14.00">Arya Stark</text>
 <text text-anchor="middle" x="552" y="-97.8" font-family="Times,serif" font-size="14.00">289&#45;</text>
 </a>
@@ -77,7 +77,7 @@
 <!-- 6 -->
 <g id="node6" class="node"><title>6</title>
 <g id="a_node6"><a xlink:href="http://awoiaf.westeros.org/index.php/Bran_Stark" xlink:title="Brandon Stark\n290&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="738.25,-169.5 617.75,-169.5 617.75,-48.5 738.25,-48.5 738.25,-169.5"/>
+<polygon fill="white" stroke="black" points="738.25,-169.5 617.75,-169.5 617.75,-48.5 738.25,-48.5 738.25,-169.5"/>
 <text text-anchor="middle" x="678" y="-112.8" font-family="Times,serif" font-size="14.00">Brandon Stark</text>
 <text text-anchor="middle" x="678" y="-97.8" font-family="Times,serif" font-size="14.00">290&#45;</text>
 </a>
@@ -86,7 +86,7 @@
 <!-- 7 -->
 <g id="node7" class="node"><title>7</title>
 <g id="a_node7"><a xlink:href="http://awoiaf.westeros.org/index.php/Rickon_Stark" xlink:title="Rickon Stark\n295&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="867,-164 757,-164 757,-54 867,-54 867,-164"/>
+<polygon fill="white" stroke="black" points="867,-164 757,-164 757,-54 867,-54 867,-164"/>
 <text text-anchor="middle" x="812" y="-112.8" font-family="Times,serif" font-size="14.00">Rickon Stark</text>
 <text text-anchor="middle" x="812" y="-97.8" font-family="Times,serif" font-size="14.00">295&#45;</text>
 </a>
@@ -95,7 +95,7 @@
 <!-- 10 -->
 <g id="node8" class="node"><title>10</title>
 <g id="a_node8"><a xlink:href="http://awoiaf.westeros.org/index.php/Rickard_Stark" xlink:title="Rickard Stark\n230&#45;282" target="_blank">
-<polygon fill="none" stroke="black" points="536.5,-568 421.5,-568 421.5,-452 536.5,-452 536.5,-568"/>
+<polygon fill="white" stroke="black" points="536.5,-568 421.5,-568 421.5,-452 536.5,-452 536.5,-568"/>
 <text text-anchor="middle" x="479" y="-513.8" font-family="Times,serif" font-size="14.00">Rickard Stark</text>
 <text text-anchor="middle" x="479" y="-498.8" font-family="Times,serif" font-size="14.00">230&#45;282</text>
 </a>
@@ -112,7 +112,7 @@
 <!-- 11 -->
 <g id="node9" class="node"><title>11</title>
 <g id="a_node9"><a xlink:href="http://awoiaf.westeros.org/index.php/Lyarra_Stark" xlink:title="Lyarra Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="839,-712 731,-712 731,-604 839,-604 839,-712"/>
+<polygon fill="white" stroke="black" points="839,-712 731,-712 731,-604 839,-604 839,-712"/>
 <text text-anchor="middle" x="785" y="-661.8" font-family="Times,serif" font-size="14.00">Lyarra Stark</text>
 <text text-anchor="middle" x="785" y="-646.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -125,7 +125,7 @@
 <!-- 14 -->
 <g id="node10" class="node"><title>14</title>
 <g id="a_node10"><a xlink:href="http://awoiaf.westeros.org/index.php/Lyanna_Stark" xlink:title="Lyanna Stark\n266&#45;283" target="_blank">
-<polygon fill="none" stroke="black" points="404.25,-371.5 291.75,-371.5 291.75,-258.5 404.25,-258.5 404.25,-371.5"/>
+<polygon fill="white" stroke="black" points="404.25,-371.5 291.75,-371.5 291.75,-258.5 404.25,-258.5 404.25,-371.5"/>
 <text text-anchor="middle" x="348" y="-318.8" font-family="Times,serif" font-size="14.00">Lyanna Stark</text>
 <text text-anchor="middle" x="348" y="-303.8" font-family="Times,serif" font-size="14.00">266&#45;283</text>
 </a>
@@ -134,7 +134,7 @@
 <!-- 15 -->
 <g id="node11" class="node"><title>15</title>
 <g id="a_node11"><a xlink:href="http://awoiaf.westeros.org/index.php/Benjen_Stark" xlink:title="Benjen Stark\n267&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="664,-370 554,-370 554,-260 664,-260 664,-370"/>
+<polygon fill="white" stroke="black" points="664,-370 554,-370 554,-260 664,-260 664,-370"/>
 <text text-anchor="middle" x="609" y="-318.8" font-family="Times,serif" font-size="14.00">Benjen Stark</text>
 <text text-anchor="middle" x="609" y="-303.8" font-family="Times,serif" font-size="14.00">267&#45;</text>
 </a>
@@ -143,7 +143,7 @@
 <!-- 16 -->
 <g id="node12" class="node"><title>16</title>
 <g id="a_node12"><a xlink:href="http://awoiaf.westeros.org/index.php/Brandon_Stark" xlink:title="Brandon Stark\n262&#45;282" target="_blank">
-<polygon fill="none" stroke="black" points="803.25,-375.5 682.75,-375.5 682.75,-254.5 803.25,-254.5 803.25,-375.5"/>
+<polygon fill="white" stroke="black" points="803.25,-375.5 682.75,-375.5 682.75,-254.5 803.25,-254.5 803.25,-375.5"/>
 <text text-anchor="middle" x="743" y="-318.8" font-family="Times,serif" font-size="14.00">Brandon Stark</text>
 <text text-anchor="middle" x="743" y="-303.8" font-family="Times,serif" font-size="14.00">262&#45;282</text>
 </a>
@@ -152,7 +152,7 @@
 <!-- 18 -->
 <g id="node13" class="node"><title>18</title>
 <g id="a_node13"><a xlink:href="http://awoiaf.westeros.org/index.php/Jeyne_Westerling" xlink:title="Jeyne Westerling\n283&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="487,-178 349,-178 349,-40 487,-40 487,-178"/>
+<polygon fill="white" stroke="black" points="487,-178 349,-178 349,-40 487,-40 487,-178"/>
 <text text-anchor="middle" x="418" y="-112.8" font-family="Times,serif" font-size="14.00">Jeyne Westerling</text>
 <text text-anchor="middle" x="418" y="-97.8" font-family="Times,serif" font-size="14.00">283&#45;</text>
 </a>
@@ -165,7 +165,7 @@
 <!-- 180 -->
 <g id="node14" class="node"><title>180</title>
 <g id="a_node14"><a xlink:href="http://awoiaf.westeros.org/index.php/Beron_Stark" xlink:title="Beron Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="768.25,-1293.5 665.75,-1293.5 665.75,-1190.5 768.25,-1190.5 768.25,-1293.5"/>
+<polygon fill="white" stroke="black" points="768.25,-1293.5 665.75,-1293.5 665.75,-1190.5 768.25,-1190.5 768.25,-1293.5"/>
 <text text-anchor="middle" x="717" y="-1245.8" font-family="Times,serif" font-size="14.00">Beron Stark</text>
 <text text-anchor="middle" x="717" y="-1230.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -182,7 +182,7 @@
 <!-- 181 -->
 <g id="node15" class="node"><title>181</title>
 <g id="a_node15"><a xlink:href="http://awoiaf.westeros.org/index.php/Lorra_Royce" xlink:title="Lorra Royce\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="891,-1294 787,-1294 787,-1190 891,-1190 891,-1294"/>
+<polygon fill="white" stroke="black" points="891,-1294 787,-1294 787,-1190 891,-1190 891,-1294"/>
 <text text-anchor="middle" x="839" y="-1245.8" font-family="Times,serif" font-size="14.00">Lorra Royce</text>
 <text text-anchor="middle" x="839" y="-1230.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -195,7 +195,7 @@
 <!-- 183 -->
 <g id="node16" class="node"><title>183</title>
 <g id="a_node16"><a xlink:href="http://awoiaf.westeros.org/index.php/Donner_Stark" xlink:title="Donner Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1312.25,-1086.5 1199.75,-1086.5 1199.75,-973.5 1312.25,-973.5 1312.25,-1086.5"/>
+<polygon fill="white" stroke="black" points="1312.25,-1086.5 1199.75,-1086.5 1199.75,-973.5 1312.25,-973.5 1312.25,-1086.5"/>
 <text text-anchor="middle" x="1256" y="-1033.8" font-family="Times,serif" font-size="14.00">Donner Stark</text>
 <text text-anchor="middle" x="1256" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -204,7 +204,7 @@
 <!-- 184 -->
 <g id="node17" class="node"><title>184</title>
 <g id="a_node17"><a xlink:href="http://awoiaf.westeros.org/index.php/Willam_Stark" xlink:title="Willam Stark\n???&#45;226" target="_blank">
-<polygon fill="none" stroke="black" points="567,-1085 457,-1085 457,-975 567,-975 567,-1085"/>
+<polygon fill="white" stroke="black" points="567,-1085 457,-1085 457,-975 567,-975 567,-1085"/>
 <text text-anchor="middle" x="512" y="-1033.8" font-family="Times,serif" font-size="14.00">Willam Stark</text>
 <text text-anchor="middle" x="512" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;226</text>
 </a>
@@ -229,7 +229,7 @@
 <!-- 185 -->
 <g id="node18" class="node"><title>185</title>
 <g id="a_node18"><a xlink:href="http://awoiaf.westeros.org/index.php/Lyanne_Glover" xlink:title="Lyanne Glover\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="706.25,-1090.5 585.75,-1090.5 585.75,-969.5 706.25,-969.5 706.25,-1090.5"/>
+<polygon fill="white" stroke="black" points="706.25,-1090.5 585.75,-1090.5 585.75,-969.5 706.25,-969.5 706.25,-1090.5"/>
 <text text-anchor="middle" x="646" y="-1033.8" font-family="Times,serif" font-size="14.00">Lyanne Glover</text>
 <text text-anchor="middle" x="646" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -242,7 +242,7 @@
 <!-- 186 -->
 <g id="node19" class="node"><title>186</title>
 <g id="a_node19"><a xlink:href="http://awoiaf.westeros.org/index.php/Brandon_Stark_(son_of_Willam)" xlink:title="Brandon Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="717.25,-869.5 596.75,-869.5 596.75,-748.5 717.25,-748.5 717.25,-869.5"/>
+<polygon fill="white" stroke="black" points="717.25,-869.5 596.75,-869.5 596.75,-748.5 717.25,-748.5 717.25,-869.5"/>
 <text text-anchor="middle" x="657" y="-812.8" font-family="Times,serif" font-size="14.00">Brandon Stark</text>
 <text text-anchor="middle" x="657" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -251,7 +251,7 @@
 <!-- 187 -->
 <g id="node20" class="node"><title>187</title>
 <g id="a_node20"><a xlink:href="http://awoiaf.westeros.org/index.php/Melantha_Blackwood" xlink:title="Melantha Blackwood\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="166.25,-1113.5 -0.25,-1113.5 -0.25,-946.5 166.25,-946.5 166.25,-1113.5"/>
+<polygon fill="white" stroke="black" points="166.25,-1113.5 -0.25,-1113.5 -0.25,-946.5 166.25,-946.5 166.25,-1113.5"/>
 <text text-anchor="middle" x="83" y="-1033.8" font-family="Times,serif" font-size="14.00">Melantha Blackwood</text>
 <text text-anchor="middle" x="83" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -264,7 +264,7 @@
 <!-- 188 -->
 <g id="node21" class="node"><title>188</title>
 <g id="a_node21"><a xlink:href="http://awoiaf.westeros.org/index.php/Edwyle_Stark" xlink:title="Edwyle Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="316.25,-865.5 203.75,-865.5 203.75,-752.5 316.25,-752.5 316.25,-865.5"/>
+<polygon fill="white" stroke="black" points="316.25,-865.5 203.75,-865.5 203.75,-752.5 316.25,-752.5 316.25,-865.5"/>
 <text text-anchor="middle" x="260" y="-812.8" font-family="Times,serif" font-size="14.00">Edwyle Stark</text>
 <text text-anchor="middle" x="260" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -281,7 +281,7 @@
 <!-- 189 -->
 <g id="node22" class="node"><title>189</title>
 <g id="a_node22"><a xlink:href="http://awoiaf.westeros.org/index.php/Marna_Locke" xlink:title="Marna Locke\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="446.5,-865 335.5,-865 335.5,-753 446.5,-753 446.5,-865"/>
+<polygon fill="white" stroke="black" points="446.5,-865 335.5,-865 335.5,-753 446.5,-753 446.5,-865"/>
 <text text-anchor="middle" x="391" y="-812.8" font-family="Times,serif" font-size="14.00">Marna Locke</text>
 <text text-anchor="middle" x="391" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -294,7 +294,7 @@
 <!-- 190 -->
 <g id="node23" class="node"><title>190</title>
 <g id="a_node23"><a xlink:href="http://awoiaf.westeros.org/index.php/Jocelyn_Stark" xlink:title="Jocelyn Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="578.25,-865.5 465.75,-865.5 465.75,-752.5 578.25,-752.5 578.25,-865.5"/>
+<polygon fill="white" stroke="black" points="578.25,-865.5 465.75,-865.5 465.75,-752.5 578.25,-752.5 578.25,-865.5"/>
 <text text-anchor="middle" x="522" y="-812.8" font-family="Times,serif" font-size="14.00">Jocelyn Stark</text>
 <text text-anchor="middle" x="522" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -303,7 +303,7 @@
 <!-- 198 -->
 <g id="node24" class="node"><title>198</title>
 <g id="a_node24"><a xlink:href="http://awoiaf.westeros.org/index.php/Artos_Stark" xlink:title="Artos Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1181.25,-1079.5 1082.75,-1079.5 1082.75,-980.5 1181.25,-980.5 1181.25,-1079.5"/>
+<polygon fill="white" stroke="black" points="1181.25,-1079.5 1082.75,-1079.5 1082.75,-980.5 1181.25,-980.5 1181.25,-1079.5"/>
 <text text-anchor="middle" x="1132" y="-1033.8" font-family="Times,serif" font-size="14.00">Artos Stark</text>
 <text text-anchor="middle" x="1132" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -320,7 +320,7 @@
 <!-- 199 -->
 <g id="node25" class="node"><title>199</title>
 <g id="a_node25"><a xlink:href="http://awoiaf.westeros.org/index.php/Lysara_Karstark" xlink:title="Lysara Karstark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1463.25,-1096.5 1330.75,-1096.5 1330.75,-963.5 1463.25,-963.5 1463.25,-1096.5"/>
+<polygon fill="white" stroke="black" points="1463.25,-1096.5 1330.75,-1096.5 1330.75,-963.5 1463.25,-963.5 1463.25,-1096.5"/>
 <text text-anchor="middle" x="1397" y="-1033.8" font-family="Times,serif" font-size="14.00">Lysara Karstark</text>
 <text text-anchor="middle" x="1397" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -333,7 +333,7 @@
 <!-- 200 -->
 <g id="node26" class="node"><title>200</title>
 <g id="a_node26"><a xlink:href="http://awoiaf.westeros.org/index.php/Brandon_Stark_(son_of_Artos)" xlink:title="Brandon Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1257.25,-869.5 1136.75,-869.5 1136.75,-748.5 1257.25,-748.5 1257.25,-869.5"/>
+<polygon fill="white" stroke="black" points="1257.25,-869.5 1136.75,-869.5 1136.75,-748.5 1257.25,-748.5 1257.25,-869.5"/>
 <text text-anchor="middle" x="1197" y="-812.8" font-family="Times,serif" font-size="14.00">Brandon Stark</text>
 <text text-anchor="middle" x="1197" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -342,7 +342,7 @@
 <!-- 201 -->
 <g id="node27" class="node"><title>201</title>
 <g id="a_node27"><a xlink:href="http://awoiaf.westeros.org/index.php/Benjen_Stark_(son_of_Artos)" xlink:title="Benjen Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1386,-864 1276,-864 1276,-754 1386,-754 1386,-864"/>
+<polygon fill="white" stroke="black" points="1386,-864 1276,-864 1276,-754 1386,-754 1386,-864"/>
 <text text-anchor="middle" x="1331" y="-812.8" font-family="Times,serif" font-size="14.00">Benjen Stark</text>
 <text text-anchor="middle" x="1331" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -351,7 +351,7 @@
 <!-- 202 -->
 <g id="node28" class="node"><title>202</title>
 <g id="a_node28"><a xlink:href="http://awoiaf.westeros.org/index.php/Berena_Stark" xlink:title="Berena Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="295.25,-1085.5 184.75,-1085.5 184.75,-974.5 295.25,-974.5 295.25,-1085.5"/>
+<polygon fill="white" stroke="black" points="295.25,-1085.5 184.75,-1085.5 184.75,-974.5 295.25,-974.5 295.25,-1085.5"/>
 <text text-anchor="middle" x="240" y="-1033.8" font-family="Times,serif" font-size="14.00">Berena Stark</text>
 <text text-anchor="middle" x="240" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -360,7 +360,7 @@
 <!-- 203 -->
 <g id="node29" class="node"><title>203</title>
 <g id="a_node29"><a xlink:href="http://awoiaf.westeros.org/index.php/Alysanne_Stark" xlink:title="Alysanne Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="438.25,-1092.5 313.75,-1092.5 313.75,-967.5 438.25,-967.5 438.25,-1092.5"/>
+<polygon fill="white" stroke="black" points="438.25,-1092.5 313.75,-1092.5 313.75,-967.5 438.25,-967.5 438.25,-1092.5"/>
 <text text-anchor="middle" x="376" y="-1033.8" font-family="Times,serif" font-size="14.00">Alysanne Stark</text>
 <text text-anchor="middle" x="376" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -369,7 +369,7 @@
 <!-- 204 -->
 <g id="node30" class="node"><title>204</title>
 <g id="a_node30"><a xlink:href="http://awoiaf.westeros.org/index.php/Errold_Stark" xlink:title="Errold Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="830.5,-1083 725.5,-1083 725.5,-977 830.5,-977 830.5,-1083"/>
+<polygon fill="white" stroke="black" points="830.5,-1083 725.5,-1083 725.5,-977 830.5,-977 830.5,-1083"/>
 <text text-anchor="middle" x="778" y="-1033.8" font-family="Times,serif" font-size="14.00">Errold Stark</text>
 <text text-anchor="middle" x="778" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -378,7 +378,7 @@
 <!-- 205 -->
 <g id="node31" class="node"><title>205</title>
 <g id="a_node31"><a xlink:href="http://awoiaf.westeros.org/index.php/Rodrik Stark_(son_of_Beron)" xlink:title="Rodrik Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="957,-1084 849,-1084 849,-976 957,-976 957,-1084"/>
+<polygon fill="white" stroke="black" points="957,-1084 849,-1084 849,-976 957,-976 957,-1084"/>
 <text text-anchor="middle" x="903" y="-1033.8" font-family="Times,serif" font-size="14.00">Rodrik Stark</text>
 <text text-anchor="middle" x="903" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -395,7 +395,7 @@
 <!-- 206 -->
 <g id="node32" class="node"><title>206</title>
 <g id="a_node32"><a xlink:href="http://awoiaf.westeros.org/index.php/Arya_Flint" xlink:title="Arya Flint\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1064.25,-1074.5 975.75,-1074.5 975.75,-985.5 1064.25,-985.5 1064.25,-1074.5"/>
+<polygon fill="white" stroke="black" points="1064.25,-1074.5 975.75,-1074.5 975.75,-985.5 1064.25,-985.5 1064.25,-1074.5"/>
 <text text-anchor="middle" x="1020" y="-1033.8" font-family="Times,serif" font-size="14.00">Arya Flint</text>
 <text text-anchor="middle" x="1020" y="-1018.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -408,7 +408,7 @@
 <!-- 207 -->
 <g id="node33" class="node"><title>207</title>
 <g id="a_node33"><a xlink:href="http://awoiaf.westeros.org/index.php/Branda_Stark" xlink:title="Branda Stark\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="958.5,-865 847.5,-865 847.5,-753 958.5,-753 958.5,-865"/>
+<polygon fill="white" stroke="black" points="958.5,-865 847.5,-865 847.5,-753 958.5,-753 958.5,-865"/>
 <text text-anchor="middle" x="903" y="-812.8" font-family="Times,serif" font-size="14.00">Branda Stark</text>
 <text text-anchor="middle" x="903" y="-797.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>

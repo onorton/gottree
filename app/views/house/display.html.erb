@@ -1,4 +1,7 @@
-<p><%= @house %> Family Tree</h1>
-<p>On this page, the family tree of a particular house is displayed.</p>
+<head>
+<title>House <%=  @house %></title>
+</head>
+
+<h1><%= @house %> Family Tree</h1>
 
 <%= tag(:object, data: image_path(@house+"_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>

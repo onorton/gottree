@@ -12,7 +12,7 @@
 <!-- 121 -->
 <g id="node1" class="node"><title>121</title>
 <g id="a_node1"><a xlink:href="http://awoiaf.westeros.org/index.php/Elia_Martell" xlink:title="Elia Martell\n256&#45;283" target="_blank">
-<polygon fill="none" stroke="black" points="101.5,-365 0.5,-365 0.5,-263 101.5,-263 101.5,-365"/>
+<polygon fill="white" stroke="black" points="101.5,-365 0.5,-365 0.5,-263 101.5,-263 101.5,-365"/>
 <text text-anchor="middle" x="51" y="-317.8" font-family="Times,serif" font-size="14.00">Elia Martell</text>
 <text text-anchor="middle" x="51" y="-302.8" font-family="Times,serif" font-size="14.00">256&#45;283</text>
 </a>
@@ -29,7 +29,7 @@
 <!-- 157 -->
 <g id="node2" class="node"><title>157</title>
 <g id="a_node2"><a xlink:href="http://awoiaf.westeros.org/index.php/Aegon_V_Targaryen" xlink:title="Aegon V Targaryen\n200&#45;259" target="_blank">
-<polygon fill="none" stroke="black" points="933,-1112 779,-1112 779,-958 933,-958 933,-1112"/>
+<polygon fill="white" stroke="black" points="933,-1112 779,-1112 779,-958 933,-958 933,-1112"/>
 <text text-anchor="middle" x="856" y="-1038.8" font-family="Times,serif" font-size="14.00">Aegon V Targaryen</text>
 <text text-anchor="middle" x="856" y="-1023.8" font-family="Times,serif" font-size="14.00">200&#45;259</text>
 </a>
@@ -46,7 +46,7 @@
 <!-- 158 -->
 <g id="node3" class="node"><title>158</title>
 <g id="a_node3"><a xlink:href="http://awoiaf.westeros.org/index.php/Betha_Blackwood" xlink:title="Betha Blackwood\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1092.25,-1105.5 951.75,-1105.5 951.75,-964.5 1092.25,-964.5 1092.25,-1105.5"/>
+<polygon fill="white" stroke="black" points="1092.25,-1105.5 951.75,-1105.5 951.75,-964.5 1092.25,-964.5 1092.25,-1105.5"/>
 <text text-anchor="middle" x="1022" y="-1038.8" font-family="Times,serif" font-size="14.00">Betha Blackwood</text>
 <text text-anchor="middle" x="1022" y="-1023.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -59,7 +59,7 @@
 <!-- 159 -->
 <g id="node4" class="node"><title>159</title>
 <g id="a_node4"><a xlink:href="http://awoiaf.westeros.org/index.php/Duncan_Targaryen" xlink:title="Duncan Targaryen\n220&#45;259" target="_blank">
-<polygon fill="none" stroke="black" points="650.25,-865.5 501.75,-865.5 501.75,-716.5 650.25,-716.5 650.25,-865.5"/>
+<polygon fill="white" stroke="black" points="650.25,-865.5 501.75,-865.5 501.75,-716.5 650.25,-716.5 650.25,-865.5"/>
 <text text-anchor="middle" x="576" y="-794.8" font-family="Times,serif" font-size="14.00">Duncan Targaryen</text>
 <text text-anchor="middle" x="576" y="-779.8" font-family="Times,serif" font-size="14.00">220&#45;259</text>
 </a>
@@ -76,7 +76,7 @@
 <!-- 160 -->
 <g id="node5" class="node"><title>160</title>
 <g id="a_node5"><a xlink:href="http://awoiaf.westeros.org/index.php/Jenny_of_Oldstones" xlink:title="Jenny of Oldstones\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="483.25,-866.5 332.75,-866.5 332.75,-715.5 483.25,-715.5 483.25,-866.5"/>
+<polygon fill="white" stroke="black" points="483.25,-866.5 332.75,-866.5 332.75,-715.5 483.25,-715.5 483.25,-866.5"/>
 <text text-anchor="middle" x="408" y="-794.8" font-family="Times,serif" font-size="14.00">Jenny of Oldstones</text>
 <text text-anchor="middle" x="408" y="-779.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -89,7 +89,7 @@
 <!-- 161 -->
 <g id="node6" class="node"><title>161</title>
 <g id="a_node6"><a xlink:href="http://awoiaf.westeros.org/index.php/Jaehaerys_II_Targaryen" xlink:title="Jaehaerys II Targaryen\n225&#45;262" target="_blank">
-<polygon fill="none" stroke="black" points="849.25,-881.5 668.75,-881.5 668.75,-700.5 849.25,-700.5 849.25,-881.5"/>
+<polygon fill="white" stroke="black" points="849.25,-881.5 668.75,-881.5 668.75,-700.5 849.25,-700.5 849.25,-881.5"/>
 <text text-anchor="middle" x="759" y="-794.8" font-family="Times,serif" font-size="14.00">Jaehaerys II Targaryen</text>
 <text text-anchor="middle" x="759" y="-779.8" font-family="Times,serif" font-size="14.00">225&#45;262</text>
 </a>
@@ -106,7 +106,7 @@
 <!-- 162 -->
 <g id="node7" class="node"><title>162</title>
 <g id="a_node7"><a xlink:href="http://awoiaf.westeros.org/index.php/Shaera_Targaryen" xlink:title="Shaera Targaryen\n226&#45;259" target="_blank">
-<polygon fill="none" stroke="black" points="1010.25,-862.5 867.75,-862.5 867.75,-719.5 1010.25,-719.5 1010.25,-862.5"/>
+<polygon fill="white" stroke="black" points="1010.25,-862.5 867.75,-862.5 867.75,-719.5 1010.25,-719.5 1010.25,-862.5"/>
 <text text-anchor="middle" x="939" y="-794.8" font-family="Times,serif" font-size="14.00">Shaera Targaryen</text>
 <text text-anchor="middle" x="939" y="-779.8" font-family="Times,serif" font-size="14.00">226&#45;259</text>
 </a>
@@ -119,7 +119,7 @@
 <!-- 163 -->
 <g id="node8" class="node"><title>163</title>
 <g id="a_node8"><a xlink:href="http://awoiaf.westeros.org/index.php/Aerys_II_Targaryen" xlink:title="Aerys II Targaryen\n244&#45;283" target="_blank">
-<polygon fill="none" stroke="black" points="841,-624 689,-624 689,-472 841,-472 841,-624"/>
+<polygon fill="white" stroke="black" points="841,-624 689,-624 689,-472 841,-472 841,-624"/>
 <text text-anchor="middle" x="765" y="-551.8" font-family="Times,serif" font-size="14.00">Aerys II Targaryen</text>
 <text text-anchor="middle" x="765" y="-536.8" font-family="Times,serif" font-size="14.00">244&#45;283</text>
 </a>
@@ -136,7 +136,7 @@
 <!-- 164 -->
 <g id="node9" class="node"><title>164</title>
 <g id="a_node9"><a xlink:href="http://awoiaf.westeros.org/index.php/Rhaella_Targaryen" xlink:title="Rhaella Targaryen\n245&#45;284" target="_blank">
-<polygon fill="none" stroke="black" points="1006.25,-621.5 859.75,-621.5 859.75,-474.5 1006.25,-474.5 1006.25,-621.5"/>
+<polygon fill="white" stroke="black" points="1006.25,-621.5 859.75,-621.5 859.75,-474.5 1006.25,-474.5 1006.25,-621.5"/>
 <text text-anchor="middle" x="933" y="-551.8" font-family="Times,serif" font-size="14.00">Rhaella Targaryen</text>
 <text text-anchor="middle" x="933" y="-536.8" font-family="Times,serif" font-size="14.00">245&#45;284</text>
 </a>
@@ -149,7 +149,7 @@
 <!-- 165 -->
 <g id="node10" class="node"><title>165</title>
 <g id="a_node10"><a xlink:href="http://awoiaf.westeros.org/index.php/Rhaegar_Targaryen" xlink:title="Rhaegar Targaryen\n259&#45;283" target="_blank">
-<polygon fill="none" stroke="black" points="274,-391 120,-391 120,-237 274,-237 274,-391"/>
+<polygon fill="white" stroke="black" points="274,-391 120,-391 120,-237 274,-237 274,-391"/>
 <text text-anchor="middle" x="197" y="-317.8" font-family="Times,serif" font-size="14.00">Rhaegar Targaryen</text>
 <text text-anchor="middle" x="197" y="-302.8" font-family="Times,serif" font-size="14.00">259&#45;283</text>
 </a>
@@ -162,7 +162,7 @@
 <!-- 166 -->
 <g id="node11" class="node"><title>166</title>
 <g id="a_node11"><a xlink:href="http://awoiaf.westeros.org/index.php/Rhaenys_Targaryen" xlink:title="Rhaenys Targaryen\n280&#45;283" target="_blank">
-<polygon fill="none" stroke="black" points="159.25,-155.5 4.75,-155.5 4.75,-0.5 159.25,-0.5 159.25,-155.5"/>
+<polygon fill="white" stroke="black" points="159.25,-155.5 4.75,-155.5 4.75,-0.5 159.25,-0.5 159.25,-155.5"/>
 <text text-anchor="middle" x="82" y="-81.8" font-family="Times,serif" font-size="14.00">Rhaenys Targaryen</text>
 <text text-anchor="middle" x="82" y="-66.8" font-family="Times,serif" font-size="14.00">280&#45;283</text>
 </a>
@@ -171,7 +171,7 @@
 <!-- 167 -->
 <g id="node12" class="node"><title>167</title>
 <g id="a_node12"><a xlink:href="http://awoiaf.westeros.org/index.php/Aegon_Targaryen_(son_of_Rhaegar)" xlink:title="Aegon Targaryen\n281&#45;283" target="_blank">
-<polygon fill="none" stroke="black" points="316.25,-147.5 177.75,-147.5 177.75,-8.5 316.25,-8.5 316.25,-147.5"/>
+<polygon fill="white" stroke="black" points="316.25,-147.5 177.75,-147.5 177.75,-8.5 316.25,-8.5 316.25,-147.5"/>
 <text text-anchor="middle" x="247" y="-81.8" font-family="Times,serif" font-size="14.00">Aegon Targaryen</text>
 <text text-anchor="middle" x="247" y="-66.8" font-family="Times,serif" font-size="14.00">281&#45;283</text>
 </a>
@@ -180,7 +180,7 @@
 <!-- 168 -->
 <g id="node13" class="node"><title>168</title>
 <g id="a_node13"><a xlink:href="http://awoiaf.westeros.org/index.php/Shaena_Targaryen" xlink:title="Shaena Targaryen\n267&#45;267" target="_blank">
-<polygon fill="none" stroke="black" points="532,-387 386,-387 386,-241 532,-241 532,-387"/>
+<polygon fill="white" stroke="black" points="532,-387 386,-387 386,-241 532,-241 532,-387"/>
 <text text-anchor="middle" x="459" y="-317.8" font-family="Times,serif" font-size="14.00">Shaena Targaryen</text>
 <text text-anchor="middle" x="459" y="-302.8" font-family="Times,serif" font-size="14.00">267&#45;267</text>
 </a>
@@ -189,7 +189,7 @@
 <!-- 169 -->
 <g id="node14" class="node"><title>169</title>
 <g id="a_node14"><a xlink:href="http://awoiaf.westeros.org/index.php/Daeron_Targaryen_(son_of_Aerys_II)" xlink:title="Daeron Targaryen\n269&#45;269" target="_blank">
-<polygon fill="none" stroke="black" points="696,-387 550,-387 550,-241 696,-241 696,-387"/>
+<polygon fill="white" stroke="black" points="696,-387 550,-387 550,-241 696,-241 696,-387"/>
 <text text-anchor="middle" x="623" y="-317.8" font-family="Times,serif" font-size="14.00">Daeron Targaryen</text>
 <text text-anchor="middle" x="623" y="-302.8" font-family="Times,serif" font-size="14.00">269&#45;269</text>
 </a>
@@ -197,14 +197,14 @@
 </g>
 <!-- 170 -->
 <g id="node15" class="node"><title>170</title>
-<polygon fill="none" stroke="black" points="835.25,-374.5 714.75,-374.5 714.75,-253.5 835.25,-253.5 835.25,-374.5"/>
+<polygon fill="white" stroke="black" points="835.25,-374.5 714.75,-374.5 714.75,-253.5 835.25,-253.5 835.25,-374.5"/>
 <text text-anchor="middle" x="775" y="-317.8" font-family="Times,serif" font-size="14.00">Stillborn Child</text>
 <text text-anchor="middle" x="775" y="-302.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </g>
 <!-- 171 -->
 <g id="node16" class="node"><title>171</title>
 <g id="a_node16"><a xlink:href="http://awoiaf.westeros.org/index.php/Aegon_Targaryen_(son_of_Aerys_II)" xlink:title="Aegon Targaryen\n272&#45;273" target="_blank">
-<polygon fill="none" stroke="black" points="992.25,-383.5 853.75,-383.5 853.75,-244.5 992.25,-244.5 992.25,-383.5"/>
+<polygon fill="white" stroke="black" points="992.25,-383.5 853.75,-383.5 853.75,-244.5 992.25,-244.5 992.25,-383.5"/>
 <text text-anchor="middle" x="923" y="-317.8" font-family="Times,serif" font-size="14.00">Aegon Targaryen</text>
 <text text-anchor="middle" x="923" y="-302.8" font-family="Times,serif" font-size="14.00">272&#45;273</text>
 </a>
@@ -213,7 +213,7 @@
 <!-- 172 -->
 <g id="node17" class="node"><title>172</title>
 <g id="a_node17"><a xlink:href="http://awoiaf.westeros.org/index.php/Jaehaerys_Targaryen_(son_of_Aerys_II)" xlink:title="Jaehaerys Targaryen\n274&#45;274" target="_blank">
-<polygon fill="none" stroke="black" points="1175,-396 1011,-396 1011,-232 1175,-232 1175,-396"/>
+<polygon fill="white" stroke="black" points="1175,-396 1011,-396 1011,-232 1175,-232 1175,-396"/>
 <text text-anchor="middle" x="1093" y="-317.8" font-family="Times,serif" font-size="14.00">Jaehaerys Targaryen</text>
 <text text-anchor="middle" x="1093" y="-302.8" font-family="Times,serif" font-size="14.00">274&#45;274</text>
 </a>
@@ -222,7 +222,7 @@
 <!-- 173 -->
 <g id="node18" class="node"><title>173</title>
 <g id="a_node18"><a xlink:href="http://awoiaf.westeros.org/index.php/Viserys_Targaryen" xlink:title="Viserys Targaryen\n276&#45;298" target="_blank">
-<polygon fill="none" stroke="black" points="1340.25,-387.5 1193.75,-387.5 1193.75,-240.5 1340.25,-240.5 1340.25,-387.5"/>
+<polygon fill="white" stroke="black" points="1340.25,-387.5 1193.75,-387.5 1193.75,-240.5 1340.25,-240.5 1340.25,-387.5"/>
 <text text-anchor="middle" x="1267" y="-317.8" font-family="Times,serif" font-size="14.00">Viserys Targaryen</text>
 <text text-anchor="middle" x="1267" y="-302.8" font-family="Times,serif" font-size="14.00">276&#45;298</text>
 </a>
@@ -231,7 +231,7 @@
 <!-- 174 -->
 <g id="node19" class="node"><title>174</title>
 <g id="a_node19"><a xlink:href="http://awoiaf.westeros.org/index.php/Daenerys_Targaryen" xlink:title="Daenerys Targaryen\n284&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="1519.25,-394.5 1358.75,-394.5 1358.75,-233.5 1519.25,-233.5 1519.25,-394.5"/>
+<polygon fill="white" stroke="black" points="1519.25,-394.5 1358.75,-394.5 1358.75,-233.5 1519.25,-233.5 1519.25,-394.5"/>
 <text text-anchor="middle" x="1439" y="-317.8" font-family="Times,serif" font-size="14.00">Daenerys Targaryen</text>
 <text text-anchor="middle" x="1439" y="-302.8" font-family="Times,serif" font-size="14.00">284&#45;</text>
 </a>
@@ -248,7 +248,7 @@
 <!-- 175 -->
 <g id="node20" class="node"><title>175</title>
 <g id="a_node20"><a xlink:href="http://awoiaf.westeros.org/index.php/Drogo" xlink:title="Drogo\n267&#45;298" target="_blank">
-<polygon fill="none" stroke="black" points="367.25,-351.5 292.75,-351.5 292.75,-276.5 367.25,-276.5 367.25,-351.5"/>
+<polygon fill="white" stroke="black" points="367.25,-351.5 292.75,-351.5 292.75,-276.5 367.25,-276.5 367.25,-351.5"/>
 <text text-anchor="middle" x="330" y="-317.8" font-family="Times,serif" font-size="14.00">Drogo</text>
 <text text-anchor="middle" x="330" y="-302.8" font-family="Times,serif" font-size="14.00">267&#45;298</text>
 </a>
@@ -261,7 +261,7 @@
 <!-- 176 -->
 <g id="node21" class="node"><title>176</title>
 <g id="a_node21"><a xlink:href="http://awoiaf.westeros.org/index.php/Rhaego" xlink:title="Rhaego\n298&#45;298" target="_blank">
-<polygon fill="none" stroke="black" points="942.25,-115.5 867.75,-115.5 867.75,-40.5 942.25,-40.5 942.25,-115.5"/>
+<polygon fill="white" stroke="black" points="942.25,-115.5 867.75,-115.5 867.75,-40.5 942.25,-40.5 942.25,-115.5"/>
 <text text-anchor="middle" x="905" y="-81.8" font-family="Times,serif" font-size="14.00">Rhaego</text>
 <text text-anchor="middle" x="905" y="-66.8" font-family="Times,serif" font-size="14.00">298&#45;298</text>
 </a>
@@ -270,7 +270,7 @@
 <!-- 177 -->
 <g id="node22" class="node"><title>177</title>
 <g id="a_node22"><a xlink:href="http://awoiaf.westeros.org/index.php/Daeron_Targaryen_(son_of_Aegon_V)" xlink:title="Daeron Targaryen\n228&#45;251" target="_blank">
-<polygon fill="none" stroke="black" points="1175,-864 1029,-864 1029,-718 1175,-718 1175,-864"/>
+<polygon fill="white" stroke="black" points="1175,-864 1029,-864 1029,-718 1175,-718 1175,-864"/>
 <text text-anchor="middle" x="1102" y="-794.8" font-family="Times,serif" font-size="14.00">Daeron Targaryen</text>
 <text text-anchor="middle" x="1102" y="-779.8" font-family="Times,serif" font-size="14.00">228&#45;251</text>
 </a>
@@ -279,7 +279,7 @@
 <!-- 178 -->
 <g id="node23" class="node"><title>178</title>
 <g id="a_node23"><a xlink:href="http://awoiaf.westeros.org/index.php/Rhaelle_Targaryen" xlink:title="Rhaelle Targaryen\n229&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="1340.25,-864.5 1193.75,-864.5 1193.75,-717.5 1340.25,-717.5 1340.25,-864.5"/>
+<polygon fill="white" stroke="black" points="1340.25,-864.5 1193.75,-864.5 1193.75,-717.5 1340.25,-717.5 1340.25,-864.5"/>
 <text text-anchor="middle" x="1267" y="-794.8" font-family="Times,serif" font-size="14.00">Rhaelle Targaryen</text>
 <text text-anchor="middle" x="1267" y="-779.8" font-family="Times,serif" font-size="14.00">229&#45;???</text>
 </a>

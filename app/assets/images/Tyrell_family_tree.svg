@@ -12,7 +12,7 @@
 <!-- 89 -->
 <g id="node1" class="node"><title>89</title>
 <g id="a_node1"><a xlink:href="http://awoiaf.westeros.org/index.php/Luthor_Tyrell" xlink:title="Luthor Tyrell\n???&#45;???" target="_blank">
-<polygon fill="none" stroke="black" points="166.25,-610.5 55.75,-610.5 55.75,-499.5 166.25,-499.5 166.25,-610.5"/>
+<polygon fill="white" stroke="black" points="166.25,-610.5 55.75,-610.5 55.75,-499.5 166.25,-499.5 166.25,-610.5"/>
 <text text-anchor="middle" x="111" y="-558.8" font-family="Times,serif" font-size="14.00">Luthor Tyrell</text>
 <text text-anchor="middle" x="111" y="-543.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </a>
@@ -29,7 +29,7 @@
 <!-- 90 -->
 <g id="node2" class="node"><title>90</title>
 <g id="a_node2"><a xlink:href="http://awoiaf.westeros.org/index.php/Olenna_Redwyne" xlink:title="Olenna Redwyne\n228&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="321.25,-623.5 184.75,-623.5 184.75,-486.5 321.25,-486.5 321.25,-623.5"/>
+<polygon fill="white" stroke="black" points="321.25,-623.5 184.75,-623.5 184.75,-486.5 321.25,-486.5 321.25,-623.5"/>
 <text text-anchor="middle" x="253" y="-558.8" font-family="Times,serif" font-size="14.00">Olenna Redwyne</text>
 <text text-anchor="middle" x="253" y="-543.8" font-family="Times,serif" font-size="14.00">228&#45;</text>
 </a>
@@ -42,7 +42,7 @@
 <!-- 91 -->
 <g id="node3" class="node"><title>91</title>
 <g id="a_node3"><a xlink:href="http://awoiaf.westeros.org/index.php/Mace_Tyrell" xlink:title="Mace Tyrell\n256&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="111.5,-391 10.5,-391 10.5,-289 111.5,-289 111.5,-391"/>
+<polygon fill="white" stroke="black" points="111.5,-391 10.5,-391 10.5,-289 111.5,-289 111.5,-391"/>
 <text text-anchor="middle" x="61" y="-343.8" font-family="Times,serif" font-size="14.00">Mace Tyrell</text>
 <text text-anchor="middle" x="61" y="-328.8" font-family="Times,serif" font-size="14.00">256&#45;</text>
 </a>
@@ -59,7 +59,7 @@
 <!-- 92 -->
 <g id="node4" class="node"><title>92</title>
 <g id="a_node4"><a xlink:href="http://awoiaf.westeros.org/index.php/Alerie_Hightower" xlink:title="Alerie Hightower\n257&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="509,-410 369,-410 369,-270 509,-270 509,-410"/>
+<polygon fill="white" stroke="black" points="509,-410 369,-410 369,-270 509,-270 509,-410"/>
 <text text-anchor="middle" x="439" y="-343.8" font-family="Times,serif" font-size="14.00">Alerie Hightower</text>
 <text text-anchor="middle" x="439" y="-328.8" font-family="Times,serif" font-size="14.00">257&#45;</text>
 </a>
@@ -72,7 +72,7 @@
 <!-- 93 -->
 <g id="node5" class="node"><title>93</title>
 <g id="a_node5"><a xlink:href="http://awoiaf.westeros.org/index.php/Willas_Tyrell" xlink:title="Willas Tyrell\n270&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="106.25,-170.5 -0.25,-170.5 -0.25,-63.5 106.25,-63.5 106.25,-170.5"/>
+<polygon fill="white" stroke="black" points="106.25,-170.5 -0.25,-170.5 -0.25,-63.5 106.25,-63.5 106.25,-170.5"/>
 <text text-anchor="middle" x="53" y="-120.8" font-family="Times,serif" font-size="14.00">Willas Tyrell</text>
 <text text-anchor="middle" x="53" y="-105.8" font-family="Times,serif" font-size="14.00">270&#45;</text>
 </a>
@@ -81,7 +81,7 @@
 <!-- 94 -->
 <g id="node6" class="node"><title>94</title>
 <g id="a_node6"><a xlink:href="http://awoiaf.westeros.org/index.php/Garlan_Tyrell" xlink:title="Garlan Tyrell\n277&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="235,-172 125,-172 125,-62 235,-62 235,-172"/>
+<polygon fill="white" stroke="black" points="235,-172 125,-172 125,-62 235,-62 235,-172"/>
 <text text-anchor="middle" x="180" y="-120.8" font-family="Times,serif" font-size="14.00">Garlan Tyrell</text>
 <text text-anchor="middle" x="180" y="-105.8" font-family="Times,serif" font-size="14.00">277&#45;</text>
 </a>
@@ -98,7 +98,7 @@
 <!-- 95 -->
 <g id="node7" class="node"><title>95</title>
 <g id="a_node7"><a xlink:href="http://awoiaf.westeros.org/index.php/Leonette Fossoway" xlink:title="Leonette Fossoway\n???&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="680,-194 526,-194 526,-40 680,-40 680,-194"/>
+<polygon fill="white" stroke="black" points="680,-194 526,-194 526,-40 680,-40 680,-194"/>
 <text text-anchor="middle" x="603" y="-120.8" font-family="Times,serif" font-size="14.00">Leonette Fossoway</text>
 <text text-anchor="middle" x="603" y="-105.8" font-family="Times,serif" font-size="14.00">???&#45;</text>
 </a>
@@ -111,7 +111,7 @@
 <!-- 96 -->
 <g id="node8" class="node"><title>96</title>
 <g id="a_node8"><a xlink:href="http://awoiaf.westeros.org/index.php/Margaery_Tyrell" xlink:title="Margaery Tyrell\n283&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="386.25,-183.5 253.75,-183.5 253.75,-50.5 386.25,-50.5 386.25,-183.5"/>
+<polygon fill="white" stroke="black" points="386.25,-183.5 253.75,-183.5 253.75,-50.5 386.25,-50.5 386.25,-183.5"/>
 <text text-anchor="middle" x="320" y="-120.8" font-family="Times,serif" font-size="14.00">Margaery Tyrell</text>
 <text text-anchor="middle" x="320" y="-105.8" font-family="Times,serif" font-size="14.00">283&#45;</text>
 </a>
@@ -120,7 +120,7 @@
 <!-- 97 -->
 <g id="node9" class="node"><title>97</title>
 <g id="a_node9"><a xlink:href="http://awoiaf.westeros.org/index.php/Loras_Tyrell" xlink:title="Loras Tyrell\n282&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="507.25,-168.5 404.75,-168.5 404.75,-65.5 507.25,-65.5 507.25,-168.5"/>
+<polygon fill="white" stroke="black" points="507.25,-168.5 404.75,-168.5 404.75,-65.5 507.25,-65.5 507.25,-168.5"/>
 <text text-anchor="middle" x="456" y="-120.8" font-family="Times,serif" font-size="14.00">Loras Tyrell</text>
 <text text-anchor="middle" x="456" y="-105.8" font-family="Times,serif" font-size="14.00">282&#45;</text>
 </a>
@@ -129,7 +129,7 @@
 <!-- 98 -->
 <g id="node10" class="node"><title>98</title>
 <g id="a_node10"><a xlink:href="http://awoiaf.westeros.org/index.php/Janna_Tyrell" xlink:title="Janna Tyrell\n???&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="233.25,-391.5 130.75,-391.5 130.75,-288.5 233.25,-288.5 233.25,-391.5"/>
+<polygon fill="white" stroke="black" points="233.25,-391.5 130.75,-391.5 130.75,-288.5 233.25,-288.5 233.25,-391.5"/>
 <text text-anchor="middle" x="182" y="-343.8" font-family="Times,serif" font-size="14.00">Janna Tyrell</text>
 <text text-anchor="middle" x="182" y="-328.8" font-family="Times,serif" font-size="14.00">???&#45;</text>
 </a>
@@ -138,7 +138,7 @@
 <!-- 100 -->
 <g id="node11" class="node"><title>100</title>
 <g id="a_node11"><a xlink:href="http://awoiaf.westeros.org/index.php/Mina_Tyrell" xlink:title="Mina Tyrell\n???&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="350.25,-389.5 251.75,-389.5 251.75,-290.5 350.25,-290.5 350.25,-389.5"/>
+<polygon fill="white" stroke="black" points="350.25,-389.5 251.75,-389.5 251.75,-290.5 350.25,-290.5 350.25,-389.5"/>
 <text text-anchor="middle" x="301" y="-343.8" font-family="Times,serif" font-size="14.00">Mina Tyrell</text>
 <text text-anchor="middle" x="301" y="-328.8" font-family="Times,serif" font-size="14.00">???&#45;</text>
 </a>

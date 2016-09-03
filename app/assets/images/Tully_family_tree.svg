@@ -12,7 +12,7 @@
 <!-- 2 -->
 <g id="node1" class="node"><title>2</title>
 <g id="a_node1"><a xlink:href="http://awoiaf.westeros.org/index.php/Catelyn_Stark" xlink:title="Catelyn Tully\n264&#45;299" target="_blank">
-<polygon fill="none" stroke="black" points="227.5,-153 116.5,-153 116.5,-41 227.5,-41 227.5,-153"/>
+<polygon fill="white" stroke="black" points="227.5,-153 116.5,-153 116.5,-41 227.5,-41 227.5,-153"/>
 <text text-anchor="middle" x="172" y="-100.8" font-family="Times,serif" font-size="14.00">Catelyn Tully</text>
 <text text-anchor="middle" x="172" y="-85.8" font-family="Times,serif" font-size="14.00">264&#45;299</text>
 </a>
@@ -21,7 +21,7 @@
 <!-- 12 -->
 <g id="node2" class="node"><title>12</title>
 <g id="a_node2"><a xlink:href="http://awoiaf.westeros.org/index.php/Hoster_Tully" xlink:title="Hoster Tully\n237&#45;299" target="_blank">
-<polygon fill="none" stroke="black" points="283.5,-342 178.5,-342 178.5,-236 283.5,-236 283.5,-342"/>
+<polygon fill="white" stroke="black" points="283.5,-342 178.5,-342 178.5,-236 283.5,-236 283.5,-342"/>
 <text text-anchor="middle" x="231" y="-292.8" font-family="Times,serif" font-size="14.00">Hoster Tully</text>
 <text text-anchor="middle" x="231" y="-277.8" font-family="Times,serif" font-size="14.00">237&#45;299</text>
 </a>
@@ -38,7 +38,7 @@
 <!-- 13 -->
 <g id="node3" class="node"><title>13</title>
 <g id="a_node3"><a xlink:href="http://awoiaf.westeros.org/index.php/Minisa_Whent" xlink:title="Minisa Whent\n250&#45;268" target="_blank">
-<polygon fill="none" stroke="black" points="554.25,-347.5 437.75,-347.5 437.75,-230.5 554.25,-230.5 554.25,-347.5"/>
+<polygon fill="white" stroke="black" points="554.25,-347.5 437.75,-347.5 437.75,-230.5 554.25,-230.5 554.25,-347.5"/>
 <text text-anchor="middle" x="496" y="-292.8" font-family="Times,serif" font-size="14.00">Minisa Whent</text>
 <text text-anchor="middle" x="496" y="-277.8" font-family="Times,serif" font-size="14.00">250&#45;268</text>
 </a>
@@ -51,7 +51,7 @@
 <!-- 19 -->
 <g id="node4" class="node"><title>19</title>
 <g id="a_node4"><a xlink:href="http://awoiaf.westeros.org/index.php/Edmure_Tully" xlink:title="Edmure Tully\n267&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="359.25,-153.5 246.75,-153.5 246.75,-40.5 359.25,-40.5 359.25,-153.5"/>
+<polygon fill="white" stroke="black" points="359.25,-153.5 246.75,-153.5 246.75,-40.5 359.25,-40.5 359.25,-153.5"/>
 <text text-anchor="middle" x="303" y="-100.8" font-family="Times,serif" font-size="14.00">Edmure Tully</text>
 <text text-anchor="middle" x="303" y="-85.8" font-family="Times,serif" font-size="14.00">267&#45;</text>
 </a>
@@ -68,7 +68,7 @@
 <!-- 20 -->
 <g id="node5" class="node"><title>20</title>
 <g id="a_node5"><a xlink:href="http://awoiaf.westeros.org/index.php/Lysa_Arryn" xlink:title="Lysa Tully\n266&#45;300" target="_blank">
-<polygon fill="none" stroke="black" points="468,-142 378,-142 378,-52 468,-52 468,-142"/>
+<polygon fill="white" stroke="black" points="468,-142 378,-142 378,-52 468,-52 468,-142"/>
 <text text-anchor="middle" x="423" y="-100.8" font-family="Times,serif" font-size="14.00">Lysa Tully</text>
 <text text-anchor="middle" x="423" y="-85.8" font-family="Times,serif" font-size="14.00">266&#45;300</text>
 </a>
@@ -77,7 +77,7 @@
 <!-- 21 -->
 <g id="node6" class="node"><title>21</title>
 <g id="a_node6"><a xlink:href="http://awoiaf.westeros.org/index.php/Roslin_Frey" xlink:title="Roslin Frey\n282&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="97.5,-146 0.5,-146 0.5,-48 97.5,-48 97.5,-146"/>
+<polygon fill="white" stroke="black" points="97.5,-146 0.5,-146 0.5,-48 97.5,-48 97.5,-146"/>
 <text text-anchor="middle" x="49" y="-100.8" font-family="Times,serif" font-size="14.00">Roslin Frey</text>
 <text text-anchor="middle" x="49" y="-85.8" font-family="Times,serif" font-size="14.00">282&#45;</text>
 </a>
@@ -89,7 +89,7 @@
 </g>
 <!-- 105 -->
 <g id="node7" class="node"><title>105</title>
-<polygon fill="none" stroke="black" points="282.5,-557 159.5,-557 159.5,-433 282.5,-433 282.5,-557"/>
+<polygon fill="white" stroke="black" points="282.5,-557 159.5,-557 159.5,-433 282.5,-433 282.5,-557"/>
 <text text-anchor="middle" x="221" y="-498.8" font-family="Times,serif" font-size="14.00">Unknown Tully</text>
 <text text-anchor="middle" x="221" y="-483.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </g>
@@ -103,7 +103,7 @@
 </g>
 <!-- 106 -->
 <g id="node8" class="node"><title>106</title>
-<polygon fill="none" stroke="black" points="443,-566 301,-566 301,-424 443,-424 443,-566"/>
+<polygon fill="white" stroke="black" points="443,-566 301,-566 301,-424 443,-424 443,-566"/>
 <text text-anchor="middle" x="372" y="-498.8" font-family="Times,serif" font-size="14.00">Unknown Woman</text>
 <text text-anchor="middle" x="372" y="-483.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </g>
@@ -114,7 +114,7 @@
 <!-- 107 -->
 <g id="node9" class="node"><title>107</title>
 <g id="a_node9"><a xlink:href="http://awoiaf.westeros.org/index.php/Brynden_Tully" xlink:title="Brynden Tully\n242&#45;" target="_blank">
-<polygon fill="none" stroke="black" points="419.25,-347.5 302.75,-347.5 302.75,-230.5 419.25,-230.5 419.25,-347.5"/>
+<polygon fill="white" stroke="black" points="419.25,-347.5 302.75,-347.5 302.75,-230.5 419.25,-230.5 419.25,-347.5"/>
 <text text-anchor="middle" x="361" y="-292.8" font-family="Times,serif" font-size="14.00">Brynden Tully</text>
 <text text-anchor="middle" x="361" y="-277.8" font-family="Times,serif" font-size="14.00">242&#45;</text>
 </a>
@@ -122,7 +122,7 @@
 </g>
 <!-- 108 -->
 <g id="node10" class="node"><title>108</title>
-<polygon fill="none" stroke="black" points="582,-145 486,-145 486,-49 582,-49 582,-145"/>
+<polygon fill="white" stroke="black" points="582,-145 486,-145 486,-49 582,-49 582,-145"/>
 <text text-anchor="middle" x="534" y="-100.8" font-family="Times,serif" font-size="14.00">Three Sons</text>
 <text text-anchor="middle" x="534" y="-85.8" font-family="Times,serif" font-size="14.00">???&#45;???</text>
 </g>
