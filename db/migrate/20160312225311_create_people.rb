@@ -4,7 +4,6 @@ class CreatePeople < ActiveRecord::Migration
 	t.column :name, :string, :limit => 32, :null => false
         t.column :gender, :character
         t.column :house, :string, :limit => 32
-        t.column :spouse, :integer
         t.column :father, :integer
         t.column :mother, :integer
         t.column :year_of_birth, :integer

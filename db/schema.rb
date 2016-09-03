@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20160713173747) do
     t.string  "name",          limit: 32, null: false
     t.string  "gender",        limit: 1
     t.string  "house",         limit: 32
-    t.integer "spouse",        limit: 4
     t.integer "father",        limit: 4
     t.integer "mother",        limit: 4
     t.integer "year_of_birth", limit: 4
