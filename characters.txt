@@ -28,7 +28,7 @@
 28	Maron Greyjoy	M	Greyjoy	25	26	269	289	Maron_Greyjoy
 29	Asha Greyjoy	F	Greyjoy	25	26	275	NULL	Asha_Greyjoy
 30	Theon Greyjoy	M	Greyjoy	25	26	278	NULL	Theon_Greyjoy
-31	Quellon Greyjoy	M	Greyjoy	NULL	NULL	-1	283	Quellon_Grejoy	
+31	Quellon Greyjoy	M	Greyjoy	NULL	NULL	-1	283	Quellon_Greyjoy	
 32	Lady of House Stonetree	F	Stonetree	NULL	NULL	-1	-1	NULL
 34	Harlon Greyjoy	M	Greyjoy	31	32	253	-1	Harlon_Greyjoy
 35	Quenton Greyjoy	M	Greyjoy	31	32	254	-1	Quenton_Greyjoy
