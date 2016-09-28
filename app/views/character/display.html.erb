@@ -1,0 +1,5 @@
+<h1><%=@name %>'s Family Tree</h1>
+<p>On this page, the immediate ancestors and descendants of a particular character are displayed.</p>
+
+<%= tag(:object, data: image_path(@wikilink+"_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
+
