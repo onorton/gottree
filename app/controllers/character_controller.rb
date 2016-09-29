@@ -2,9 +2,9 @@ require 'tree_renderer'
 
 class CharacterController < ApplicationController
   def display
-	@id = params[:id]
-        @name = Person.where("id = ?", @id).first.name
-	@wikilink = Person.where("id = ?", @id).first.wiki_link
+        @wikilink = params[:id]
+        @id = Person.where("wiki_link = ?", @wikilink).first.id
+	@name = Person.where("id = ?", @id).first.name
 	parents = Person.where("id = ?", @id)
         children = Person.where("id = ?", @id)
         children_temp = []

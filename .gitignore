@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+/config
+
+*.pem
+generate_files.rb
