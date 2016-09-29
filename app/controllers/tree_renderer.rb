@@ -3,7 +3,7 @@ def renderTree(name, people, relationships)
   family_tree = GraphViz.digraph( "family" ) { |family_tree| 
       family_tree[:ratio] = 'auto'
       people.each do |p|
-        family_tree.add_nodes( p.id.to_s, :style => 'filled', :href => formatLink(p), :fillcolor => 'white', :target => '_blank', :color => 'black', :fontcolor => 'black' , :label => p.name + formatYears(p), :regular => '1', :shape => 'box' )
+       family_tree.add_nodes( p.id.to_s, :style => 'filled', :href => formatLink(p, false), :fillcolor => 'white', :target => '_blank', :color => 'black', :fontcolor => 'black' , :label => '<<table align="right"  cellborder="0"  border="0" href="' + formatLink(p, true) + '"><tr><td>' + p.name + formatYears(p) + '</td></tr></table>>' , :regular => '1', :shape => 'box' )
         end 
 
       people.each do |p|
@@ -48,7 +48,7 @@ def renderTree(name, people, relationships)
   end
 
   def formatYears(person)
-    result = "\n"
+    result = "<br/>"
     if person.year_of_birth > 0
       result += person.year_of_birth.to_s
     elsif person.year_of_birth == -1
@@ -63,9 +63,13 @@ def renderTree(name, people, relationships)
     return result
   end
 
- def formatLink(person)
+ def formatLink(person, wikilink)
    unless person.wiki_link == "NULL"
-     return 'http://awoiaf.westeros.org/index.php/' + person.wiki_link
+      if (wikilink)
+     	return 'http://awoiaf.westeros.org/index.php/' + person.wiki_link
+      else
+        return '/character/display?id=' + person.wiki_link
+      end
    end
    return ''  
  end
