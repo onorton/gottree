@@ -3,7 +3,7 @@ def renderTree(name, people, relationships)
   family_tree = GraphViz.digraph( "family" ) { |family_tree| 
       family_tree[:ratio] = 'auto'
       people.each do |p|
-       family_tree.add_nodes( p.id.to_s, :style => 'filled', :href => formatLink(p, false), :fillcolor => 'white', :target => '_blank', :color => 'black', :fontcolor => 'black' , :label => '<<table align="right"  cellborder="0"  border="0" href="' + formatLink(p, true) + '"><tr><td>' + p.name + formatYears(p) + '</td></tr></table>>' , :regular => '1', :shape => 'box' )
+       family_tree.add_nodes( p.id.to_s, :style => 'filled', :href => formatLink(p, false), :fillcolor => 'white', :target => '_blank', :color => 'black', :fontcolor => 'black', :tooltip => p.name, :label => '<<table align="right"  cellborder="0"  border="0" href="' + formatLink(p, true) + '"><tr><td>' + p.name + formatYears(p) + '</td></tr></table>>' , :regular => '1', :shape => 'box' )
         end 
 
       people.each do |p|
