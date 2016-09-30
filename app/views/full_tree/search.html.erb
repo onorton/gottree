@@ -1,0 +1,12 @@
+<head>
+	<title>ASOIAF Family Tree</title>
+</head>
+
+  <% @houses.each do |house| %>
+  	<p><a href = "/house/display?name=<%=house.house%>">House <%= house.house%></a></p> 
+  <% end %>
+
+  <% @characters.each do |character| %>
+        <p><a href = "/house/display?name=<%=character.wiki_link%>"><%= character.wiki_link.gsub!('_', ' ')%></a></p> 
+  <% end %>
+

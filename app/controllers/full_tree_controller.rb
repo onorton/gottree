@@ -8,4 +8,11 @@ class FullTreeController < ApplicationController
     renderTree(nil, people, relationships)
   end
 
+  def search
+     if params[:query]
+         @characters = Person.searchCharacters(params[:query])
+         @houses = Person.searchHouses(params[:query])
+     end
+  end
+
 end

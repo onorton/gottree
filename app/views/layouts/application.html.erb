@@ -6,6 +6,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<div class="top-bar">
+<%= form_tag(full_tree_search_path, :method => "get", id: "search-form", diplay: "inline_block") do %>
+<%= text_field_tag :query, params[:query], placeholder: "Search Family Tree" %>
+<%= submit_tag "Search" %>
+<% end %>
 <input style="color: #FFFFFF;background: #222222;" class="HouseButton" type="button" value="All" onclick="window.location.href='/'"/>
 <input style="color: #000000;background: #CCCCCC;" class="HouseButton" type="button" value="Stark" onclick="window.location.href='/house/display?name=Stark'"/>
 <input style="color: #FFFFFF;background: #0000A0;" class="HouseButton" type="button" value="Tully" onclick="window.location.href='/house/display?name=Tully'"/>
@@ -16,6 +22,7 @@
 <input style="color: #800000;background: #FFA500;" class="HouseButton" type="button" value="Martell" onclick="window.location.href='/house/display?name=Martell'"/>
 <input style="color: #FFA500;background: #000000;" class="HouseButton" type="button" value="Greyjoy" onclick="window.location.href='/house/display?name=Greyjoy'"/>
 <input style="color: #FF0000;background: #000000;" class="HouseButton" type="button" value="Targaryen" onclick="window.location.href='/house/display?name=Targaryen'"/>
+</div>
 </form>
 
 	<%= yield %>
