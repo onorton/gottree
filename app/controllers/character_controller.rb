@@ -4,7 +4,7 @@ class CharacterController < ApplicationController
   def display
         @wikilink = params[:id]
         @id = Person.where("wiki_link = ?", @wikilink).first.id
-	@name = Person.where("id = ?", @id).first.name
+	@name = @wikilink.gsub('_',' ')
 	parents = Person.where("id = ?", @id)
         children = Person.where("id = ?", @id)
         children_temp = []

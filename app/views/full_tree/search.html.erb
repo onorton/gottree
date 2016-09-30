@@ -7,6 +7,6 @@
   <% end %>
 
   <% @characters.each do |character| %>
-        <p><a href = "/house/display?name=<%=character.wiki_link%>"><%= character.wiki_link.gsub!('_', ' ')%></a></p> 
+        <p><a href = "/character/display?id=<%=character.wiki_link%>"><%= character.wiki_link.gsub!('_', ' ')%></a></p> 
   <% end %>
 

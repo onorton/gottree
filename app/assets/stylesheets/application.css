@@ -21,6 +21,15 @@ font-weight: bold;
 font-size: 100%;
 cursor: pointer;
 border: 1px solid #999999;
+
 }
 input.HouseButton:hover {
+}
+
+form {
+display: inline;
+}
+
+div.top-bar{
+white-space: nowrap;
 }
