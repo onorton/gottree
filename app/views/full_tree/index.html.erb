@@ -4,4 +4,40 @@
 
 <h1>ASOIAF Family Tree</h1>
 
-<%= tag(:object, data: image_path("family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
+<%= tag(:object, id: "tree", data: image_path("family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
+
+<script>
+var tree = document.getElementById('tree')
+tree.style.width = (window.innerWidth) + "px"
+tree.style.height = (window.innerHeight * 0.78) + "px"
+
+var beforePan
+
+beforePan = function(oldPan, newPan){
+    var stopHorizontal = false, 
+    stopVertical = false, 
+    gutterWidth = window.innerWidth*0.1, 
+    gutterHeight = window.innerHeight*0.1, 
+
+    sizes = this.getSizes(), 
+    leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
+    rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom), 
+    topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
+    bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
+
+    customPan = {}
+    customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
+    customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
+
+    return customPan
+}
+
+document.getElementById('tree').addEventListener('load', function(){
+  svgPanZoom(document.getElementById('tree'), {
+          controlIconsEnabled: false,
+          maxZoom: 20,
+          beforePan: beforePan,
+        }); 
+})
+</script>
+

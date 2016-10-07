@@ -1,6 +1,6 @@
 
 def renderTree(name, people, relationships)
-  family_tree = GraphViz.digraph( "family" ) { |family_tree| 
+  family_tree = GraphViz.digraph( " " ) { |family_tree| 
       family_tree[:ratio] = 'auto'
       people.each do |p|
        family_tree.add_nodes( p.id.to_s, :style => 'filled', :href => formatLink(p, false), :fillcolor => 'white', :target => '_blank', :color => 'black', :fontcolor => 'black', :tooltip => p.name, :label => '<<table align="right"  cellborder="0"  border="0" href="' + formatLink(p, true) + '"><tr><td>' + p.name + formatYears(p) + '</td></tr></table>>' , :regular => '1', :shape => 'box' )
@@ -9,13 +9,13 @@ def renderTree(name, people, relationships)
       people.each do |p|
         rs = relationships.where('person_1 = ?', p)
         rs.each do |r|
-           family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point' )
+           family_tree.add_nodes( p.id.to_s + "+" + r.person_2.to_s, :color => '', :label => '', :regular => '', :shape => 'point', :tooltip => ' ')
            style = 'solid'
            if !r.legitimate
              style = 'dashed' 
            end 
-           family_tree.add_edges(p.id.to_s, p.id.to_s + "+" + r.person_2.to_s, :dir=>'none', :style => style)
-           family_tree.add_edges(r.person_2.to_s, p.id.to_s + "+" + r.person_2.to_s , :dir=>'none', :style => style)
+           family_tree.add_edges(p.id.to_s, p.id.to_s + "+" + r.person_2.to_s, :dir=>'none', :style => style, :tooltip => ' ')
+           family_tree.add_edges(r.person_2.to_s, p.id.to_s + "+" + r.person_2.to_s , :dir=>'none', :style => style, :tooltip => ' ')
         end
       end
 
