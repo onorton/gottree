@@ -3,10 +3,29 @@
 </head>
 
 <h1><%= @house %> Family Tree</h1>
-
+<svg id="graph"></svg>
 <%= tag(:object, id: "tree", data: image_path(@house+"_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
 
+
 <script>
+var house =  '<%=@house%>'
+$.ajax({
+	   type: "GET",
+           contentType: "application/json; charset=utf-8",
+	   url: 'display?name='+house,
+           dataType: 'json',
+           success: function (data) {
+		                  draw(data);
+				             },
+           error: function (result) {
+		                  console.log("error");
+				             }
+       });
+ 
+function draw(data) {
+	console.log("sup")
+}
+
 var tree = document.getElementById('tree')
 tree.style.width = (window.innerWidth) + "px"
 tree.style.height = (window.innerHeight * 0.78) + "px"
