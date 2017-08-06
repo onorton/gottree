@@ -43,10 +43,30 @@ function draw(data) {
 
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
-
-	links = data.relationships.map(function(r) {
-			return {"source": r.person_1, "target": r.person_2}
+	var nodes = data.people.map(function(p) {
+			return {"id": p.id, "name": p.name, "value": 5}
 			})
+	var links = []
+	data.people.forEach(function(p) {
+			var relationships = data.relationships.filter(function(r) {
+					return r.person_1 == p.id
+					})
+			relationships.forEach(function(r) {
+				nodes.push({"id": p.id + ' ' + r.person_2, "value": 1})
+				links.push({"source": p.id, "target": p.id + ' ' + r.person_2})
+				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2})
+			})	
+			})
+	data.people.forEach(function(p) {
+				var parents = data.relationships.filter(function(r) {
+					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
+					})
+				if (parents.length == 1) {
+					links.push({"source":p.id, "target": parents[0].person_1 + ' ' + parents[0].person_2})
+				}
+			})
+	
+
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	        .force("charge", d3.forceManyBody())
@@ -62,25 +82,24 @@ var simulation = d3.forceSimulation()
 	   var node = svg.append("g")
 	         .attr("class", "nodes")
 		     .selectAll("circle")
-		         .data(data.people)
+		         .data(nodes)
 			     .enter().append("circle")
-			           .attr("r", 5)
+			     .attr("r", function(d) {return d.value})
 
          node.append("text")
 		       .attr("dx", 12)
 		             .attr("dy", ".35em")
 			           .text(function(d) { return d.name });
 
-	console.log(simulation.links)
 	simulation
-	 .nodes(data.people)
+	 .nodes(nodes)
 	 .on("tick", ticked) 
 simulation.force("link")
 .links(links)
 
 	   function ticked() {
 		    link
-			         .attr("x1", function(d) { console.log("sup"); return d.source.x})
+			         .attr("x1", function(d) { return d.source.x})
 				            .attr("y1", function(d) { return d.source.y })
 					            .attr("x2", function(d) { return d.target.x })
 						            .attr("y2", function(d) { return d.target.y});
