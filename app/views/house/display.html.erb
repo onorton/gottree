@@ -78,7 +78,8 @@ function draw(data) {
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	        .force("charge", d3.forceManyBody())
-		    .force("center", d3.forceCenter(width / 2, height / 2));
+		.force("center", d3.forceCenter(width / 2, height / 2));
+d3.forceY(nodes.map(function(n) {return n.generation}))
   var link = svg.append("g")
         .attr("class", "links")
 	    .selectAll("path")
@@ -97,9 +98,14 @@ var simulation = d3.forceSimulation()
 		       .attr("dx", 12)
 		             .attr("dy", ".35em")
 			           .text(function(d) { return d.name });
-  function elbow(d, i) { 
+function elbow(d, i) {
+       			if (isNaN(d.source.id)) {	
 			return "M" + d.source.x + "," + d.source.y
-			           + "V" + d.target.y + "H" + d.target.x;
+				+ "V" + d.target.y + "H" + d.target.x;
+			} else {
+				return "M" + d.target.x + "," + d.target.y
+					+ "V" +  (d.target.y + (d.source.y-d.target.y)/2) + "H" + d.source.x + "V" + d.source.y;
+			}
 	   }
 	simulation
 	 .nodes(nodes)

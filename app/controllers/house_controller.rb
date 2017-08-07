@@ -15,6 +15,6 @@ class HouseController < ApplicationController
 	    }
 
   end
-    #renderTree(@house, people, relationships)
+
   end
 end
