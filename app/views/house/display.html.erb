@@ -44,7 +44,7 @@ function draw(data) {
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var nodes = data.people.map(function(p) {
-			return {"id": p.id, "name": p.name, "value": 5, "father": p.father, "mother": p.mother}
+			return {"id": p.id, "name": p.name, "value": 1, "father": p.father, "mother": p.mother}
 			})
 	var links = []
 	data.people.forEach(function(p) {
@@ -52,7 +52,7 @@ function draw(data) {
 					return r.person_1 == p.id
 					})
 			relationships.forEach(function(r) {
-				nodes.push({"id": p.id + ' ' + r.person_2, "value": 1})
+				nodes.push({"id": p.id + ' ' + r.person_2, "value": 0})
 				links.push({"source": p.id, "target": p.id + ' ' + r.person_2})
 				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2})
 			})	
@@ -95,12 +95,13 @@ d3.forceY(nodes.map(function(n) {return n.generation}))
 			 .enter().
 			 append("g")
 			    
-
+	var rectWidth = 50;
+	var rectHeight = 25;
 	var rect = node.append("rect")
-			     .attr("width", 50)
-			     .attr("height", 25)
+	.attr("width", function(d){return d.value*rectWidth})
+	.attr("height", function(d){return d.value*rectHeight})
 			     .attr("stroke", "black")
-			     .attr("fill", "none")
+			     .attr("fill", "white")
 			     .attr("stroke-width", 2)
 	console.log(svg)		   
 	var label =  node.append("text")
@@ -126,8 +127,8 @@ simulation.force("link")
 		    link
 			         .attr("d", elbow)
 		          rect
-				          .attr("x", function(d) { return d.x-25; })
-					          .attr("y", function(d) { return d.y-12; });
+				          .attr("x", function(d) { return d.x-rectWidth/2; })
+					          .attr("y", function(d) { return d.y-rectHeight/2; });
 	   		}
 }
 var tree = document.getElementById('tree')
