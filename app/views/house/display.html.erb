@@ -44,7 +44,7 @@ function draw(data) {
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var nodes = data.people.map(function(p) {
-			return {"id": p.id, "name": p.name, "value": 1, "father": p.father, "mother": p.mother}
+			return {"id": p.id, "name": p.name, "dates": dates(p), "value": 1, "father": p.father, "mother": p.mother}
 			})
 	var links = []
 	data.people.forEach(function(p) {
@@ -75,8 +75,8 @@ function draw(data) {
 			n.generation = 1 + Math.max.apply(null, children.map(function(c) {return c.generation}))
 			}})		
 	}
-	var rectWidth = 100;
-	var rectHeight = 25;
+	var rectWidth = 110;
+	var rectHeight = 35;
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	    .force("charge", d3.forceManyBody())
@@ -106,8 +106,11 @@ d3.forceY(nodes.map(function(n) {return n.generation}))
 			     .attr("fill", "white")
 			     .attr("stroke-width", 2)
 	var label =  node.append("text")
-		       .attr("text-anchor", "middle")
-			           .text(function(d) { return d.name });
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.name })
+	var dates = node.append("text")
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.dates})
 function elbow(d, i) {
        			if (isNaN(d.source.id)) {	
 			return "M" + d.source.x + "," + d.source.y
@@ -116,7 +119,22 @@ function elbow(d, i) {
 				return "M" + d.target.x + "," + d.target.y
 					+ "V" +  (d.target.y + (d.source.y-d.target.y)/2) + "H" + d.source.x + "V" + d.source.y;
 			}
-	   }
+}
+function dates(p) {
+	result = '';
+	if (p.year_of_birth > 0) {
+		result += p.year_of_birth;
+	} else if (p.year_of_birth == -1) {
+		result += '???';
+	}
+	result += '-';
+	if (p.year_of_death > 0) {
+		result += p.year_of_death
+	} else if (p.year_of_death == -1) {
+		result += '???'
+	}
+	return result
+}
 	simulation
 	 .nodes(nodes)
 	 .on("tick", ticked) 
@@ -131,7 +149,8 @@ simulation.force("link")
 					          .attr("y", function(d) { return d.y-rectHeight/2; });
 				label.attr("x", function(d) { return d.x; })
 					.attr("y", function(d) { return d.y;})
-
+				dates.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y+12;})
 			   }
 }
 var tree = document.getElementById('tree')
