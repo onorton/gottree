@@ -75,9 +75,12 @@ function draw(data) {
 			n.generation = 1 + Math.max.apply(null, children.map(function(c) {return c.generation}))
 			}})		
 	}
+	var rectWidth = 100;
+	var rectHeight = 25;
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-	        .force("charge", d3.forceManyBody())
+	    .force("charge", d3.forceManyBody())
+	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5))
 		.force("center", d3.forceCenter(width / 2, height / 2));
 d3.forceY(nodes.map(function(n) {return n.generation}))
   var link = svg.append("g")
@@ -95,15 +98,13 @@ d3.forceY(nodes.map(function(n) {return n.generation}))
 			 .enter().
 			 append("g")
 			    
-	var rectWidth = 100;
-	var rectHeight = 25;
+	
 	var rect = node.append("rect")
 	.attr("width", function(d){return d.value*rectWidth})
 	.attr("height", function(d){return d.value*rectHeight})
 			     .attr("stroke", "black")
 			     .attr("fill", "white")
 			     .attr("stroke-width", 2)
-	console.log(svg)		   
 	var label =  node.append("text")
 		       .attr("text-anchor", "middle")
 			           .text(function(d) { return d.name });
