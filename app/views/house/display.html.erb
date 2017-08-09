@@ -3,7 +3,7 @@
 </head>
 
 <h1><%= @house %> Family Tree</h1>
-<svg width="1000" height="500" ></svg>
+<svg width="1000" height="1000" ></svg>
 <%= tag(:object, id: "tree", data: image_path(@house+"_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
 
 <style>
@@ -70,11 +70,27 @@ function draw(data) {
 		nodes.forEach(function(n) {
 			var children = nodes.filter(function(c) {return c.father == n.id || c.mother == n.id })
 			if (children.length == 0) {
-			n.generation = 0
+				n.generation = 0
+								
 			} else if (!children.some(function(c) {return c.generation == undefined || isNaN(c.generation)})) {
 			n.generation = 1 + Math.max.apply(null, children.map(function(c) {return c.generation}))
 			}})		
 	}
+	nodes.forEach(function(n) {
+			var children = nodes.filter(function(c) {return c.father == n.id || c.mother == n.id })
+			if (children.length == 0 || children.some(function(c) {c.generation >= n.generation})) {
+			var marriages = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id  }).map(function(r) { if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
+				if (marriages.length == 0) {
+					n.generation = 0
+					} else {
+						var partners = nodes.filter(function(p) {return marriages.includes(p.id)})
+						if (!partners.some(function(p) { return p.generation == undefined || isNaN(p.generation)})) {
+						n.generation = Math.max.apply(null, partners.map(function(p) {return p.generation}))
+						}
+					}
+
+			}
+	})
 	var rectWidth = 110;
 	var rectHeight = 35;
 	
@@ -83,7 +99,7 @@ var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	    .force("charge", d3.forceManyBody())
 	    //.force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5))
-	    .force("yAxis", d3.forceY(function(d) {return 500-10*d.generation*rectHeight}))
+	    .force("yAxis", d3.forceY(function(d) {return 1000-10*d.generation*rectHeight}))
 	    .force("center", d3.forceCenter(width / 2, height / 2));
   var link = svg.append("g")
         .attr("class", "links")
