@@ -62,7 +62,7 @@ function draw(data) {
 					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
 					})
 				if (parents.length == 1) {
-					links.push({"source":p.id, "target": parents[0].person_1 + ' ' + parents[0].person_2})
+					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2})
 				}
 			})
 	
@@ -145,7 +145,7 @@ var simulation = d3.forceSimulation()
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.dates})
 function elbow(d, i) {
-       			if (isNaN(d.source.id)) {	
+       			if (!isNaN(d.source.id)) {	
 			return "M" + d.source.x + "," + d.source.y
 				+ "V" + d.target.y + "H" + d.target.x;
 			} else {
