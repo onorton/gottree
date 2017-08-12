@@ -98,6 +98,13 @@ function draw(data) {
 			}
 		}
 		})
+	nodes.forEach(function(n) {
+			if (n.value == 0) {
+				ids = n.id.split(' ')
+				generations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.generation})
+				n.generation = (generations[0] + generations[1])/2 + 1
+			}
+	})
 	console.log(nodes.map(function(n){return n.name + ": " + n.generation}))	
 	var rectWidth = 110;
 	var rectHeight = 35;
@@ -106,7 +113,7 @@ function draw(data) {
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	    .force("charge", d3.forceManyBody())
-	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5).strength(0.3))
+	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5).strength(0.4))
 	    .force("yAxis", d3.forceY(function(d) {return 5*d.generation*rectHeight}).strength(1))
 	    .force("center", d3.forceCenter(width / 2, height / 2));
   var link = svg.append("g")
