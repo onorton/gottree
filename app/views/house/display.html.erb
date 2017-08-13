@@ -150,12 +150,15 @@ var simulation = d3.forceSimulation()
 function highlightNeighbours(d) {
 	var neighbours = [d.id]
 	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
+neighbours += nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id})
 	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
 }
 function reset(d) {
 var neighbours = [d.id]
 	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
+	neighbours += nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id})
 	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 2)
+
 
 }
 function elbow(d, i) {
