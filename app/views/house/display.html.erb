@@ -44,7 +44,7 @@ function draw(data) {
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var nodes = data.people.map(function(p) {
-			return {"id": p.id, "name": p.name, "dates": dates(p), "value": 1, "father": p.father, "mother": p.mother}
+			return {"id": p.id, "name": p.name, "dates": dates(p), "value": 1, "father": (p.father == 0) ? {} : p.father, "mother": (p.mother == 0) ? {} : p.mother}
 			})
 	var links = []
 	data.people.forEach(function(p) {
@@ -162,11 +162,10 @@ svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id
 
 function immediateFamily(d) {
 	var neighbours = [d.id]
-	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
-	neighbours += nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id})
-	neighbours += data.relationships.filter(function(r) {return r.person_1 == d.id || r.person_2 == d.id}).map(function(r) {if (r.person_1 == d.id) {return r.person_2} else {return r.person_1} })
-
-//	neighbours += nodes.filter(function(n) {return n.father == d.father || n.mother == d.mother}).map(function(n) {return n.id})
+	neighbours = neighbours.concat(nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id}))
+	neighbours = neighbours.concat(nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id}))
+	neighbours = neighbours.concat(data.relationships.filter(function(r) {return r.person_1 == d.id || r.person_2 == d.id}).map(function(r) {if (r.person_1 == d.id) {return r.person_2} else {return r.person_1} }))
+	neighbours= neighbours.concat(nodes.filter(function(n) {return n.father == d.father || n.mother == d.mother}).map(function(n) {return n.id}))
 	return neighbours
 }
 function elbow(d, i) {
