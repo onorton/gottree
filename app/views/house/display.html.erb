@@ -149,24 +149,25 @@ var simulation = d3.forceSimulation()
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.dates})
 function highlightNeighbours(d) {
+	var neighbours = immediateFamily(d)
+	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
+	svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)}).style('stroke-width', 2)
+}
+function reset(d) {
+	var neighbours = immediateFamily(d)
+	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 2)
+svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)}).style('stroke-width', 1)
+
+}
+
+function immediateFamily(d) {
 	var neighbours = [d.id]
 	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
 	neighbours += nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id})
 	neighbours += data.relationships.filter(function(r) {return r.person_1 == d.id || r.person_2 == d.id}).map(function(r) {if (r.person_1 == d.id) {return r.person_2} else {return r.person_1} })
 
-	neighbours += nodes.filter(function(n) {return n.father == d.father || n.mother == d.mother}).map(function(n) {return n.id})
-	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
-	svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)}).style('stroke-width', 2)
-}
-function reset(d) {
-var neighbours = [d.id]
-	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
-	neighbours += nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id})
-	neighbours += data.relationships.filter(function(r) {return r.person_1 == d.id || r.person_2 == d.id}).map(function(r) {if (r.person_1 == d.id) {return r.person_2} else {return r.person_1} })
-neighbours += nodes.filter(function(n) {return n.father == d.father || n.mother == d.mother}).map(function(n) {return n.id})
-	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 2)
-svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)}).style('stroke-width', 1)
-
+//	neighbours += nodes.filter(function(n) {return n.father == d.father || n.mother == d.mother}).map(function(n) {return n.id})
+	return neighbours
 }
 function elbow(d, i) {
        			if (!isNaN(d.source.id)) {	
