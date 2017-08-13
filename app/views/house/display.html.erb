@@ -121,7 +121,7 @@ var simulation = d3.forceSimulation()
 	    .selectAll("path")
 	        .data(links)
 		    .enter().append("path")
-		          .attr("stroke-width", function(d) { return 1; })
+		          .attr("stroke-width", 1)
 			  .attr("fill", "none")
 			  .attr("stroke", "black")
 	   var node = svg.append("g")
@@ -138,6 +138,7 @@ var simulation = d3.forceSimulation()
 			     .attr("stroke", "black")
 			     .attr("fill", "white")
 			     .attr("stroke-width", 2)
+			     .attr("id", function(d){return d.id})
 			     .on("mouseover", highlightNeighbours)
 			     .on("mouseout", reset)
 	var label =  node.append("text")
@@ -147,10 +148,15 @@ var simulation = d3.forceSimulation()
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.dates})
 function highlightNeighbours(d) {
-	svg.selectAll('rect').filter(function(n) {return n.index == d.index} ).style('stroke-width', 4)
+	var neighbours = [d.id]
+	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
+	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
 }
 function reset(d) {
-	svg.selectAll('rect').filter(function(n) {return n.index == d.index}).style('stroke-width', 2)
+var neighbours = [d.id]
+	neighbours += nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id})
+	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 2)
+
 }
 function elbow(d, i) {
        			if (!isNaN(d.source.id)) {	
