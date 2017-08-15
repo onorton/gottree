@@ -43,15 +43,15 @@ function draw(data) {
 	
 	
 	houseColours = {
-		"Stark":"#CCCCCC",
-		"Tully":"#0000A0",
-		"Baratheon":"#FFFF00",
-		"Lannister":"#800000",
-		"Tyrell":"#008000",
-		"Arryn":"#5B91FF",
-		"Martell":"#FFA500",
-		"Greyjoy":"#FFA500",
-		"Targaryen":"#FF0000"
+		"Stark":{"background": "#CCCCCC", "text": "#000000"},
+		"Tully":{"background": "#0000A0", "text": "#FFFFFF"},
+		"Baratheon":{"background": "#FFFF00", "text": "#000000"},
+		"Lannister":{"background": "#800000", "text": "#FFFFFF"},
+		"Tyrell":{"background": "#008000", "text": "FFFF00"},
+		"Arryn":{"background": "#5B91FF",  "text": "FFFFFF"},
+		"Martell":{"background": "#FFA500", "text": "8000000"},
+		"Greyjoy":{"background": "#000000", "text": "#FFA500"},
+		"Targaryen":{"background":"#000000", "text": "#FF0000"}
 
 	}
 	var svg = d3.select("svg"),
@@ -154,7 +154,7 @@ var simulation = d3.forceSimulation()
 	.attr("width", function(d){return d.value*rectWidth})
 	.attr("height", function(d){return d.value*rectHeight})
 	.attr("stroke", "black")
-			     .attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour})
+			     .attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour.background})
 			     .attr("stroke-width", 2)
 			     .attr("id", function(d){return d.id})
 			     .on("mouseover", highlightNeighbours)
@@ -162,9 +162,11 @@ var simulation = d3.forceSimulation()
 	var label =  node.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.name })
+			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 	var dates = node.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.dates})
+.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 function highlightNeighbours(d) {
 	var neighbours = immediateFamily(d)
 	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
