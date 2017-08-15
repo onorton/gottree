@@ -37,6 +37,23 @@ $.ajax({
  
 function draw(data) {
 	console.log(data)
+	
+
+
+	
+	
+	houseColours = {
+		"Stark":"#CCCCCC",
+		"Tully":"#0000A0",
+		"Baratheon":"#FFFF00",
+		"Lannister":"#800000",
+		"Tyrell":"#008000",
+		"Arryn":"#5B91FF",
+		"Martell":"#FFA500",
+		"Greyjoy":"#FFA500",
+		"Targaryen":"#FF0000"
+
+	}
 	var svg = d3.select("svg"),
 	        width = +svg.attr("width"),
 		    height = +svg.attr("height");
@@ -44,7 +61,7 @@ function draw(data) {
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var nodes = data.people.map(function(p) {
-			return {"id": p.id, "name": p.name, "dates": dates(p), "value": 1, "father": (p.father == 0) ? {} : p.father, "mother": (p.mother == 0) ? {} : p.mother}
+			return {"id": p.id, "name": p.name, "colour" : houseColours[p.house] , "dates": dates(p), "value": 1, "father": (p.father == 0) ? {} : p.father, "mother": (p.mother == 0) ? {} : p.mother}
 			})
 	var links = []
 	data.people.forEach(function(p) {
@@ -136,8 +153,8 @@ var simulation = d3.forceSimulation()
 	var rect = node.append("rect")
 	.attr("width", function(d){return d.value*rectWidth})
 	.attr("height", function(d){return d.value*rectHeight})
-			     .attr("stroke", "black")
-			     .attr("fill", "white")
+	.attr("stroke", "black")
+			     .attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour})
 			     .attr("stroke-width", 2)
 			     .attr("id", function(d){return d.id})
 			     .on("mouseover", highlightNeighbours)
