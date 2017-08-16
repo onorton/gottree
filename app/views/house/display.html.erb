@@ -47,11 +47,11 @@ function draw(data) {
 		"Tully":{"background": "#0000A0", "text": "#FFFFFF"},
 		"Baratheon":{"background": "#FFFF00", "text": "#000000"},
 		"Lannister":{"background": "#800000", "text": "#FFFFFF"},
-		"Tyrell":{"background": "#008000", "text": "FFFF00"},
-		"Arryn":{"background": "#5B91FF",  "text": "FFFFFF"},
-		"Martell":{"background": "#FFA500", "text": "8000000"},
-		"Greyjoy":{"background": "#000000", "text": "#FFA500"},
-		"Targaryen":{"background":"#000000", "text": "#FF0000"}
+		"Tyrell":{"background": "#008000", "text": "#FFFF00"},
+		"Arryn":{"background": "#5B91FF",  "text": "#FFFFFF"},
+		"Martell":{"background": "#FFA500", "text": "#800000"},
+		"Greyjoy":{"background": "#101010", "text": "#FFA500"},
+		"Targaryen":{"background":"#101010", "text": "#FF0000"}
 
 	}
 	var svg = d3.select("svg"),
@@ -123,7 +123,7 @@ function draw(data) {
 			}
 	})
 	console.log(nodes.map(function(n){return n.name + ": " + n.generation}))	
-	var rectWidth = 110;
+	var rectWidth = 120;
 	var rectHeight = 35;
 	
 	
@@ -140,7 +140,7 @@ var simulation = d3.forceSimulation()
 		    .enter().append("path")
 		          .attr("stroke-width", 1)
 			  .attr("fill", "none")
-			  .attr("stroke", "black")
+			  .attr("stroke","black")
 			  .attr("id", function(l) {return l.source + ',' + l.target})
 	   var node = svg.append("g")
 	   .attr("class", "nodes")
