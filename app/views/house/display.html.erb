@@ -61,7 +61,7 @@ function draw(data) {
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var nodes = data.people.map(function(p) {
-			return {"id": p.id, "name": p.name, "colour" : houseColours[p.house] , "dates": dates(p), "value": 1, "father": (p.father == 0) ? {} : p.father, "mother": (p.mother == 0) ? {} : p.mother}
+			return {"id": p.id, "name": p.name, "colour" : houseColours[p.house] , "dates": dates(p), "link": p.wiki_link, "value": 1, "father": (p.father == 0) ? {} : p.father, "mother": (p.mother == 0) ? {} : p.mother}
 			})
 	var links = []
 	data.people.forEach(function(p) {
@@ -158,6 +158,7 @@ var simulation = d3.forceSimulation()
 			     .attr("stroke-width", 2)
 			     .attr("id", function(d){return d.id})
 			     .on("mouseover", highlightNeighbours)
+			     .on("click", function(d) {window.open("/character/display?id="+d.link, '_blank')})
 			     .on("mouseout", reset)
 	var label =  node.append("text")
 			.attr("text-anchor", "middle")
@@ -179,6 +180,19 @@ function highlightNeighbours(d) {
 			return linksWithNodes.filter(function(l) {return l.source.id == p.source.id || l.target.id == p.source.id   })._groups[0].length > 1
 			}
 	})
+
+	$.ajax({
+	   type: "GET",
+           contentType: "application/json; charset=utf-8",
+	   url: 'http://awoiaf.westeros.org/index.php/Jon_Snow',
+           dataType: 'json',
+           success: function (data) {
+		                  console.log(data);
+				             },
+           error: function (result) {
+		                  console.log("error");
+				             }
+       	});
 	linksConnectingNodes.style('stroke-width', 2)
 }
 function reset(d) {
