@@ -167,10 +167,25 @@ var simulation = d3.forceSimulation()
 	var dates = node.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.dates})
-.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
+			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
+
+	var description = svg.append("g")
+	.attr("visiblity", "hidden")			
+	description.append("rect")
+		.attr("width", 300)
+		.attr("height", 500)
+		.attr("fill", "white")
+		.attr("stroke", "black")
+		.attr("stroke-width", 2)
+
+	var characterName = description.append("text")
+	.attr("text-anchor", "middle")
+	.attr("fill", "black")
+	.attr("x", 150)
+	.attr("y", 20)
 function highlightNeighbours(d) {
 	var neighbours = immediateFamily(d)
-	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
+		svg.selectAll('rect').filter(function(n) {if (n===undefined) {return false } else {return neighbours.includes(n.id)}}).style('stroke-width', 4)
 	var linksWithNodes = svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)})	
 	var linksConnectingNodes = linksWithNodes.filter(function(p) {
 			if (neighbours.includes(p.source.id)) {
@@ -181,23 +196,13 @@ function highlightNeighbours(d) {
 			}
 	})
 
-	$.ajax({
-	   type: "GET",
-           contentType: "application/json; charset=utf-8",
-	   url: 'http://awoiaf.westeros.org/index.php/Jon_Snow',
-           dataType: 'json',
-           success: function (data) {
-		                  console.log(data);
-				             },
-           error: function (result) {
-		                  console.log("error");
-				             }
-       	});
+	description.attr("visibility", "visible")
+	characterName.text(d.name)
 	linksConnectingNodes.style('stroke-width', 2)
 }
 function reset(d) {
 	var neighbours = immediateFamily(d)
-	svg.selectAll('rect').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 2)
+		svg.selectAll('rect').filter(function(n) {if (n === undefined) {return false} else {return neighbours.includes(n.id)}}).style('stroke-width', 2)
 	var linksWithNodes = svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)})
 	var linksConnectingNodes = linksWithNodes.filter(function(p) {
 			if (neighbours.includes(p.source.id)) {
@@ -207,6 +212,7 @@ function reset(d) {
 			}
 	})
 
+	description.attr("visibility", "hidden")
 	linksConnectingNodes.style('stroke-width', 1)
 
 }
