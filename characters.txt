@@ -1,4 +1,4 @@
-1	Eddard Stark	M	Stark	10	11	263	299	Eddard_Stark	
+1	Eddard Stark	M	Stark	10	11	263	299	Eddard_Stark
 2	Catelyn Tully	F	Tully	12	13	264	299	Catelyn_Stark
 3	Robb Stark	M	Stark	1	2	283	299	Robb_Stark
 4	Sansa Stark	F	Stark	1	2	286	NULL	Sansa_Stark
@@ -125,7 +125,7 @@
 126	Unkown Woman	F	NULL	NULL	NULL	-1	-1	NULL
 127	Obara Sand	F	NULL	122	123	271	NULL	Obara_Sand
 128	Nymeria Sand	F	NULL	122	124	274	NULL	Nymeria_Sand
-129	Tyene Sand	F	NULL	122	125	276	NULL	Tyene_Sand	
+129	Tyene Sand	F	NULL	122	125	276	NULL	Tyene_Sand
 130	Sarella Sand	F	NULL	122	126	280	NULL	Sarella_Sand
 131	Ellaria Sand	F	NULL	NULL	NULL	-1	NULL	Ellaria_Sand
 132	Elia Sand	F	NULL	122	131	285	NULL	Elia_Sand
