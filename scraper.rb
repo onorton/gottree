@@ -11,8 +11,9 @@ lines.each do |character|
 	html =  Nokogiri::HTML(Net::HTTP.get(URI.parse(url)))
 	firstName = wikilink.split("_").first
 	puts firstName
-	#get infobox
-
+	#get infobox	
+	infobox =  html.css('table[class="infobox infobox-body"]')[0]
+	puts infobox
 	#search for first paragraph (literally first p)
 	firstPara =  html.css('p')[0].text
 	puts firstPara
