@@ -12,8 +12,9 @@ lines.each do |character|
 	firstName = wikilink.split("_").first
 	puts firstName
 	#get infobox
-	#search for first paragraph (directly after infobox)
+	#search for first paragraph (literally first p)
+	firstPara =  html.css('p')[0].text
+	puts firstPara
 	#get Quotes_by_[first name]
-	puts html
 	end
 end
