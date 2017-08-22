@@ -13,12 +13,15 @@ lines.each do |character|
 	puts firstName
 	#get infobox	
 	infobox =  html.css('table[class="infobox infobox-body"]')[0]
+	#get titles
 	puts infobox
 	#search for first paragraph (literally first p)
 	firstPara =  html.css('p')[0].text
 	puts firstPara
 	#get Quotes_by_[first name]
 	quotesTable = html.css('span#Quotes_by_'+firstName)[0].parent.next_element
+	puts quotesTable.css('td')[1].text
+
 
 	puts quotesTable
 
