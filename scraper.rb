@@ -10,20 +10,18 @@ lines.each do |character|
 	puts url
 	html =  Nokogiri::HTML(Net::HTTP.get(URI.parse(url)))
 	firstName = wikilink.split("_").first
-	puts firstName
+	#puts firstName
 	#get infobox	
 	infobox =  html.css('table[class="infobox infobox-body"]')[0]
-	#get titles
-	puts infobox
+	#puts infobox
+	#get title
 	#search for first paragraph (literally first p)
-	firstPara =  html.css('p')[0].text
+	firstPara =  html.css('p')[0].text.gsub(/\[[0-9]+\]/, '')
 	puts firstPara
 	#get Quotes_by_[first name]
 	quotesTable = html.css('span#Quotes_by_'+firstName)[0].parent.next_element
-	puts quotesTable.css('td')[1].text
-
-
-	puts quotesTable
+	quoteText = quotesTable.css('td')[1].text.gsub(/\[[0-9]+\]/, '')
+	puts quoteText
 
 	end
 end
