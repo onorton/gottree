@@ -1,5 +1,4 @@
-#!/usr/bin/env ruby
-require 'nokogiri'
+
 require 'net/http'
 lines = IO.readlines('characters.txt')
 lines.each do |character|
@@ -14,7 +13,11 @@ lines.each do |character|
 	#get infobox	
 	infobox =  html.css('table[class="infobox infobox-body"]')[0]
 	#puts infobox
-	#get title
+	#get titles
+	titles = html.xpath('//th[contains(text(), "Title")]')[0].next_element
+	titles.css('br').each{ |br| br.replace "\n"}
+	puts titles.text
+
 	#search for first paragraph (literally first p)
 	firstPara =  html.css('p')[0].text.gsub(/\[[0-9]+\]/, '')
 	puts firstPara
