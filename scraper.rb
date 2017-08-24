@@ -12,9 +12,9 @@ lines.each do |character|
 	html =  Nokogiri::HTML(Net::HTTP.get(URI.parse(url)))
 	firstName = wikilink.split("_").first
 	#puts firstName
-	#get infobox	
-	infobox =  html.css('table[class="infobox infobox-body"]')[0]
-	#puts infobox
+	#get culture	
+	culture = html.xpath('//th[contains(text(), "Culture")]')[0].next_element.text
+	puts culture
 	#get titles
 	titles = html.xpath('//th[contains(text(), "Title")]')[0].next_element
 	titles.css('br').each{ |br| br.replace "\n"}
