@@ -34,7 +34,35 @@ $.ajax({
 		                  console.log("error");
 				             }
        });
- 
+
+function stringDividerQuote(str, width) {
+	if (str == null) {
+		return ""
+	}
+	lines = str.split('\n')
+	result = ''
+		lines.forEach(function(l) {
+			result += stringDivider(l, width) + '\n'
+		})
+	return result
+	
+}
+function stringDivider(str, width) {
+		if (str == null){
+			return ""
+		}
+	    if (str.length>width) {
+		var p=width
+		for (;p>0 && str[p]!=' ';p--) {
+		}
+		if (p>0) {
+			var left = str.substring(0, p);
+			var right = str.substring(p+1);
+			return left + '\n' + stringDivider(right, width, '\n');
+		}
+	}
+	   return str;
+}
 function draw(data) {
 	console.log(data)
 	
@@ -61,7 +89,20 @@ function draw(data) {
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	var nodes = data.people.map(function(p) {
-			return {"id": p.id, "name": p.name, "colour" : houseColours[p.house] , "dates": dates(p), "link": p.wiki_link, "value": 1, "father": (p.father == 0) ? {} : p.father, "mother": (p.mother == 0) ? {} : p.mother}
+			return {"id": p.id, 
+				"name": p.name, 
+				"colour" : houseColours[p.house] , 
+				"dates": dates(p), 
+				"link": p.wiki_link, 
+				"value": 1, 
+				"father": (p.father == 0) ? {} : p.father, 
+				"mother": (p.mother == 0) ? {} : p.mother, 
+				"description": stringDivider(p.description, 60),
+				"titles": p.titles,
+				"allegiances": p.allegiances,
+				"culture": p.culture,
+				"quote": stringDividerQuote(p.quote, 60)
+				}
 			})
 	var links = []
 	data.people.forEach(function(p) {
@@ -170,7 +211,7 @@ var simulation = d3.forceSimulation()
 			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 
 	var description = svg.append("g")
-	.attr("visiblity", "hidden")			
+	.attr("visibility", "hidden")			
 	description.append("rect")
 		.attr("width", 300)
 		.attr("height", 500)
@@ -183,6 +224,20 @@ var simulation = d3.forceSimulation()
 	.attr("fill", "black")
 	.attr("x", 150)
 	.attr("y", 20)
+	var characterTitles = description.append("text")
+	.attr("fill", "black")
+	.attr("x", 10)
+	.attr("y", 40)
+	var characterAllegiances = description.append("text")
+	.attr("x", 10)
+	var characterCulture = description.append("text")
+	.attr("x", 10)
+	var characterDescription = description.append("text")
+	.attr("x", 10)
+	var characterQuote = description.append("text")
+	.attr("text-anchor", "middle")
+	.attr("x", 10)
+
 function highlightNeighbours(d) {
 	var neighbours = immediateFamily(d)
 		svg.selectAll('rect').filter(function(n) {if (n===undefined) {return false } else {return neighbours.includes(n.id)}}).style('stroke-width', 4)
@@ -199,7 +254,52 @@ function highlightNeighbours(d) {
 	description.attr("visibility", "visible")
 	characterName.text(d.name)
 	linksConnectingNodes.style('stroke-width', 2)
+	var offset = 40
+	description.attr("visibility", "visible")
+	characterName.text(d.name)
+	titles = d.titles.split('\n')
+	characterTitles.text("Titles:")
+	titles.forEach(function(t) {
+		characterTitles.append("tspan")
+		.attr("dy", 10)
+		.attr("x", 20)
+		.text(t)
+		})
+	offset += 10 * (titles.length + 2) 
+	allegiances = d.allegiances.split('\n')
+
+	characterAllegiances.attr("y", offset)
+	characterAllegiances.text("Allegiances:")
+	allegiances.forEach(function(a) {
+		characterAllegiances.append("tspan")
+		.attr("dy", 10)
+		.attr("x", 20)
+		.text(a)
+	})
+	offset += 10 * (allegiances.length + 2)
+	characterCulture.attr("y", offset)
+	characterCulture.text("Culture: " + d.culture)
+	offset += 10
+	characterDescription.attr("y", offset) 
+	descriptionLines = d.description.split('\n')
+	descriptionLines.forEach(function(l) {
+		characterDescription.append("tspan")
+		.attr("dy", 10)
+		.attr("x", 5)
+		.text(l)
+	})
+	offset += 10 * (descriptionLines.length + 2)
+	characterQuote.attr("y", offset)
+	quoteLines = d.quote.split('\n')
+	quoteLines.forEach(function(l) {
+		characterQuote.append("tspan")
+		.attr("dy", 10)
+		.text(l)
+		.attr("x", 150)	
+	})
+	linksConnectingNodes.style('stroke-width', 2)
 }
+
 function reset(d) {
 	var neighbours = immediateFamily(d)
 		svg.selectAll('rect').filter(function(n) {if (n === undefined) {return false} else {return neighbours.includes(n.id)}}).style('stroke-width', 2)
@@ -213,6 +313,10 @@ function reset(d) {
 	})
 
 	description.attr("visibility", "hidden")
+	characterDescription.html("")
+	characterTitles.html("")
+	characterAllegiances.html("")
+	characterQuote.html("")
 	linksConnectingNodes.style('stroke-width', 1)
 
 }
