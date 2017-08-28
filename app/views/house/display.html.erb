@@ -3,8 +3,8 @@
 </head>
 
 <h1><%= @house %> Family Tree</h1>
-<svg width="1000" height="1000" ></svg>
-<%= tag(:object, id: "tree", data: image_path(@house+"_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
+<svg id="t"  width="1000" height="1000" ></svg>
+<%= tag(:object, id: "tree", data: image_path(@house + "_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
 
 <style>
 
@@ -209,7 +209,7 @@ var simulation = d3.forceSimulation()
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.dates})
 			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
-
+	
 	var description = svg.append("g")
 	.attr("visibility", "hidden")			
 	description.append("rect")
@@ -250,8 +250,12 @@ function highlightNeighbours(d) {
 			return linksWithNodes.filter(function(l) {return l.source.id == p.source.id || l.target.id == p.source.id   })._groups[0].length > 1
 			}
 	})
-
-	description.attr("visibility", "visible")
+	pt = document.getElementById('t').createSVGPoint()
+	clientRect = document.getElementById('t').getBoundingClientRect()
+	pt.x = -clientRect.left + 10
+	pt.y = -clientRect.top + 10
+	description.attr("visibility", "visible").attr("transform", "translate(" + pt.x + "," + pt.y + ")")
+	console.log(description)
 	characterName.text(d.name)
 	linksConnectingNodes.style('stroke-width', 2)
 	var offset = 40
