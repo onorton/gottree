@@ -98,9 +98,9 @@ function draw(data) {
 				"father": (p.father == 0) ? {} : p.father, 
 				"mother": (p.mother == 0) ? {} : p.mother, 
 				"description": stringDivider(p.description, 60),
-				"titles": p.titles,
-				"allegiances": p.allegiances,
-				"culture": p.culture,
+				"titles": (p.titles != null) ? p.titles : "", 
+				"allegiances": (p.allegiances != null ) ? p.allegiances : "",
+				"culture": (p.culture != null) ? p.culture : "",
 				"quote": stringDividerQuote(p.quote, 60)
 				}
 			})
@@ -253,7 +253,7 @@ function highlightNeighbours(d) {
 	pt = document.getElementById('t').createSVGPoint()
 	clientRect = document.getElementById('t').getBoundingClientRect()
 	pt.x = -clientRect.left + 10
-	pt.y = -clientRect.top + 10
+	pt.y = -clientRect.top + 30
 	description.attr("visibility", "visible").attr("transform", "translate(" + pt.x + "," + pt.y + ")")
 	console.log(description)
 	characterName.text(d.name)
