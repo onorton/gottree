@@ -1,3 +1,4 @@
+	console.log(description)
 <head>
 <title>House <%=  @house %></title>
 </head>
@@ -162,7 +163,6 @@ function draw(data) {
 				n.generation = (generations[0] + generations[1])/2 + 0.5
 			}
 	})
-	console.log(nodes.map(function(n){return n.name + ": " + n.generation}))	
 	var rectWidth = 120;
 	var rectHeight = 35;
 	
@@ -251,11 +251,9 @@ function highlightNeighbours(d) {
 	})
 	pt = document.getElementById('t').createSVGPoint()
 	clientRect = document.getElementById('t').getBoundingClientRect()
-	console.log(clientRect.top)
 	pt.x = -clientRect.left + 10
 	pt.y = (clientRect.top > -10) ? 0 : -clientRect.top + 10
 	description.attr("visibility", "visible").attr("transform", "translate(" + pt.x + "," + pt.y + ")")
-	console.log(description)
 	characterName.text(d.name)
 	linksConnectingNodes.style('stroke-width', 2)
 	var offset = 40
@@ -300,7 +298,10 @@ function highlightNeighbours(d) {
 		.attr("dy", 10)
 		.text(l)
 		.attr("x", 150)	
-	})
+		})
+	offset += 10 * (quoteLines.length+2)
+	console.log(offset)
+	description.select("rect").attr("height", offset)	
 	linksConnectingNodes.style('stroke-width', 2)
 }
 
