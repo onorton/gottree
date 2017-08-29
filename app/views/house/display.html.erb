@@ -4,7 +4,6 @@
 
 <h1><%= @house %> Family Tree</h1>
 <svg id="t"  width="1000" height="1000" ></svg>
-<%= tag(:object, id: "tree", data: image_path(@house + "_family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
 
 <style>
 
@@ -252,8 +251,9 @@ function highlightNeighbours(d) {
 	})
 	pt = document.getElementById('t').createSVGPoint()
 	clientRect = document.getElementById('t').getBoundingClientRect()
+	console.log(clientRect.top)
 	pt.x = -clientRect.left + 10
-	pt.y = -clientRect.top + 30
+	pt.y = (clientRect.top > -10) ? 0 : -clientRect.top + 10
 	description.attr("visibility", "visible").attr("transform", "translate(" + pt.x + "," + pt.y + ")")
 	console.log(description)
 	characterName.text(d.name)
@@ -376,9 +376,9 @@ simulation.force("link")
 					.attr("y", function(d) { return d.y+12;})
 			   }
 }
-var tree = document.getElementById('tree')
-tree.style.width = (window.innerWidth) + "px"
-tree.style.height = (window.innerHeight * 0.78) + "px"
+var tree = d3.select('t')
+tree.attr("width", window.innerWidth)
+   .attr("width", window.innerHeight * 0.78)
 
 var beforePan
 
