@@ -1,4 +1,3 @@
-	console.log(description)
 <head>
 <title>House <%=  @house %></title>
 </head>
@@ -377,41 +376,11 @@ simulation.force("link")
 					.attr("y", function(d) { return d.y+12;})
 			   }
 }
-var tree = d3.select('t')
+var tree = d3.select("svg")
+console.log(window.innerWidth)
 tree.attr("width", window.innerWidth)
-   .attr("width", window.innerHeight * 0.78)
+   .attr("height", window.innerHeight * 0.78)
 
-var beforePan
-
-beforePan = function(oldPan, newPan){
-    var stopHorizontal = false, 
-    stopVertical = false, 
-    gutterWidth = window.innerWidth*0.1, 
-    gutterHeight = window.innerHeight*0.1, 
-
-    sizes = this.getSizes(), 
-    leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
-    rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom), 
-    topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
-    bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
-
-    customPan = {}
-    customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
-    customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-
-    return customPan
-}
-
-
-document.getElementById('tree').addEventListener('load', function(){
-  svgPanZoom(document.getElementById('tree'), {
-          zoomEnabled: true,
-          controlIconsEnabled: false,
-          maxZoom: 5,
-          minZoom: 1,
-          beforePan: beforePan
-        }); 
-})
 </script>
 
 
