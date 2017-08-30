@@ -84,6 +84,8 @@ function draw(data) {
 	var svg = d3.select("svg"),
 	        width = +svg.attr("width"),
 		    height = +svg.attr("height");
+	
+
 
 	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -364,7 +366,8 @@ function dates(p) {
 simulation.force("link")
 .links(links)
 
-	   function ticked() {
+	function ticked() {
+		console.log("sup")
 		    link
 			         .attr("d", elbow)
 		          rect
@@ -374,7 +377,16 @@ simulation.force("link")
 					.attr("y", function(d) { return d.y;})
 				dates.attr("x", function(d) { return d.x; })
 					.attr("y", function(d) { return d.y+12;})
-			   }
+	   }
+
+	var zoom = d3.zoom()
+		    .scaleExtent([0.1, 10])
+			    .on("zoom", zoomed);
+	function zoomed() {
+		svg.selectAll(".nodes").attr("transform", d3.event.transform);
+		svg.selectAll(".links").attr("transform", d3.event.transform);
+	}
+	svg.call(zoom)
 }
 var tree = d3.select("svg")
 console.log(window.innerWidth)
