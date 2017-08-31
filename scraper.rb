@@ -8,7 +8,8 @@ client = Mysql2::Client.new(:host => 'localhost', :database => 'gottree_developm
 statement = client.prepare("UPDATE people SET culture = ?, quote = ?, titles = ?, allegiances = ?, description = ? WHERE id = ? ")
 lines.each do |character|
 	id = character.split("\t").first
-	wikilink = character.split("\t").last.chomp()\
+	wikilink = character.split("\t").last.chomp().strip()	
+ 
 	if (wikilink != "NULL")
 	url = URI.encode('http://awoiaf.westeros.org/index.php/' + wikilink)
 	puts url
@@ -22,10 +23,12 @@ lines.each do |character|
 	end
 	puts culture
 	#get titles
-	titles = html.xpath('//th[contains(text(), "Title")]')[0].next_element
-	titles.css('br').each{ |br| br.replace "\n"}
-	titles = titles.text.strip().gsub(/\[[0-9]+\]/, '')
-
+	titles = html.xpath('//th[contains(text(), "Title")]')[0]
+	if (titles != nil)
+		titles = titles.next_element
+		titles.css('br').each{ |br| br.replace "\n"}
+		titles = titles.text.strip().gsub(/\[[0-9]+\]/, '')
+	end
 	puts titles
 
 	#get allegiances
@@ -44,9 +47,10 @@ lines.each do |character|
 	#get Quotes_by_[first name]
 	quoteText = nil
 	quotesTable = html.css('span#Quotes_by_'+firstName)[0]
-	if (quotesTable != nil)
+	if (quotesTable != nil )
 		quoteText = quotesTable.parent.next_element.css('td')[1].text.gsub(/\[[0-9]+\]/, '').strip()
 	end
 	puts quoteText		
 	statement.execute(culture, quoteText, titles, allegiances, firstPara, id)
+	end
 end
