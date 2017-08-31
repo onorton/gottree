@@ -62,13 +62,7 @@ function stringDivider(str, width) {
 	}
 	   return str;
 }
-function draw(data) {
-	console.log(data)
-	
-
-
-	
-	
+function draw(data) {	
 	houseColours = {
 		"Stark":{"background": "#CCCCCC", "text": "#000000"},
 		"Tully":{"background": "#0000A0", "text": "#FFFFFF"},
@@ -111,9 +105,10 @@ function draw(data) {
 					return r.person_1 == p.id
 					})
 			relationships.forEach(function(r) {
+
 				nodes.push({"id": p.id + ' ' + r.person_2, "value": 0})
-				links.push({"source": p.id, "target": p.id + ' ' + r.person_2})
-				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2})
+				links.push({"source": p.id, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
 			})	
 			})
 	data.people.forEach(function(p) {
@@ -121,7 +116,7 @@ function draw(data) {
 					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
 					})
 				if (parents.length == 1) {
-					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2})
+					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2, "legitimate": parents[0].legitimate})
 				}
 			})
 	
@@ -179,7 +174,8 @@ var simulation = d3.forceSimulation()
 	    .selectAll("path")
 	        .data(links)
 		    .enter().append("path")
-		          .attr("stroke-width", 1)
+		    	.attr("stroke-width", 1)
+			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
 			  .attr("fill", "none")
 			  .attr("stroke","black")
 			  .attr("id", function(l) {return l.source + ',' + l.target})
@@ -301,7 +297,6 @@ function highlightNeighbours(d) {
 		.attr("x", 150)	
 		})
 	offset += 10 * (quoteLines.length+2)
-	console.log(offset)
 	description.select("rect").attr("height", offset)	
 	linksConnectingNodes.style('stroke-width', 2)
 }
@@ -367,7 +362,6 @@ simulation.force("link")
 .links(links)
 
 	function ticked() {
-		console.log("sup")
 		    link
 			         .attr("d", elbow)
 		          rect
@@ -380,7 +374,7 @@ simulation.force("link")
 	   }
 
 	var zoom = d3.zoom()
-		    .scaleExtent([0.1, 10])
+		    .scaleExtent([0.1, 5])
 			    .on("zoom", zoomed);
 	function zoomed() {
 		svg.selectAll(".nodes").attr("transform", d3.event.transform);
@@ -389,7 +383,6 @@ simulation.force("link")
 	svg.call(zoom)
 }
 var tree = d3.select("svg")
-console.log(window.innerWidth)
 tree.attr("width", window.innerWidth)
    .attr("height", window.innerHeight * 0.78)
 
