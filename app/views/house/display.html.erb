@@ -9,7 +9,7 @@
 
 
 text {
-	  font: 10px sans-serif;
+	  font: 12px sans-serif;
 	    pointer-events: none;
 }
 
@@ -92,11 +92,11 @@ function draw(data) {
 				"value": 1, 
 				"father": (p.father == 0) ? {} : p.father, 
 				"mother": (p.mother == 0) ? {} : p.mother, 
-				"description": stringDivider(p.description, 60),
+				"description": stringDivider(p.description, 50),
 				"titles": (p.titles != null) ? p.titles : "", 
 				"allegiances": (p.allegiances != null ) ? p.allegiances : "",
 				"culture": (p.culture != null) ? p.culture : "",
-				"quote": stringDividerQuote(p.quote, 60)
+				"quote": stringDividerQuote(p.quote, 50)
 				}
 			})
 	var links = []
@@ -159,7 +159,7 @@ function draw(data) {
 				n.generation = (generations[0] + generations[1])/2 + 0.5
 			}
 	})
-	var rectWidth = 120;
+	var rectWidth = 145;
 	var rectHeight = 35;
 	
 	
