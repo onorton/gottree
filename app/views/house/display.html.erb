@@ -38,9 +38,21 @@ function stringDividerQuote(str, width) {
 	if (str == null) {
 		return ""
 	}
+
 	lines = str.split('\n')
 	result = ''
-		lines.forEach(function(l) {
+	lines.forEach(function(l) {
+			for (i = 0; i < l.length; i++) {
+				if (l[i] == ':') {
+					break
+				}
+			}
+			if (i < l.length) {
+				l = l.slice(0, i+2) + "\"" + l.slice(i+2)
+			} else {
+				l = "\"" + l
+			}	
+			l += "\""
 			result += stringDivider(l, width) + '\n'
 		})
 	return result
@@ -293,6 +305,7 @@ function highlightNeighbours(d) {
 	quoteLines.forEach(function(l) {
 		characterQuote.append("tspan")
 		.attr("dy", 10)
+		.attr("font-style", "italic")
 		.text(l)
 		.attr("x", 150)	
 		})
