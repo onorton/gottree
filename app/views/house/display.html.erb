@@ -269,7 +269,9 @@ function highlightNeighbours(d) {
 	description.attr("visibility", "visible")
 	characterName.text(d.name)
 	titles = d.titles.split('\n')
-	characterTitles.text("Titles:")
+	if (d.titles != "") {
+		characterTitles.text("Titles:")
+	}
 	titles.forEach(function(t) {
 		characterTitles.append("tspan")
 		.attr("dy", 10)
@@ -280,7 +282,9 @@ function highlightNeighbours(d) {
 	allegiances = d.allegiances.split('\n')
 
 	characterAllegiances.attr("y", offset)
-	characterAllegiances.text("Allegiances:")
+	if (d.allegiances != "") {
+		characterAllegiances.text("Allegiances:")
+	}
 	allegiances.forEach(function(a) {
 		characterAllegiances.append("tspan")
 		.attr("dy", 10)
@@ -289,8 +293,10 @@ function highlightNeighbours(d) {
 	})
 	offset += 10 * (allegiances.length + 2)
 	characterCulture.attr("y", offset)
-	characterCulture.text("Culture: " + d.culture)
-	offset += 10
+	if (d.culture != "") {	
+		characterCulture.text("Culture: " + d.culture)
+		offset += 10
+	}
 	characterDescription.attr("y", offset) 
 	descriptionLines = d.description.split('\n')
 	descriptionLines.forEach(function(l) {
