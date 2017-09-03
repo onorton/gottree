@@ -40,10 +40,10 @@
 41	Aeron Greyjoy	M	Greyjoy	31	37	269	NULL	Aeron_Greyjoy
 42	Lady of House Piper	F	Piper	NULL	NULL	-1	-1	NULL
 43	Robin Greyjoy	M	Greyjoy	31	42	269	NULL	Robin_Greyjoy
-44	Tytos Lannister	M	Lannister	NULL	NULL	220	267	Tytos_Lannister
+44	Tytos Lannister	M	Lannister	381	383	220	267	Tytos_Lannister
 45	Jeyne Marbrand	F	Marbrand	NULL	NULL	-1	255	Jeyne_Marbrand
 46	Tywin Lannister	M	Lannister	44	45	242	300	Tywin_Lannister
-47	Joanna Lannister	M	Lannister	NULL	NULL	245	273	Joanna_Lannister
+47	Joanna Lannister	M	Lannister	387	388	245	273	Joanna_Lannister
 48	Jaime Lannister	M	Lannister	46	47	266	NULL	Jaime_Lannister
 49	Cersei Lannister	F	Lannister	46	47	266	NULL	Cersei_Lannister
 50	Joffrey I Baratheon	M	Baratheon	48	49	286	300	Joffrey_Baratheon
@@ -372,3 +372,33 @@
 373	Aemon Rivers	M	NULL	370	371	-1	NULL	Aemon_Rivers
 374	Unknown Woman	F	NULL	NULL	NULL	-1	NULL	NULL
 375	Walda Rivers	F	NULL	373	374	295	NULL	Walda_Rivers_(daughter_of_Aemon)
+376	Damon Lannister	M	Lannister	NULL	NULL	-1	210	Damon_Lannister_(lord)
+377	Cerissa Brax	F	Brax	NULL	NULL	-1	-1	Cerissa_Brax
+378	Tybolt Lannister	M	Lannister	376	377	-1	212	Tybolt_Lannister
+379	Teora Kyndall	F	Kyndall	NULL	NULL	-1	-1	Teroa_Kyndall
+380	Cerelle Lannister	F	Lannister	378	379	209	213	Cerelle_Lannister
+381	Gerold Lannister	M	Lannister	376	377	-1	244	Gerold_Lannister
+382	Alysanne Farman	F	Farman	NULL	NULL	-1	-1	Alysanne_Farman
+383	Rohanne Webber	F	Webber	NULL	NULL	185	230	Rohanne_Webber
+384	Tywald Lannister	M	Lannister	381	383	211	233	Tywald_Lannister
+385	Tion Lannister	M	Lannister	381	383	211	236	Tion_Lannister
+386	Ellyn Reyne	F	Reyne	NULL	NULL	-1	261	Ellyn_Reyne
+387	Jason Lannister	M	Lannister	381	383	229	260	Jason_Lannister
+388	Marla Prester	F	Prester	NULL	NULL	212	-1	Marla_Prester
+389	Stafford Lannister	M	Lannister	387	388	246	299	Stafford_Lannister
+390	Myranda Lefford	F	Myranda Lefford	NULL	NULL	-1	-1	Myranda_Lefford
+391	Daven Lannister	M	Lannister	389	390	373	NULL	Daven_Lannister
+392	Cerenna Lannister	F	Lannister	389	390	-1	NULL	Cerenna_Lannister
+393	Myrielle Lannister	F	Lannister	389	390	-1	NULL	Myrielle_Lannister
+394	2 Sons	M	Lannister	387	388	-1	-1	NULL
+395	2 Daughters	F	Lannister	387	388	-1	-1	NULL
+396	Alys Stackspear	F	Stackspear	NULL	NULL	-1	244	Alys_Stackspear
+397	Damon Lannister	M	Lannister	387	396	244	NULL	Damon_Lannister_(son_of_Jason)
+398	Ella Lannister	F	Lannister	NULL	NULL	-1	NULL	Ella_Lannister
+399	Damion Lannister	M	Lannister	397	398	257	NULL	Damion_Lannister
+400	Shiera Crakehall	F	Crakehall	NULL	NULL	-1	NULL	Shiera_Crakehall
+401	Lucion Lannister	M	Lannister	399	400	270	NULL	Lucion_Lannister
+402	Lanna Lannister	F	Lannister	399	400	271	NULL	Lanna_Lannister
+403	Antario Jast	M	Jast	NULL	NULL	-1	NULL	Antario_Jast
+404	Serving Girl	F	NULL	NULL	NULL	-1	-1	NULL
+405	Lynora Hill	F	NULL	387	404	243	NULL	Lynora_Hill
