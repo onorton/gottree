@@ -5,7 +5,14 @@ class FullTreeController < ApplicationController
   def index
     people = Person.all
     relationships = Relationship.all
-    renderTree(nil, people, relationships)
+    respond_to do |format|
+	    format.html
+	    format.json {
+		render json: {"people": people, "relationships": relationships}
+	    }
+  end
+
+
   end
 
   def search

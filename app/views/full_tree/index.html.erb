@@ -1,43 +1,515 @@
+
 <head>
 <title>ASOIAF Family Tree</title>
 </head>
 
 <h1>ASOIAF Family Tree</h1>
+<svg id="t"  width="1000" height="1000" ></svg>
 
-<%= tag(:object, id: "tree", data: image_path("family_tree.svg"), type: "image/svg+xml", target: "_blank") %>
+<style>
 
-<script>
-var tree = document.getElementById('tree')
-tree.style.width = (window.innerWidth) + "px"
-tree.style.height = (window.innerHeight * 0.78) + "px"
 
-var beforePan
-
-beforePan = function(oldPan, newPan){
-    var stopHorizontal = false, 
-    stopVertical = false, 
-    gutterWidth = window.innerWidth*0.1, 
-    gutterHeight = window.innerHeight*0.1, 
-
-    sizes = this.getSizes(), 
-    leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
-    rightLimit = sizes.width - gutterWidth - (sizes.viewBox.x * sizes.realZoom), 
-    topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) + gutterHeight,
-    bottomLimit = sizes.height - gutterHeight - (sizes.viewBox.y * sizes.realZoom)
-
-    customPan = {}
-    customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x))
-    customPan.y = Math.max(topLimit, Math.min(bottomLimit, newPan.y))
-
-    return customPan
+text {
+	  font: 12px sans-serif;
+	    pointer-events: none;
 }
 
-document.getElementById('tree').addEventListener('load', function(){
-  svgPanZoom(document.getElementById('tree'), {
-          controlIconsEnabled: false,
-          maxZoom: 20,
-          beforePan: beforePan,
-        }); 
-})
+.links line {
+	  stroke: #999;
+	    stroke-opacity: 0.6;
+}
+
+</style>
+<script>
+var house =  '<%=@house%>'
+$.ajax({
+	   type: "GET",
+           contentType: "application/json; charset=utf-8",
+	   url: '/',
+           dataType: 'json',
+           success: function (data) {
+		                  draw(data);
+				             },
+           error: function (result) {
+		                  console.log("error");
+				             }
+       });
+
+function stringDividerQuote(str, width) {
+	if (str == null) {
+		return ""
+	}
+
+	lines = str.split('\n')
+	result = ''
+	lines.forEach(function(l) {
+			for (i = 0; i < l.length; i++) {
+				if (l[i] == ':') {
+					break
+				}
+			}
+			if (i < l.length) {
+				l = l.slice(0, i+2) + "\"" + l.slice(i+2)
+			} else {
+				l = "\"" + l
+			}	
+			l += "\""
+			result += stringDivider(l, width) + '\n'
+		})
+	return result
+	
+}
+function stringDivider(str, width) {
+		if (str == null){
+			return ""
+		}
+	    if (str.length>width) {
+		var p=width
+		for (;p>0 && str[p]!=' ';p--) {
+		}
+		if (p>0) {
+			var left = str.substring(0, p);
+			var right = str.substring(p+1);
+			return left + '\n' + stringDivider(right, width, '\n');
+		}
+	}
+	   return str;
+}
+function draw(data) {	
+	houseColours = {
+		"Stark":{"background": "#CCCCCC", "text": "#000000"},
+		"Tully":{"background": "#0000A0", "text": "#FFFFFF"},
+		"Baratheon":{"background": "#FFFF00", "text": "#000000"},
+		"Lannister":{"background": "#800000", "text": "#FFFFFF"},
+		"Tyrell":{"background": "#008000", "text": "#FFFF00"},
+		"Arryn":{"background": "#5B91FF",  "text": "#FFFFFF"},
+		"Martell":{"background": "#FFA500", "text": "#800000"},
+		"Greyjoy":{"background": "#101010", "text": "#FFA500"},
+		"Targaryen":{"background":"#101010", "text": "#FF0000"}
+
+	}
+	var svg = d3.select("svg"),
+	        width = +svg.attr("width"),
+		    height = +svg.attr("height");
+	
+
+
+	var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+	var nodes = data.people.map(function(p) {
+			return {"id": p.id, 
+				"name": p.name, 
+				"colour" : houseColours[p.house] , 
+				"dates": dates(p), 
+				"link": p.wiki_link, 
+				"value": 1, 
+				"father": (p.father == 0) ? {} : p.father, 
+				"mother": (p.mother == 0) ? {} : p.mother, 
+				"description": stringDivider(p.description, 50),
+				"titles": (p.titles != null) ? p.titles : "", 
+				"allegiances": (p.allegiances != null ) ? p.allegiances : "",
+				"culture": (p.culture != null) ? p.culture : "",
+				"quote": stringDividerQuote(p.quote, 50)
+				}
+			})
+	var links = []
+	data.people.forEach(function(p) {
+			var relationships = data.relationships.filter(function(r) {
+					return r.person_1 == p.id
+					})
+			relationships.forEach(function(r) {
+
+				nodes.push({"id": p.id + ' ' + r.person_2, "value": 0})
+				links.push({"source": p.id, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+			})	
+			})
+	data.people.forEach(function(p) {
+				var parents = data.relationships.filter(function(r) {
+					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
+					})
+				if (parents.length == 1) {
+					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2, "legitimate": parents[0].legitimate})
+				}
+			})
+	
+	while (nodes.some(function(n) {return n.generation === undefined || isNaN(n.generation)})) {
+		nodes.forEach(function(n) {
+			parentGenerations = nodes.filter(function(p) {return n.mother == p.id || n.father == p.id}).map(function(p) {return p.generation})
+			if (parentGenerations.length == 0) {
+				n.generation = 0
+			} else {
+		
+			if (!parentGenerations.some(function(g) {return g === undefined || isNaN(g)})) {
+			n.generation = 1+Math.max.apply(null, parentGenerations)
+			}
+			}
+			})
+	}
+	nodes.forEach(function(n) {
+		if (n.generation == 0) {	
+			spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
+			spouseGenerations = nodes.filter(function(p) {return spouseIds.includes(p.id)}).map(function(p) {return p.generation})
+			childrenGenerations = nodes.filter(function(p) {return p.father == n.id || p.mother == n.id}).map(function(p) {return p.generation})
+			if (spouseGenerations.length == 0) {
+				if (childrenGenerations.length != 0) {
+					n.generation = Math.min.apply(null, childrenGenerations)-1
+				}
+			} else {
+				spouseMax = Math.max.apply(null, spouseGenerations)
+				n.generation = spouseMax
+				if (childrenGenerations.length != 0) {
+					n.generation = Math.min(n.generation, Math.min.apply(null, childrenGenerations)-1)
+				} 
+
+			}
+		}
+		})
+	nodes.forEach(function(n) {
+			if (n.value == 0) {
+				ids = n.id.split(' ')
+				generations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.generation})
+				n.generation = (generations[0] + generations[1])/2 + 0.5
+			}
+	})
+	var rectWidth = 145;
+	var rectHeight = 35;
+	
+
+var simulation = d3.forceSimulation()
+	    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(rectHeight))
+	    .force("charge", d3.forceManyBody())
+	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5).strength(0.35))
+	    .force("yAxis", d3.forceY(function(d) {return 5.5*d.generation*rectHeight}).strength(1))
+	    .force("center", d3.forceCenter(width / 2, height / 2));
+  var link = svg.append("g")
+        .attr("class", "links")
+	    .selectAll("path")
+	        .data(links)
+		    .enter().append("path")
+		    	.attr("stroke-width", 1)
+			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
+			  .attr("fill", "none")
+			  .attr("stroke","black")
+			  .attr("id", function(l) {return l.source + ',' + l.target})
+	   var node = svg.append("g")
+	   .attr("class", "nodes")
+	   .selectAll("node")
+		         .data(nodes)
+			 .enter().
+			 append("g")
+			    
+	
+	var rect = node.append("rect")
+	.attr("width", function(d){return d.value*rectWidth})
+	.attr("height", function(d){return d.value*rectHeight})
+	.attr("stroke", "black")
+			     .attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour.background})
+			     .attr("stroke-width", 2)
+			     .attr("id", function(d){return d.id})
+			     .on("mouseover", highlightNeighbours)
+			     .on("click", function(d) {window.open("http://awioaf.westeros.org/index.php/"+d.link, '_blank')})
+			     .on("mouseout", reset)
+			     .on("contextmenu", function(d) {window.open("/character/display?id="+d.link, '_blank')})
+	var label =  node.append("text")
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.name })
+			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
+	var dates = node.append("text")
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.dates})
+			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
+	
+	var description = svg.append("g")
+	.attr("visibility", "hidden")			
+	description.append("rect")
+		.attr("width", 300)
+		.attr("height", 500)
+		.attr("fill", "white")
+		.attr("stroke", "black")
+		.attr("stroke-width", 2)
+
+	var characterName = description.append("text")
+	.attr("text-anchor", "middle")
+	.attr("fill", "black")
+	.attr("x", 150)
+	.attr("y", 20)
+	var characterTitles = description.append("text")
+	.attr("fill", "black")
+	.attr("x", 10)
+	.attr("y", 40)
+	var characterAllegiances = description.append("text")
+	.attr("x", 10)
+	var characterCulture = description.append("text")
+	.attr("x", 10)
+	var characterDescription = description.append("text")
+	.attr("x", 10)
+	var characterQuote = description.append("text")
+	.attr("text-anchor", "middle")
+	.attr("x", 10)
+
+function highlightNeighbours(d) {
+	var neighbours = immediateFamily(d)
+		svg.selectAll('rect').filter(function(n) {if (n===undefined) {return false } else {return neighbours.includes(n.id)}}).style('stroke-width', 4)
+	var linksWithNodes = svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)})	
+	var linksConnectingNodes = linksWithNodes.filter(function(p) {
+			if (neighbours.includes(p.source.id)) {
+			return linksWithNodes.filter(function(l) {return l.source.id == p.target.id || l.target.id == p.target.id   })._groups[0].length > 1
+			} else {
+
+			return linksWithNodes.filter(function(l) {return l.source.id == p.source.id || l.target.id == p.source.id   })._groups[0].length > 1
+			}
+	})
+	pt = document.getElementById('t').createSVGPoint()
+	clientRect = document.getElementById('t').getBoundingClientRect()
+	pt.x = -clientRect.left + 10
+	pt.y = (clientRect.top > -10) ? 0 : -clientRect.top + 10
+	description.attr("visibility", "visible").attr("transform", "translate(" + pt.x + "," + pt.y + ")")
+	characterName.text(d.name)
+	linksConnectingNodes.style('stroke-width', 2)
+	var offset = 40
+	description.attr("visibility", "visible")
+	characterName.text(d.name)
+	titles = d.titles.split('\n')
+	if (d.titles != "") {
+		characterTitles.text("Titles:")
+	}
+	titles.forEach(function(t) {
+		characterTitles.append("tspan")
+		.attr("dy", 10)
+		.attr("x", 20)
+		.text(t)
+		})
+	offset += 10 * (titles.length + 2) 
+	allegiances = d.allegiances.split('\n')
+
+	characterAllegiances.attr("y", offset)
+	if (d.allegiances != "") {
+		characterAllegiances.text("Allegiances:")
+	}
+	allegiances.forEach(function(a) {
+		characterAllegiances.append("tspan")
+		.attr("dy", 10)
+		.attr("x", 20)
+		.text(a)
+	})
+	offset += 10 * (allegiances.length + 2)
+	characterCulture.attr("y", offset)
+	if (d.culture != "") {	
+		characterCulture.text("Culture: " + d.culture)
+		offset += 10
+	}
+	characterDescription.attr("y", offset) 
+	descriptionLines = d.description.split('\n')
+	descriptionLines.forEach(function(l) {
+		characterDescription.append("tspan")
+		.attr("dy", 10)
+		.attr("x", 5)
+		.text(l)
+	})
+	offset += 10 * (descriptionLines.length + 2)
+	characterQuote.attr("y", offset)
+	quoteLines = d.quote.split('\n')
+	quoteLines.forEach(function(l) {
+		characterQuote.append("tspan")
+		.attr("dy", 10)
+		.attr("font-style", "italic")
+		.text(l)
+		.attr("x", 150)	
+		})
+	offset += 10 * (quoteLines.length+2)
+	description.select("rect").attr("height", offset)	
+	linksConnectingNodes.style('stroke-width', 2)
+}
+
+function reset(d) {
+	var neighbours = immediateFamily(d)
+		svg.selectAll('rect').filter(function(n) {if (n === undefined) {return false} else {return neighbours.includes(n.id)}}).style('stroke-width', 2)
+	var linksWithNodes = svg.selectAll('path').filter(function(p) {return neighbours.includes(p.source.id) || neighbours.includes(p.target.id)})
+	var linksConnectingNodes = linksWithNodes.filter(function(p) {
+			if (neighbours.includes(p.source.id)) {
+			return linksWithNodes.filter(function(l) {return l.source.id == p.target.id   })._groups.length > 0
+			} else {
+			return linksWithNodes.filter(function(l) {return p.source.id == l.target.id   })._groups.length > 0
+			}
+	})
+
+	description.attr("visibility", "hidden")
+	characterDescription.html("")
+	characterTitles.html("")
+	characterAllegiances.html("")
+	characterQuote.html("")
+	characterCulture.text("")
+	linksConnectingNodes.style('stroke-width', 1)
+
+}
+
+function immediateFamily(d) {
+	var neighbours = [d.id]
+	neighbours = neighbours.concat(nodes.filter(function(n) {return d.father == n.id || d.mother == n.id}).map(function(n) {return n.id}))
+	neighbours = neighbours.concat(nodes.filter(function(n) {return n.father == d.id || n.mother == d.id}).map(function(n) {return n.id}))
+	neighbours = neighbours.concat(data.relationships.filter(function(r) {return r.person_1 == d.id || r.person_2 == d.id}).map(function(r) {if (r.person_1 == d.id) {return r.person_2} else {return r.person_1} }))
+	neighbours= neighbours.concat(nodes.filter(function(n) {return n.father == d.father || n.mother == d.mother}).map(function(n) {return n.id}))
+	return neighbours
+}
+function elbow(d, i) {
+       			if (!isNaN(d.source.id)) {	
+			return "M" + d.source.x + "," + d.source.y
+				+ "V" + d.target.y + "H" + d.target.x;
+			} else {
+				return "M" + d.target.x + "," + d.target.y
+					+ "V" +  (d.target.y + (d.source.y-d.target.y)/2) + "H" + d.source.x + "V" + d.source.y;
+			}
+}
+function dates(p) {
+	result = '';
+	if (p.year_of_birth > 0) {
+		result += p.year_of_birth;
+	} else if (p.year_of_birth == -1) {
+		result += '???';
+	}
+	result += '-';
+	if (p.year_of_death > 0) {
+		result += p.year_of_death
+	} else if (p.year_of_death == -1) {
+		result += '???'
+	}
+	return result
+}
+
+function contextMenu() {
+	    var height,
+		        width, 
+			        margin = 0.1, // fraction of width
+				        items = [], 
+					        rescale = false, 
+						        style = {
+								            'rect': {
+										                    'mouseout': {
+													                        'fill': 'rgb(244,244,244)', 
+																                    'stroke': 'white', 
+																		                        'stroke-width': '1px'
+																						                }, 
+												                    'mouseover': {
+															                        'fill': 'rgb(200,200,200)'
+																			                }
+												                }, 
+									                'text': {
+												                'fill': 'steelblue', 
+														                'font-size': '13'
+																	            }
+									            }; 
+	        
+	        function menu(x, y) {
+			        d3.select('.context-menu').remove();
+				        scaleItems();
+
+					        // Draw the menu
+					        d3.select('svg')
+							            .append('g').attr('class', 'context-menu')
+								                .selectAll('tmp')
+										            .data(items).enter()
+											                .append('g').attr('class', 'menu-entry')
+													            .style({'cursor': 'pointer'})
+														                .on('mouseover', function(){ 
+																		                d3.select(this).select('rect').style(style.rect.mouseover) })
+																            .on('mouseout', function(){ 
+																			                    d3.select(this).select('rect').style(style.rect.mouseout) });
+						        
+						        d3.selectAll('.menu-entry')
+								            .append('rect')
+									                .attr('x', x)
+											            .attr('y', function(d, i){ return y + (i * height); })
+												                .attr('width', width)
+														            .attr('height', height)
+															                .style(style.rect.mouseout);
+							        
+							        d3.selectAll('.menu-entry')
+									            .append('text')
+										                .text(function(d){ return d; })
+												            .attr('x', x)
+													                .attr('y', function(d, i){ return y + (i * height); })
+															            .attr('dy', height - margin / 2)
+																                .attr('dx', margin)
+																		            .style(style.text);
+
+								        // Other interactions
+								        d3.select('body')
+										            .on('click', function() {
+													                    d3.select('.context-menu').remove();
+															                });
+
+									    }
+		    
+		    menu.items = function(e) {
+			            if (!arguments.length) return items;
+				            for (i in arguments) items.push(arguments[i]);
+					            rescale = true;
+						            return menu;
+							        }
+
+		        // Automatically set width, height, and margin;
+		        function scaleItems() {
+				        if (rescale) {
+						            d3.select('svg').selectAll('tmp')
+								                    .data(items).enter()
+										                    .append('text')
+												                    .text(function(d){ return d; })
+														                    .style(style.text)
+																                    .attr('x', -1000)
+																		                    .attr('y', -1000)
+																				                    .attr('class', 'tmp');
+							                var z = d3.selectAll('.tmp')[0]
+										                      .map(function(x){ return x.getBBox(); });
+									            width = d3.max(z.map(function(x){ return x.width; }));
+										                margin = margin * width;
+												            width =  width + 2 * margin;
+													                height = d3.max(z.map(function(x){ return x.height + margin / 2; }));
+															            
+															            // cleanup
+															            d3.selectAll('.tmp').remove();
+																                rescale = false;
+																		        }
+					    }
+
+			    return menu;
+}
+
+
+	var menu = contextMenu().items('first item', 'second option', 'whatever, man');
+
+
+	simulation
+	 .nodes(nodes)
+	 .on("tick", ticked) 
+simulation.force("link")
+.links(links)
+
+	function ticked() {
+		    link
+			         .attr("d", elbow)
+		          rect
+				          .attr("x", function(d) { return d.x-rectWidth/2; })
+					          .attr("y", function(d) { return d.y-rectHeight/2; });
+				label.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y;})
+				dates.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y+12;})
+	   }
+
+	var zoom = d3.zoom()
+		    .scaleExtent([0.1, 5])
+			    .on("zoom", zoomed);
+	function zoomed() {
+		svg.selectAll(".nodes").attr("transform", d3.event.transform);
+		svg.selectAll(".links").attr("transform", d3.event.transform);
+	}
+	svg.call(zoom)
+}
+var tree = d3.select("svg")
+tree.attr("width", window.innerWidth)
+   .attr("height", window.innerHeight * 0.78)
+
 </script>
+
 
