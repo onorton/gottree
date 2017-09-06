@@ -136,54 +136,54 @@ function draw(data) {
 	
 	while (nodes.some(function(n) {return n.generation === undefined || isNaN(n.generation)})) {
 		nodes.forEach(function(n) {
-			parentGenerations = nodes.filter(function(p) {return n.mother == p.id || n.father == p.id}).map(function(p) {return p.generation})
-			if (parentGenerations.length == 0) {
+			childrenGenerations = nodes.filter(function(p) {return p.mother == n.id || p.father == n.id}).map(function(p) {return p.generation})
+			if (childrenGenerations.length == 0) {
 				n.generation = 0
 			} else {
 		
-			if (!parentGenerations.some(function(g) {return g === undefined || isNaN(g)})) {
-			n.generation = 1+Math.max.apply(null, parentGenerations)
+			if (!childrenGenerations.some(function(g) {return g === undefined || isNaN(g)})) {
+				n.generation = 1+Math.max.apply(null, childrenGenerations)
 			}
 			}
 			})
 	}
-	nodes.forEach(function(n) {
-		if (n.generation == 0) {	
-			spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
-			spouseGenerations = nodes.filter(function(p) {return spouseIds.includes(p.id)}).map(function(p) {return p.generation})
-			childrenGenerations = nodes.filter(function(p) {return p.father == n.id || p.mother == n.id}).map(function(p) {return p.generation})
-			if (spouseGenerations.length == 0) {
-				if (childrenGenerations.length != 0) {
-					n.generation = Math.min.apply(null, childrenGenerations)-1
-				}
-			} else {
-				spouseMax = Math.max.apply(null, spouseGenerations)
-				n.generation = spouseMax
-				if (childrenGenerations.length != 0) {
-					n.generation = Math.min(n.generation, Math.min.apply(null, childrenGenerations)-1)
-				} 
-
-			}
-		}
-		})
+	//nodes.forEach(function(n) {
+	//	if (n.generation == 0) {	
+	//		spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
+	//		spouseGenerations = nodes.filter(function(p) {return spouseIds.includes(p.id)}).map(function(p) {return p.generation})
+	//		childrenGenerations = nodes.filter(function(p) {return p.father == n.id || p.mother == n.id}).map(function(p) {return p.generation})
+	//		if (spouseGenerations.length == 0) {
+	//			if (childrenGenerations.length != 0) {
+	//				n.generation = Math.min.apply(null, childrenGenerations)-1
+	//			}
+	//		} else {
+	//			spouseMax = Math.max.apply(null, spouseGenerations)
+	//			n.generation = spouseMax
+	//			if (childrenGenerations.length != 0) {
+	//				n.generation = Math.min(n.generation, Math.min.apply(null, childrenGenerations)-1)
+	//			} 
+//
+//			}
+//		}
+//		})
 	nodes.forEach(function(n) 
 		     {
 			if (n.value == 0) {
 				ids = n.id.split(' ')
 				generations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.generation})
-				n.generation = (generations[0] + generations[1])/2 + 0.5
+				n.generation = Math.min(generations[0],generations[1]) - 0.5
 				}
 							
 	})
 	var rectWidth = 145;
 	var rectHeight = 35;
-	
+	console.log(nodes.map(function(n) {return n.name + ": " + n.generation}))	
 
 var simulation = d3.forceSimulation()
-	    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(rectHeight).strength(0.5))
+	    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(rectHeight))
     .force("charge", d3.forceManyBody())
 	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5).strength(0.35))
-	    .force("yAxis", d3.forceY(function(d) {return 5.5*d.generation*rectHeight}).strength(1))
+	    .force("yAxis", d3.forceY(function(d) {return height - 5.5*d.generation*rectHeight}).strength(1))
 	    .force("center", d3.forceCenter(width/2, height/2))
 
 	var link = svg.append("g")
