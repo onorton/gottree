@@ -174,9 +174,15 @@ function draw(data) {
 			} else {
 				//spouseMax = Math.max.apply(null, spouseGenerations)
 				//n.generation = spouseMax
+				oldGeneration = n.generation
 				if (childrenGenerations.length != 0) {
 					n.generation = Math.min(n.generation, Math.min.apply(null, childrenGenerations)-1)
-				} 
+				} else {
+					spouseMax = Math.max.apply(null, spouseGenerations)
+					n.generation = spouseMax
+				}	
+				
+
 
 			}
 		}
@@ -205,28 +211,27 @@ function draw(data) {
 
 	}
 
-	function findMaxDepth(n) {
-		descendants = findMaxDepthR(n, 0)
+	function findMaxDepth(n, visited) {
+		descendants = findMaxDepthR(n, 0, visited)
 		return Math.max.apply(null, descendants.map(function(d) {return d.depth}))
 	}
 
+	function findMaxDepthSpouse(s, visited) {
+		t = findTop(s)	
+		return findMaxDepthR(t, 0, visited)
+	}
+
 	function findMaxDepthR(n, d, visited) {
-		console.log(visited)
-		if (visited.includes(n.id)) {
-			return []
-		}
-		visited.push(n.id)
-		console.log(visited)
 		children = nodes.filter(function(p) {return p.mother == n.id || p.father == n.id})
 		spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
 		spouses = nodes.filter(function(n) {return spouseIds.includes(n.id)})
 		descendants = [{"node": n, "depth": d}]
 		children.forEach(function(c) {
 			descendants = descendants.concat(findMaxDepthR(c, d+1, visited))
-
 		})
 		spouses.forEach(function(s) {
-			descendants = descendants.concat(findMaxDepthR(c, d)) 
+			if (!visited.includes(s.id)) 
+				descendants = descendants.concat(findMaxDepthSpouse(s, [n.id])) 
 		})
 		return descendants
 	}
@@ -234,8 +239,7 @@ function draw(data) {
 	nodesDepths = nodes.map(function(n) {
 		if (n.value != 0) {
 		p = findTop(n)
-		depth = findMaxDepth(p))
-		console.log(n.name + " " + p.name + " " + depth)
+		depth = findMaxDepth(p, [])
 		return {"node": n, "depth": depth}
 		}
 	})
