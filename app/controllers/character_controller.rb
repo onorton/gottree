@@ -39,7 +39,13 @@ class CharacterController < ApplicationController
 		people_ids << person.id
         end
         relationships = Relationship.where(:person_1 => people_ids, :person_2 => people_ids)
-	
-        renderTree(@wikilink, people, relationships)
+
+	respond_to do |format|
+	    format.html
+	    format.json {
+		render json: {"people": people, "relationships": relationships}
+	    }
+
+ 	 end
   end
 end
