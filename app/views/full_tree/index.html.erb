@@ -88,6 +88,19 @@ function draw(data) {
 		"Targaryen":{"background":"#101010", "text": "#FF0000"}
 
 	}
+	houseLocations = {
+		"Stark":2,
+		"Tully":1,
+		"Baratheon":4,
+		"Lannister":3,
+		"Tyrell":7,
+		"Arryn":0,
+		"Martell":6,
+		"Greyjoy":8,
+		"Targaryen":5,
+		"Frey": 9
+
+	}
 	var svg = d3.select("svg"),
 	        width = +svg.attr("width"),
 		    height = +svg.attr("height");
@@ -100,6 +113,7 @@ function draw(data) {
 			return {"id": p.id, 
 				"name": p.name, 
 				"colour" : houseColours[p.house] , 
+				"location": (houseLocations[p.house] === undefined)? 500 : 1000 + houseLocations[p.house]*1000,
 				"dates": dates(p), 
 				"link": p.wiki_link, 
 				"value": 1, 
@@ -227,9 +241,11 @@ function draw(data) {
 	}
 
 	nodesDepths = nodes.map(function(n) {
+
 		if (n.value != 0) {
 			spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
 			spouses = nodes.filter(function(s) {return spouseIds.includes(s.id)})
+		
 			considerations = [n]
 			parents = nodes.filter(function(p) {return n.mother == p.id || n.father == p.id})
 			if (parents.length == 0) {
@@ -257,8 +273,15 @@ function draw(data) {
 			if (n.value == 0) {
 				ids = n.id.split(' ')
 				generations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.generation})
+				locations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.location})
 				n.generation = Math.min(generations[0],generations[1]) - 0.5
-				}
+				n.location = (locations[0] + generations[0])
+			} else if (n.location == 500) {
+				spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
+				if (spouseIds.length > 0) {
+				n.location = nodes.filter(function(s) {return spouseIds.includes(s.id)}).map(function(s) {return s.location}).reduce((a, b) => a + b)/spouseIds.length
+				}	
+			}
 							
 	})
 	var rectWidth = 145;
@@ -269,6 +292,7 @@ var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(rectHeight))
     .force("charge", d3.forceManyBody())
 	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5).strength(0.35))
+	    .force("xAxis", d3.forceX(function(d) {return d.location}))
 	    .force("yAxis", d3.forceY(function(d) {return -5.5*d.generation*rectHeight}).strength(1))
 	    .force("center", d3.forceCenter(width/2, height/2))
 
