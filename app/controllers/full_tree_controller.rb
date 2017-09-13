@@ -11,10 +11,11 @@ class FullTreeController < ApplicationController
 	  
 	people = Person.all
 relationships = Relationship.all
-    respond_to do |format|
+	houses = Person.group(:house).count(:house)
+respond_to do |format|
 	    format.html
 	    format.json {
-		render json: {"people": people, "relationships": relationships}
+		render json: {"people": people, "relationships": relationships, "houses":houses}
 	    }
   end
 

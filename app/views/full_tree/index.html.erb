@@ -101,6 +101,13 @@ function draw(data) {
 		"Frey": 9
 
 	}
+	houses = []
+	for(var k in data.houses) {
+		if (data.houses.hasOwnProperty(k) && k != "NULL") {
+			houses.push({"name":k, "count": data.houses[k]})
+		}
+	}
+	console.log(houses)
 	var svg = d3.select("svg"),
 	        width = +svg.attr("width"),
 		    height = +svg.attr("height");
@@ -128,172 +135,11 @@ function draw(data) {
 				}
 			})
 	var links = []
-	data.people.forEach(function(p) {
-			var relationships = data.relationships.filter(function(r) {
-					return r.person_1 == p.id
-					})
-			relationships.forEach(function(r) {
-
-				nodes.push({"id": p.id + ' ' + r.person_2, "value": 0})
-				links.push({"source": p.id, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
-				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
-			})	
-			})
-	data.people.forEach(function(p) {
-				var parents = data.relationships.filter(function(r) {
-					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
-					})
-				if (parents.length == 1) {
-					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2, "legitimate": parents[0].legitimate})
-				}
 	
-				})
-
-
-	while (nodes.some(function(n) {return n.generation === undefined || isNaN(n.generation)})) {
-		nodes.forEach(function(n) {
-			parentGenerations = nodes.filter(function(p) {return n.mother == p.id || n.father == p.id}).map(function(p) {return p.generation})
-			if (parentGenerations.length == 0) {
-				n.generation = 0
-			} else {
-		
-			if (!parentGenerations.some(function(g) {return g === undefined || isNaN(g)})) {
-			n.generation = 1+Math.max.apply(null, parentGenerations)
-			}
-			}
-			})
-	}
-	//while (nodes.some(function(n) {return n.generation === undefined || isNaN(n.generation)})) {
-	//	nodes.forEach(function(n) {
-	//		childrenGenerations = nodes.filter(function(p) {return p.mother == n.id || p.father == n.id}).map(function(p) {return p.generation})
-	//		if (childrenGenerations.length == 0) {
-	//			n.generation = 0
-	//		} else {
-	//	
-	//		if (!childrenGenerations.some(function(g) {return g === undefined || isNaN(g)})) {
-	//			n.generation = 1+Math.max.apply(null, childrenGenerations)
-	//		}
-	//		}
-	//		})
-	//}
-	nodes.forEach(function(n) {
-		if (n.generation == 0) {	
-			spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
-			spouseGenerations = nodes.filter(function(p) {return spouseIds.includes(p.id)}).map(function(p) {return p.generation})
-			childrenGenerations = nodes.filter(function(p) {return p.father == n.id || p.mother == n.id}).map(function(p) {return p.generation})
-			if (spouseGenerations.length == 0) {
-				if (childrenGenerations.length != 0) {
-					n.generation = Math.min.apply(null, childrenGenerations)-1
-				}
-			} else {
-				if (childrenGenerations.length != 0) {
-					n.generation = Math.min.apply(null, childrenGenerations)-1
-				} else {
-					spouseMax = Math.max.apply(null, spouseGenerations)
-					n.generation = spouseMax
-				}	
-				
-
-
-			}
-		}
-	})
-	console.log(nodes.map(function(n) {return n.name + ": " + n.generation}))
-	function findTop(n) {
-		ancestors = findTopR(n, 0)
-		highest = Math.max.apply(null, ancestors.map(function(d) {return d.depth}))
-		topAncestor = null
-		ancestors.forEach(function(d) {
-			if (d.depth == highest) {
-				topAncestor = d.node
-			}
-		})
-		return topAncestor
-	}
-
-	function findTopR(n, d) {
-		parents = nodes.filter(function(p) {return p.id == n.mother || p.id == n.father})
-		ancestors = [{"node": n, "depth": d}]
-
-		parents.forEach(function(p) {
-			ancestors = ancestors.concat(findTopR(p, d+1))
-		})
-		return ancestors
-
-	}
-
-	function findMaxDepth(n) {
-		descendants = findMaxDepthR(n, 0)
-		spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
-		spouses = nodes.filter(function(s) {return spouseIds.includes(s.id)})
-		return Math.max.apply(null, descendants.map(function(d) {return d.depth}))
-	}
-
-	function findMaxDepthR(n, d) {
-		children = nodes.filter(function(p) {return p.mother == n.id || p.father == n.id})
-		descendants = [{"node": n, "depth": d}]
-		children.forEach(function(c) {
-			descendants = descendants.concat(findMaxDepthR(c, d+1))
-		})
-		
-	
-		return descendants
-	}
-
-	nodesDepths = nodes.map(function(n) {
-
-		if (n.value != 0) {
-			spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
-			spouses = nodes.filter(function(s) {return spouseIds.includes(s.id)})
-		
-			considerations = [n]
-			parents = nodes.filter(function(p) {return n.mother == p.id || n.father == p.id})
-			if (parents.length == 0) {
-				considerations = considerations.concat(spouses)
-			}
-
-
-		depth = Math.max.apply(null, considerations.map(function(s) {
-				p = findTop(s)
-				d = findMaxDepth(p)	
-				return d
-			}))
-
-
-			return {"node": n, "depth": depth}
-		}
-	})
-	nodesDepths.forEach(function(nd) {
-		if (nd !== undefined) {	
-			nd.node.generation = nd.depth - nd.node.generation
-		}
-	})
-	nodes.forEach(function(n) 
-		     {
-			if (n.value == 0) {
-				ids = n.id.split(' ')
-				generations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.generation})
-				locations = nodes.filter(function(p) {return p.id == ids[0] || p.id == ids[1]}).map(function(p) {return p.location})
-				n.generation = Math.min(generations[0],generations[1]) - 0.5
-				n.location = (locations[0] + generations[0])
-			} else if (n.location == 500) {
-				spouseIds = data.relationships.filter(function(r) {return r.person_1 == n.id || r.person_2 == n.id}).map(function(r) {if (r.person_1 == n.id) {return r.person_2} else {return r.person_1}})
-				if (spouseIds.length > 0) {
-				n.location = nodes.filter(function(s) {return spouseIds.includes(s.id)}).map(function(s) {return s.location}).reduce((a, b) => a + b)/spouseIds.length
-				}	
-			}
-							
-	})
-	var rectWidth = 145;
-	var rectHeight = 35;
-	console.log(nodes.map(function(n) {return n.name + ": " + n.generation}))
 
 var simulation = d3.forceSimulation()
-	    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(rectHeight))
-    .force("charge", d3.forceManyBody())
-	    .force("collide", d3.forceCollide(Math.max(rectWidth, rectHeight)*0.5).strength(0.35))
-	    .force("xAxis", d3.forceX(function(d) {return d.location}))
-	    .force("yAxis", d3.forceY(function(d) {return -5.5*d.generation*rectHeight}).strength(1))
+	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    		.force("charge", d3.forceManyBody())
 	    .force("center", d3.forceCenter(width/2, height/2))
 
 	var link = svg.append("g")
@@ -302,38 +148,27 @@ var simulation = d3.forceSimulation()
 	        .data(links)
 		    .enter().append("path")
 		    	.attr("stroke-width", 1)
-			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
 			  .attr("fill", "none")
 			  .attr("stroke","black")
 			  .attr("id", function(l) {return l.source + ',' + l.target})
 	   var node = svg.append("g")
 	   .attr("class", "nodes")
 	   .selectAll("node")
-		         .data(nodes)
+		         .data(houses)
 			 .enter().
 			 append("g")
  
 
 
-	var rect = node.append("rect")
-	.attr("width", function(d){return d.value*rectWidth})
-	.attr("height", function(d){return d.value*rectHeight})
-
+	var circle = node.append("circle")
+	.attr("r", function(d){return 15*Math.sqrt(d.count)})
 	.attr("stroke", "black")
-			     .attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour.background})
+			     .attr("fill", "white")
 			     .attr("stroke-width", 2)
 			     .attr("id", function(d){return d.id})
-			     .on("mouseover", highlightNeighbours)
-			     .on("click", function(d) {window.open("http://awioaf.westeros.org/index.php/"+d.link, '_blank')})
-			     .on("mouseout", reset)
-			     .on("contextmenu", function(d) {window.open("/character/display?id="+d.link, '_blank')})
 	var label =  node.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.name })
-			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
-	var dates = node.append("text")
-			.attr("text-anchor", "middle")
-			.text(function(d) { return d.dates})
 			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 	
 	var description = svg.append("g")
@@ -494,23 +329,19 @@ function dates(p) {
 }
 
 	simulation
-	 .nodes(nodes)
+	 .nodes(houses)
 	 .on("tick", ticked) 
 simulation.force("link")
 .links(links)
 
 	function ticked() {
-		link
-			         .attr("d", elbow)
-			rect
-			.attr("x", function(d) { 
-					return d.x-rectWidth/2; 	
+			circle
+			.attr("cx", function(d) { 
+					return d.x 	
 					})
-					          .attr("y", function(d) { return d.y-rectHeight/2; });
+					          .attr("cy", function(d) { return d.y });
 				label.attr("x", function(d) { return d.x; })
 					.attr("y", function(d) { return d.y;})
-				dates.attr("x", function(d) { return d.x; })
-					.attr("y", function(d) { return d.y+12;})
 	   }
 
 	var zoom = d3.zoom()
