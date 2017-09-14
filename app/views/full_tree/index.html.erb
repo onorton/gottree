@@ -180,6 +180,8 @@ var simulation = d3.forceSimulation()
 	.attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour.background})
 			     .attr("stroke-width", 2)
 			     .attr("id", function(d){return d.id})
+			     .on("mouseover", highlightHouseTies)
+			     .on("mouseout", resetHouseTies)
 	var label =  node.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.id })
@@ -213,9 +215,21 @@ var simulation = d3.forceSimulation()
 	.attr("text-anchor", "middle")
 	.attr("x", 10)
 
-function highlightHouseTies() {
-	var neighbours = links.filter(function(l) {return}).map(function(l) {if () {return } else {return })
+function highlightHouseTies(d) {
+	var neighbours = links.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {if (d.id == l.source.id) {return l.target.id} else {return l.source.id}})
+	neighbours.push(d.id)	
+	var marriageLinks = links.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {return l.source.id + " " + l.target.id})
+	svg.selectAll('circle').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 4)
+	svg.selectAll('line').filter(function(l) {return marriageLinks.includes(l.source.id + " " + l.target.id)}).style('stroke', "black")
 }
+function resetHouseTies(d) {
+	var neighbours = links.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {if (d.id == l.source.id) {return l.target.id} else {return l.source.id}})
+	neighbours.push(d.id)	
+	var marriageLinks = links.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {return l.source.id + " " + l.target.id})
+	svg.selectAll('circle').filter(function(n) {return neighbours.includes(n.id)}).style('stroke-width', 2)
+	svg.selectAll('line').filter(function(l) {return marriageLinks.includes(l.source.id + " " + l.target.id)}).style('stroke', "gray")
+}
+
 function highlightNeighbours(d) {
 	var neighbours = immediateFamily(d)
 		svg.selectAll('rect').filter(function(n) {if (n===undefined) {return false } else {return neighbours.includes(n.id)}}).style('stroke-width', 4)
