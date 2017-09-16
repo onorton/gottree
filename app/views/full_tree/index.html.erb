@@ -134,27 +134,50 @@ function draw(data) {
 				"house":p.house
 				}
 			})
-	relationships = data.relationships.map(function(r) {
+
+	links = []
+	data.people.forEach(function(p) {
+			var relationships = data.relationships.filter(function(r) {
+					return r.person_1 == p.id
+					})
+			relationships.forEach(function(r) {
+
+				nodes.push({"id": p.id + ' ' + r.person_2, "value": 0})
+				links.push({"source": p.id, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+			})	
+			})
+	data.people.forEach(function(p) {
+				var parents = data.relationships.filter(function(r) {
+					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
+					})
+				if (parents.length == 1) {
+					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2, "legitimate": parents[0].legitimate})
+				}
+	
+				})
+
+	houseRelationships = data.relationships.map(function(r) {
 			return nodes.filter(function(n) {return n.id == r.person_1 || n.id == r.person_2}).map(function(n) {return n.house})
 	
 	})
-	var links = []
+	var houseLinks = []
 	houses.forEach(function(house) { 
 		otherHouses = houses.filter(function(h) {
 			return house.id != h.id
 		})
 		linksForHouse = otherHouses.map(function(otherHouse) {
-			count = relationships.filter(function(r) {return r.includes(house.id) && r.includes(otherHouse.id)}).length
-			if (count > 0 && !links.includes({"source":otherHouse.id, "target":house.id, "count": count})) {
+			count = houseRelationships.filter(function(r) {return r.includes(house.id) && r.includes(otherHouse.id)}).length
+			if (count > 0 && !houseLinks.includes({"source":otherHouse.id, "target":house.id, "count": count})) {
 				return {"source":house.id, "target":otherHouse.id, "count": count}
 			}
 
 		}).filter(function(l) {return l !== undefined})
 
-		links = links.concat(linksForHouse)
+		houseLinks = houseLinks.concat(linksForHouse)
 	})
 	displayedNodes = houses
-
+	displayedLinks = houseLinks
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	    .force("charge", d3.forceManyBody())
@@ -163,7 +186,7 @@ var simulation = d3.forceSimulation()
 	var link = svg.append("g")
         .attr("class", "links")
 	    .selectAll("line")
-	        .data(links)
+	        .data(displayedLinks)
 		    .enter().append("line")
 		    .attr("stroke-width", function(l) {return 5*l.count})
 	   var node = svg.append("g")
@@ -219,10 +242,37 @@ var simulation = d3.forceSimulation()
 
 function expand(house) {
 
-	displayedNodes = displayedNodes.concat(nodes.filter(function(n) {return n.house == house.id}))
+	peopleOfHouse = nodes.filter(function(n) {return n.house == house.id})
+	peopleIds = peopleOfHouse.map(function(p) {return p.id})		
+	displayedNodes = displayedNodes.concat(peopleOfHouse)
+	intermediateNodesOfHouse = nodes.filter(function(n) {
+			if (isNaN(n.id)) {
+				ids = n.id.split(" ")
+				return peopleIds.includes(ids[0]) || peopleIds.includes(ids[1])
+			} 
+			return false
+	})
+	displayedNodes = displayedNodes.concat(intermediateNodesOfHouse)
 	// remove house node
-		displayedNodes = displayedNodes.filter(function(n) {return n.id != house.id})
+	displayedLinks = displayedLinks.concat(links.filter(function(l) {return l.source.house == house.id || l.target.house == house.id}))
+	nodeIds = displayedNodes.map(function(n) {return n.id})
+
+	displayedLinks = displayedLinks.map(function(l) {
+				if (!nodeIds.includes(l.source.id)) {
+				return {"source": l.source.house, "target" : l.target}
+				} else if (!nodeIds.includes(l.target.id)) {
+				return {"source": l.source, "target" : l.target.id}
+				}
+				return l
+			}	
+			)
+
+
+	// remove house links
+	displayedNodes = displayedNodes.filter(function(n) {return n.id != house.id})
+	displayedLinks = displayedLinks.filter(function(l) {return !(l.source.id == house.id || l.target.id == house.id)}) 
 	console.log(displayedNodes)
+	console.log(displayedLinks)
 }
 function highlightHouseTies(d) {
 	var neighbours = links.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {if (d.id == l.source.id) {return l.target.id} else {return l.source.id}})
@@ -372,7 +422,7 @@ function dates(p) {
 	 .nodes(houses)
 	 .on("tick", ticked) 
 simulation.force("link")
-.links(links)
+.links(displayedLinks)
 
 	function ticked() {
 			circle
