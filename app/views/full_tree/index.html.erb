@@ -153,6 +153,7 @@ function draw(data) {
 
 		links = links.concat(linksForHouse)
 	})
+	displayedNodes = houses
 
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -182,6 +183,7 @@ var simulation = d3.forceSimulation()
 			     .attr("id", function(d){return d.id})
 			     .on("mouseover", highlightHouseTies)
 			     .on("mouseout", resetHouseTies)
+			     .on("click", expand)
 	var label =  node.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.id })
@@ -215,6 +217,13 @@ var simulation = d3.forceSimulation()
 	.attr("text-anchor", "middle")
 	.attr("x", 10)
 
+function expand(house) {
+
+	displayedNodes = displayedNodes.concat(nodes.filter(function(n) {return n.house == house.id}))
+	// remove house node
+		displayedNodes = displayedNodes.filter(function(n) {return n.id != house.id})
+	console.log(displayedNodes)
+}
 function highlightHouseTies(d) {
 	var neighbours = links.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {if (d.id == l.source.id) {return l.target.id} else {return l.source.id}})
 	neighbours.push(d.id)	
