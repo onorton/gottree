@@ -328,34 +328,28 @@ simulation.force("link")
 function expand(house) {
 
 	peopleOfHouse = nodes.filter(function(n) {return n.house == house.id})
+	peopleOfHouse.forEach(function(n) {
+		n.x = house.x
+		n.y = house.y
+	})
 	peopleIds = peopleOfHouse.map(function(p) {return p.id})		
 	displayedNodes = displayedNodes.concat(peopleOfHouse)
 	intermediateNodesOfHouse = nodes.filter(function(n) {
 			if (isNaN(n.id)) {
 				ids = n.id.split(" ")
-				return peopleIds.includes(ids[0]) || peopleIds.includes(ids[1])
+				return peopleIds.includes(parseInt(ids[0])) || peopleIds.includes(parseInt(ids[1]))
 			} 
 			return false
-	})
+			})
+	console.log(intermediateNodesOfHouse)
 	displayedNodes = displayedNodes.concat(intermediateNodesOfHouse)
-	// remove house node
-	displayedLinks = displayedLinks.concat(links.filter(function(l) {return l.source.house == house.id || l.target.house == house.id}))
+	displayedLinks = displayedLinks.concat(links.filter(function(l) {return peopleIds.includes(l.source) || peopleIds.includes(l.target)}))
+	console.log(displayedLinks)
 	nodeIds = displayedNodes.map(function(n) {return n.id})
-
-	displayedLinks = displayedLinks.map(function(l) {
-				if (!nodeIds.includes(l.source.id)) {
-				return {"type":"house", "source": l.source.house, "target" : l.target}
-				} else if (!nodeIds.includes(l.target.id)) {
-				return {"type":"house", "source": l.source, "target" : l.target.house}
-				}
-				return l
-			}	
-			)
-
-
+	console.log(nodeIds)
 	// remove house links
 	displayedNodes = displayedNodes.filter(function(n) {return n.id != house.id})
-	displayedLinks = displayedLinks.filter(function(l) {return !(l.source.id == house.id || l.target.id == house.id)}) 
+	displayedLinks = displayedLinks.filter(function(l) {return !((l.source.id !== undefined && l.source.id == house.id) || (l.target.id !== undefined && l.target.id == house.id))}) 
 	update()
 }
 function highlightHouseTies(d) {
