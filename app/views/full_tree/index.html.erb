@@ -104,7 +104,7 @@ function draw(data) {
 	houses = []
 	for(var k in data.houses) {
 		if (data.houses.hasOwnProperty(k) && k != "NULL") {
-			houses.push({"id":k, "count": data.houses[k], "colour":houseColours[k]})
+			houses.push({"type":"house","id":k, "count": data.houses[k], "colour":houseColours[k]})
 		}
 
 	}
@@ -131,7 +131,8 @@ function draw(data) {
 				"allegiances": (p.allegiances != null ) ? p.allegiances : "",
 				"culture": (p.culture != null) ? p.culture : "",
 				"quote": stringDividerQuote(p.quote, 50),
-				"house":p.house
+				"house":p.house,
+				"type":"character"
 				}
 			})
 
@@ -142,9 +143,9 @@ function draw(data) {
 					})
 			relationships.forEach(function(r) {
 
-				nodes.push({"id": p.id + ' ' + r.person_2, "value": 0})
-				links.push({"source": p.id, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
-				links.push({"source": r.person_2, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+				nodes.push({"type":"character","id": p.id + ' ' + r.person_2, "value": 0})
+				links.push({"type":"character","source": p.id, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
+				links.push({"type":"character","source": r.person_2, "target": p.id + ' ' + r.person_2, "legitimate": r.legitimate})
 			})	
 			})
 	data.people.forEach(function(p) {
@@ -152,7 +153,7 @@ function draw(data) {
 					return (r.person_1 == p.father  && r.person_2 == p.mother)|| (r.person_2 == p.father && r.person_1 == p.mother)
 					})
 				if (parents.length == 1) {
-					links.push({"target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2, "legitimate": parents[0].legitimate})
+					links.push({"type":"character","target":p.id, "source": parents[0].person_1 + ' ' + parents[0].person_2, "legitimate": parents[0].legitimate})
 				}
 	
 				})
@@ -169,7 +170,7 @@ function draw(data) {
 		linksForHouse = otherHouses.map(function(otherHouse) {
 			count = houseRelationships.filter(function(r) {return r.includes(house.id) && r.includes(otherHouse.id)}).length
 			if (count > 0 && !houseLinks.includes({"source":otherHouse.id, "target":house.id, "count": count})) {
-				return {"source":house.id, "target":otherHouse.id, "count": count}
+				return {"type":"house","source":house.id, "target":otherHouse.id, "count": count}
 			}
 
 		}).filter(function(l) {return l !== undefined})
@@ -183,22 +184,51 @@ var simulation = d3.forceSimulation()
 	    .force("charge", d3.forceManyBody())
 	    .force("collide", d3.forceCollide(function(d) {return Math.sqrt(d.count) * 30}))
 	    .force("center", d3.forceCenter(width/2, height/2))
-	var link = svg.append("g")
-        .attr("class", "links")
-	    .selectAll("line")
-	        .data(displayedLinks)
-		    .enter().append("line")
-		    .attr("stroke-width", function(l) {return 5*l.count})
-	   var node = svg.append("g")
+	update()    
+function update() {
+
+	simulation
+	 .nodes(displayedNodes)
+	 .on("tick", ticked) 
+simulation.force("link")
+.links(displayedLinks)
+
+
+	
+	svg.select(".links").remove()
+	svg.select(".nodes").remove()		
+	linkGroup = svg.append("g")
+	   .attr("class", "links")
+	
+	
+
+	nodeGroup = svg.append("g")
 	   .attr("class", "nodes")
-	   .selectAll("node")
-		         .data(houses)
-			 .enter().
-			 append("g")
- 
+	
+
+	
+
+	linkGroup.selectAll("link").data(displayedLinks).enter().append("g").attr("class", function(l) {return l.type + "_link"})
+	nodeGroup.selectAll("node").data(displayedNodes).enter().append("g").attr("class", function(l) {return l.type + "_node"})
 
 
-	var circle = node.append("circle")
+	houseLinks = svg.selectAll(".house_link")
+	houseLink = houseLinks.append("line")
+		    .attr("stroke-width", function(l) {return 5*l.count})
+
+	characterLinks = svg.selectAll(".chracter_link")
+	characterLink = characterLinks.append("path")	
+		    	.attr("stroke-width", 1)
+			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
+			  .attr("fill", "none")
+			  .attr("stroke","black")
+			  .attr("id", function(l) {return l.source + ',' + l.target})	
+
+	houseNode = svg.selectAll(".house_node") 
+	
+
+
+	var circle = houseNode.append("circle")
 	.attr("r", function(d){return 15*Math.sqrt(d.count)})
 	.attr("stroke", "black")
 	.attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour.background})
@@ -207,11 +237,66 @@ var simulation = d3.forceSimulation()
 			     .on("mouseover", highlightHouseTies)
 			     .on("mouseout", resetHouseTies)
 			     .on("click", expand)
-	var label =  node.append("text")
+	var houseLabel =  houseNode.append("text")
 			.attr("text-anchor", "middle")
 			.text(function(d) { return d.id })
 			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
+
+	characterNode = svg.selectAll(".character_node")
+	rectWidth = 145;
+	rectHeight = 45;
+	var rect = characterNode.append("rect")
+	.attr("width", function(d){return d.value*rectWidth})
+	.attr("height", function(d){return d.value*rectHeight})
+
+	.attr("stroke", "black")
+			     .attr("fill", function(d) {return (d.colour === undefined) ? "white" : d.colour.background})
+			     .attr("stroke-width", 2)
+			     .attr("id", function(d){return d.id})
+			     .on("mouseover", highlightNeighbours)
+			     .on("click", function(d) {window.open("http://awioaf.westeros.org/index.php/"+d.link, '_blank')})
+			     .on("mouseout", reset)
+			     .on("contextmenu", function(d) {window.open("/character/display?id="+d.link, '_blank')})
+	var label =  characterNode.append("text")
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.name })
+			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
+	var dates = characterNode.append("text")
+			.attr("text-anchor", "middle")
+			.text(function(d) { return d.dates})
+			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 	
+
+	function ticked() {
+			circle
+			.attr("cx", function(d) { 
+					return d.x 	
+					})
+					          .attr("cy", function(d) { return d.y });
+				label.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y;})
+					
+			houseLink.attr("x1", function(l) {return l.source.x})
+				.attr("y1", function(l) {return l.source.y})
+				.attr("x2", function(l) {return l.target.x})
+				.attr("y2", function(l) {return l.target.y})
+			characterLink.attr("d", elbow)
+			rect
+			.attr("x", function(d) { 
+					return d.x-rectWidth/2; 	
+					})
+					          .attr("y", function(d) { return d.y-rectHeight/2; });
+				label.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y;})
+				dates.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y+12;})
+				houseLabel.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y;})
+
+	}
+
+
+}
 	var description = svg.append("g")
 	.attr("visibility", "hidden")			
 	description.append("rect")
@@ -259,9 +344,9 @@ function expand(house) {
 
 	displayedLinks = displayedLinks.map(function(l) {
 				if (!nodeIds.includes(l.source.id)) {
-				return {"source": l.source.house, "target" : l.target}
+				return {"type":"house", "source": l.source.house, "target" : l.target}
 				} else if (!nodeIds.includes(l.target.id)) {
-				return {"source": l.source, "target" : l.target.id}
+				return {"type":"house", "source": l.source, "target" : l.target.house}
 				}
 				return l
 			}	
@@ -271,6 +356,7 @@ function expand(house) {
 	// remove house links
 	displayedNodes = displayedNodes.filter(function(n) {return n.id != house.id})
 	displayedLinks = displayedLinks.filter(function(l) {return !(l.source.id == house.id || l.target.id == house.id)}) 
+	update()
 }
 function highlightHouseTies(d) {
 	var neighbours = displayedLinks.filter(function(l) {return l.source.id == d.id || l.target.id == d.id}).map(function(l) {if (d.id == l.source.id) {return l.target.id} else {return l.source.id}})
@@ -416,27 +502,6 @@ function dates(p) {
 	return result
 }
 
-	simulation
-	 .nodes(houses)
-	 .on("tick", ticked) 
-simulation.force("link")
-.links(displayedLinks)
-
-	function ticked() {
-			circle
-		
-			.attr("cx", function(d) { 
-					return d.x 	
-					})
-					          .attr("cy", function(d) { return d.y });
-				label.attr("x", function(d) { return d.x; })
-					.attr("y", function(d) { return d.y;})
-       			link.attr("x1", function(l) {return l.source.x})
-				.attr("y1", function(l) {return l.source.y})
-				.attr("x2", function(l) {return l.target.x})
-				.attr("y2", function(l) {return l.target.y})
-			
-	}
 
 	var zoom = d3.zoom()
 		    .scaleExtent([0.1, 5])
