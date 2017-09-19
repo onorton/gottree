@@ -359,13 +359,29 @@ function expand(house) {
 			houseName = nodes.filter(function(n) {return n.id == otherId}).map(function(n) {return n.house})
 			console.log(houseName)
 			if (houseName.length > 0 && houseName[0] != "NULL") {
-				displayedLinks.push({"type":"house", "count": 1, "source":id, "target":houseName[0]})
-				
+				displayedNodes.push({"type":"character", "id": id + " " + houseName[0], "value":0})
+				displayedLinks.push({"type":"house", "count": 1, "source":id, "target":id + " " + houseName[0]})
+				displayedLinks.push({"type":"house", "count": 1, "source":houseName[0], "target":id + " " + houseName[0]})
 			}	
 		})
 	})
+	
+	people.forEach(function(p) {
+		if (nodeIds.includes(p.mother) && !nodeIds.includes(p.father)) {
+		legitimate = data.relationships.filter(function(r) {return (r.person_1 == p.father && r.person_2 == p.mother)|| (r.person_1 == p.mother && r.person_1 == p.father)})[0].legitimate	
+			other = nodes.filter(function(n) {return n.id == p.father})[0]
+			if(other.house != 'NULL') {
+			displayedLinks.push({"type":"character", "source":p.mother + " " + other.house, "target":p.id, "legitimate":legitimate})
+			}
+		} else if (nodeIds.includes(p.father) && !nodeIds.includes(p.mother)) {
+		legitimate = data.relationships.filter(function(r) {return (r.person_1 == p.father && r.person_2 == p.mother)|| (r.person_1 == p.mother && r.person_1 == p.father)})[0].legitimate
+			other = nodes.filter(function(n) {return n.id == p.mother})[0]
+			if (other.house != 'NULL') {
+			displayedLinks.push({"type":"character", "source":p.father + " " + other.house, "target":p.id, "legitimate":legitimate})
+			}	
+		}	
 
-
+	})
 		// remove house links
 	update()
 }

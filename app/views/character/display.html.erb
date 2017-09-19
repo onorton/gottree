@@ -263,6 +263,7 @@ var simulation = d3.forceSimulation()
 	    .selectAll("path")
 	        .data(links)
 		    .enter().append("path")
+
 		    	.attr("stroke-width", 1)
 			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
 			  .attr("fill", "none")
