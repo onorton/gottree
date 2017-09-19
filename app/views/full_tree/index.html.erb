@@ -178,11 +178,13 @@ function draw(data) {
 		houseLinks = houseLinks.concat(linksForHouse)
 	})
 	displayedNodes = houses
-	displayedLinks = houseLinks
+		displayedLinks = houseLinks
+rectWidth = 145;
+	rectHeight = 35;
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	    .force("charge", d3.forceManyBody())
-	    .force("collide", d3.forceCollide(function(d) {return Math.sqrt(d.count) * 30}))
+	    .force("collide", d3.forceCollide(function(d) {return (d.count !== undefined) ? Math.sqrt(d.count) * 30 : Math.max(rectWidth, rectHeight)*0.5}))
 	    .force("center", d3.forceCenter(width/2, height/2))
 	update()    
 function update() {
@@ -238,8 +240,7 @@ function update() {
 			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 
 	characterNode = svg.selectAll(".character_node")
-	rectWidth = 145;
-	rectHeight = 45;
+	
 	var rect = characterNode.append("rect")
 	.attr("width", function(d){return d.value*rectWidth})
 	.attr("height", function(d){return d.value*rectHeight})
@@ -343,8 +344,15 @@ function expand(house) {
 			return false
 			})
 	displayedNodes = displayedNodes.concat(intermediateNodesOfHouse)
-	displayedLinks = displayedLinks.concat(links.filter(function(l) {return peopleIds.includes(l.source) || peopleIds.includes(l.target)}))
 	nodeIds = displayedNodes.map(function(n) {return n.id})
+		displayedLinks = displayedLinks.concat(links.filter(function(l) {
+					if (peopleIds.includes(l.source)) {
+				       		return nodeIds.includes(l.target)
+					} else if (peopleIds.includes(l.target)) {
+						return nodeIds.includes(l.source)
+					}
+					return false}))
+	
 	peopleIds.forEach(function(id) {
 			otherIds = data.relationships.filter(function(r) {return r.person_1 == id || r.person_2 == id}).map(function(r) {return (r.person_1 == id) ? r.person_2 : r.person_1}).filter(function(otherId) {return !nodeIds.includes(otherId) })
 		otherIds.forEach(function(otherId) {
