@@ -187,11 +187,6 @@ var simulation = d3.forceSimulation()
 	update()    
 function update() {
 
-	simulation
-	 .nodes(displayedNodes)
-	 .on("tick", ticked) 
-simulation.force("link")
-.links(displayedLinks)
 
 
 	
@@ -216,7 +211,7 @@ simulation.force("link")
 	houseLink = houseLinks.append("line")
 		    .attr("stroke-width", function(l) {return 5*l.count})
 
-	characterLinks = svg.selectAll(".chracter_link")
+	characterLinks = svg.selectAll(".character_link")
 	characterLink = characterLinks.append("path")	
 		    	.attr("stroke-width", 1)
 			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
@@ -267,6 +262,11 @@ simulation.force("link")
 			.attr("fill", function(d) {return (d.colour === undefined) ? "black": d.colour.text})
 	
 
+	simulation
+	 .nodes(displayedNodes)
+	 .on("tick", ticked) 
+simulation.force("link")
+.links(displayedLinks)
 	function ticked() {
 			circle
 			.attr("cx", function(d) { 
@@ -333,21 +333,34 @@ function expand(house) {
 		n.y = house.y
 	})
 	peopleIds = peopleOfHouse.map(function(p) {return p.id})		
-	displayedNodes = displayedNodes.concat(peopleOfHouse)
+		displayedNodes = displayedNodes.concat(peopleOfHouse)
+	nodeIds = displayedNodes.map(function(n) {return n.id})
 	intermediateNodesOfHouse = nodes.filter(function(n) {
 			if (isNaN(n.id)) {
 				ids = n.id.split(" ")
-				return peopleIds.includes(parseInt(ids[0])) || peopleIds.includes(parseInt(ids[1]))
+				return nodeIds.includes(parseInt(ids[0])) && nodeIds.includes(parseInt(ids[1]))
 			} 
 			return false
 			})
-	console.log(intermediateNodesOfHouse)
 	displayedNodes = displayedNodes.concat(intermediateNodesOfHouse)
 	displayedLinks = displayedLinks.concat(links.filter(function(l) {return peopleIds.includes(l.source) || peopleIds.includes(l.target)}))
-	console.log(displayedLinks)
 	nodeIds = displayedNodes.map(function(n) {return n.id})
-	console.log(nodeIds)
-	// remove house links
+	peopleIds.forEach(function(id) {
+			otherIds = data.relationships.filter(function(r) {return r.person_1 == id || r.person_2 == id}).map(function(r) {return (r.person_1 == id) ? r.person_2 : r.person_1}).filter(function(otherId) {return !nodeIds.includes(otherId) })
+		otherIds.forEach(function(otherId) {
+				
+			houseName = nodes.filter(function(n) {return n.id == otherId}).map(function(n) {return n.house})
+			console.log(houseName)
+			if (houseName.length > 0 && houseName[0] != "NULL") {
+				displayedLinks.push({"type":"house", "count": 1, "source":id, "target":houseName[0]})
+				
+			}	
+		})
+	})
+
+
+	console.log(displayedLinks)
+		// remove house links
 	displayedNodes = displayedNodes.filter(function(n) {return n.id != house.id})
 	displayedLinks = displayedLinks.filter(function(l) {return !((l.source.id !== undefined && l.source.id == house.id) || (l.target.id !== undefined && l.target.id == house.id))}) 
 	update()
