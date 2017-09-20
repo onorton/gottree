@@ -300,7 +300,6 @@ rectWidth = 145;
 var simulation = d3.forceSimulation()
 	    .force("link", d3.forceLink().id(function(d) { return d.id; }))
 	    .force("charge", d3.forceManyBody())
-	    .force("yAxis", d3.forceY(function(d) {return (d.generation === undefined) ? null : -d.generation*5.5*rectHeight}))
 	    .force("collide", d3.forceCollide(function(d) {return (d.count !== undefined) ? Math.sqrt(d.count) * 30 : Math.max(rectWidth, rectHeight)*0.5}))
 	    .force("center", d3.forceCenter(width/2, height/2))
 	linkGroup = svg.append("g")
@@ -344,7 +343,7 @@ simulation.alpha(0.3).restart();
 			.attr("stroke-dasharray",function(l) {return (l.legitimate == 1) ? "1, 0": "5, 5" })
 			  .attr("fill", "none")
 			  .attr("stroke","black")
-			  .attr("id", function(l) {return l.source + ',' + l.target})	
+			  .attr("id", function(l) {return l.source.id + ',' + l.target.id})	
 
 	houseNode = svg.selectAll(".house_node") 
 	
@@ -455,7 +454,6 @@ function expand(house) {
 		n.y = expandedHouses.get(n.house).y
 	})
 	peopleIds = people.map(function(p) {return p.id})		
-		console.log(people.map(function(p) {return p.name + ": " + p.generation}))	
 	displayedNodes = houses.filter(function(h) {return !expandedHouses.has(h.id)}).concat(people)
 
 	nodeIds = displayedNodes.map(function(n) {return n.id})
@@ -467,12 +465,18 @@ function expand(house) {
 			return false
 			})
 	displayedNodes = displayedNodes.concat(intermediateNodes)
-	nodeIds = displayedNodes.map(function(n) {return n.id})
+
+		nodeIds = displayedNodes.map(function(n) {return n.id})
+		console.log(links)
 		newLinks = links.filter(function(l) {
-						return nodeIds.includes(l.source) && nodeIds.includes(l.target)
+						return (nodeIds.includes(l.source) || nodeIds.includes(l.source.id)) && (nodeIds.includes(l.target) || nodeIds.includes(l.target.id))
+					
 					})
-		displayedLinks = houseLinks.filter(function(l) {return !expandedHouses.has(l.source.id) && !expandedHouses.has(l.target.id)}).concat(newLinks)
-	peopleIds.forEach(function(id) {
+	displayedLinks = houseLinks.filter(function(l) {return !expandedHouses.has(l.source.id) && !expandedHouses.has(l.target.id)}).concat(newLinks)
+			peopleIds.forEach(function(id) {
+					if (id == 96) {
+						console.log("sup")
+					}
 			otherIds = data.relationships.filter(function(r) {return r.person_1 == id || r.person_2 == id}).map(function(r) {return (r.person_1 == id) ? r.person_2 : r.person_1}).filter(function(otherId) {return !nodeIds.includes(otherId) })
 		otherIds.forEach(function(otherId) {
 				
